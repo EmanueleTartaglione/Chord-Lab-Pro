@@ -192,13 +192,12 @@ HTML_APP = r"""
 
   /* ── Guitar Fretboard ── */
   .fretboard-wrap { overflow-x: auto; margin: 10px 0; }
-  .fretboard { display: grid; grid-template-rows: repeat(7, auto); gap: 0; min-width: 700px; }
+  .fretboard { display: grid; grid-template-rows: repeat(7, auto); gap: 0; min-width: 700px; border-radius: 8px; overflow: hidden; }
   .fret-row { display: grid; grid-template-columns: 36px repeat(13, 1fr); }
   .fret-header { font-size: 0.7rem; color: var(--muted); text-align: center; }
   .string-label { font-size: 0.75rem; font-weight: 700; color: var(--accent-2); display: flex; align-items: center; }
   .string-cell {
     height: 28px; border-right: 1px solid var(--line);
-    border-bottom: 1px solid rgba(148,163,184,0.08);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; position: relative;
     background: linear-gradient(90deg, var(--wood-1), var(--wood-2));
@@ -1370,7 +1369,10 @@ function renderFretboard() {
   header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i}</div>`).join("")}`;
   fretboardEl.appendChild(header);
 
-  GUITAR_STRINGS.forEach((sd, si) => {
+  /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
+  const stringOrder = [...GUITAR_STRINGS.keys()].reverse();
+  stringOrder.forEach(si => {
+    const sd = GUITAR_STRINGS[si];
     const row = document.createElement("div");
     row.className = "fret-row";
     const label = document.createElement("div");
@@ -1687,7 +1689,10 @@ function renderScaleFretboard(rootPc, pcs) {
   header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i}</div>`).join("")}`;
   scaleFretboardEl.appendChild(header);
 
-  GUITAR_STRINGS.forEach((sd, si) => {
+  /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
+  const stringOrder = [...GUITAR_STRINGS.keys()].reverse();
+  stringOrder.forEach(si => {
+    const sd = GUITAR_STRINGS[si];
     const row = document.createElement("div");
     row.className = "fret-row";
     const label = document.createElement("div");
