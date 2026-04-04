@@ -192,8 +192,8 @@ HTML_APP = r"""
 
   /* ── Guitar Fretboard ── */
   .fretboard-wrap { overflow-x: auto; margin: 10px 0; }
-  .fretboard { display: grid; grid-template-rows: repeat(7, auto); gap: 0; min-width: 700px; border-radius: 8px; overflow: hidden; }
-  .fret-row { display: grid; grid-template-columns: 36px repeat(13, 1fr); }
+  .fretboard { display: grid; grid-template-rows: repeat(7, auto); gap: 0; min-width: 850px; border-radius: 8px; overflow: hidden; }
+  .fret-row { display: grid; grid-template-columns: 36px repeat(15, 1fr); }
   .fret-header { font-size: 0.7rem; color: var(--muted); text-align: center; }
   .string-label { font-size: 0.75rem; font-weight: 700; color: var(--accent-2); display: flex; align-items: center; }
   .string-cell {
@@ -480,37 +480,35 @@ HTML_APP = r"""
       </div>
     </div>
 
-    <div class="grid">
-      <section class="card">
-        <div class="section-head">
-          <h2>Piano</h2>
-          <div class="mini-actions">
-            <button class="mini-btn" id="playPianoBtn">Play selected</button>
-            <button class="mini-btn" id="clearPianoBtn">Clear</button>
-          </div>
+    <section class="card">
+      <div class="section-head">
+        <h2>Piano</h2>
+        <div class="mini-actions">
+          <button class="mini-btn" id="playPianoBtn">Play selected</button>
+          <button class="mini-btn" id="clearPianoBtn">Clear</button>
         </div>
-        <div class="status" id="pianoStatus">Selected notes: none</div>
-        <div class="piano-shell"><div class="piano" id="piano"></div></div>
-        <div class="detected" id="pianoDetected"></div>
-      </section>
+      </div>
+      <div class="status" id="pianoStatus">Selected notes: none</div>
+      <div class="piano-shell"><div class="piano" id="piano"></div></div>
+      <div class="detected" id="pianoDetected"></div>
+    </section>
 
-      <section class="card">
-        <div class="section-head">
-          <h2>Guitar</h2>
-          <div class="mini-actions">
-            <button class="mini-btn" id="strumGuitarBtn">Strum</button>
-            <button class="mini-btn" id="clearGuitarBtn">Clear</button>
-          </div>
+    <section class="card">
+      <div class="section-head">
+        <h2>Guitar</h2>
+        <div class="mini-actions">
+          <button class="mini-btn" id="strumGuitarBtn">Strum</button>
+          <button class="mini-btn" id="clearGuitarBtn">Clear</button>
         </div>
-        <div class="status" id="guitarStatus">Selected notes: none</div>
-        <div class="fretboard-wrap"><div class="fretboard" id="fretboard"></div></div>
-        <div class="legend">
-          <span><span class="legend-dot"></span> active fret</span>
-          <span><span class="legend-key"></span> active piano key</span>
-        </div>
-        <div class="detected" id="guitarDetected"></div>
-      </section>
-    </div>
+      </div>
+      <div class="status" id="guitarStatus">Selected notes: none</div>
+      <div class="fretboard-wrap"><div class="fretboard" id="fretboard"></div></div>
+      <div class="legend">
+        <span><span class="legend-dot"></span> active fret</span>
+        <span><span class="legend-key"></span> active piano key</span>
+      </div>
+      <div class="detected" id="guitarDetected"></div>
+    </section>
 
     <section class="card">
       <h3>Supported chord qualities</h3>
@@ -1366,7 +1364,7 @@ function renderFretboard() {
   fretboardEl.innerHTML = "";
   const header = document.createElement("div");
   header.className = "fret-row fret-header";
-  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i}</div>`).join("")}`;
+  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i === 0 ? "" : i}</div>`).join("")}`;
   fretboardEl.appendChild(header);
 
   /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
@@ -1686,7 +1684,7 @@ function renderScaleFretboard(rootPc, pcs) {
   scaleFretboardEl.innerHTML = "";
   const header = document.createElement("div");
   header.className = "fret-row fret-header";
-  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i}</div>`).join("")}`;
+  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i === 0 ? "" : i}</div>`).join("")}`;
   scaleFretboardEl.appendChild(header);
 
   /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
