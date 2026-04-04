@@ -484,6 +484,9 @@ HTML_APP = r"""
       <div class="section-head">
         <h2>Piano</h2>
         <div class="mini-actions">
+          <button class="mini-btn" id="prevInversionBtn" title="Previous inversion" style="font-size:16px;padding:4px 10px;">◀</button>
+          <span id="inversionCounter" style="color:var(--muted);font-size:0.8rem;min-width:70px;text-align:center;"></span>
+          <button class="mini-btn" id="nextInversionBtn" title="Next inversion" style="font-size:16px;padding:4px 10px;">▶</button>
           <button class="mini-btn" id="playPianoBtn">Play selected</button>
           <button class="mini-btn" id="clearPianoBtn">Clear</button>
         </div>
@@ -497,6 +500,9 @@ HTML_APP = r"""
       <div class="section-head">
         <h2>Guitar</h2>
         <div class="mini-actions">
+          <button class="mini-btn" id="prevVoicingBtn" title="Previous voicing" style="font-size:16px;padding:4px 10px;">◀</button>
+          <span id="voicingCounter" style="color:var(--muted);font-size:0.8rem;min-width:60px;text-align:center;"></span>
+          <button class="mini-btn" id="nextVoicingBtn" title="Next voicing" style="font-size:16px;padding:4px 10px;">▶</button>
           <button class="mini-btn" id="strumGuitarBtn">Strum</button>
           <button class="mini-btn" id="clearGuitarBtn">Clear</button>
         </div>
@@ -1285,7 +1291,12 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
    ═══════════════════════════════════════════════════════ */
 const state = {
   selectedPiano: new Set(),
-  selectedGuitar: Array(6).fill(null)
+  selectedGuitar: Array(6).fill(null),
+  guitarVoicings: [],
+  guitarVoicingIdx: 0,
+  pianoInversion: 0,
+  pianoChordRoot: null,
+  pianoChordQuality: null
 };
 
 const rootSelect = document.getElementById("rootSelect");
@@ -1364,7 +1375,7 @@ function renderFretboard() {
   fretboardEl.innerHTML = "";
   const header = document.createElement("div");
   header.className = "fret-row fret-header";
-  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i === 0 ? "" : i}</div>`).join("")}`;
+  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i === 0 ? "O" : i}</div>`).join("")}`;
   fretboardEl.appendChild(header);
 
   /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
@@ -1487,12 +1498,52 @@ function updateGuitarStatus() {
 
 function updateChordLab() {
   renderPiano(); renderFretboard(); updateBrowserSummary(); updatePianoStatus(); updateGuitarStatus();
+  /* Update voicing counter */
+  const vc = document.getElementById("voicingCounter");
+  if (state.guitarVoicings.length > 1) {
+    vc.textContent = `${state.guitarVoicingIdx + 1} / ${state.guitarVoicings.length}`;
+  } else { vc.textContent = ""; }
+  /* Update inversion counter */
+  const ic = document.getElementById("inversionCounter");
+  const invNames = ["Root", "1st inv", "2nd inv", "3rd inv", "4th inv"];
+  if (state.pianoChordQuality !== null) {
+    ic.textContent = invNames[state.pianoInversion] || `Inv ${state.pianoInversion}`;
+  } else { ic.textContent = ""; }
 }
 
 function loadChordIntoPiano(rootPc, quality) {
-  const base = 60 + rootPc;
-  state.selectedPiano = new Set(CHORD_FORMULAS[quality].map(i => base + i));
+  state.pianoChordRoot = rootPc;
+  state.pianoChordQuality = quality;
+  state.pianoInversion = 0;
+  applyPianoInversion();
+}
+
+function applyPianoInversion() {
+  const intervals = CHORD_FORMULAS[state.pianoChordQuality];
+  if (!intervals) return;
+  const inv = state.pianoInversion;
+  /* Build notes: move lowest 'inv' notes up an octave */
+  let notes = intervals.map(i => i);
+  for (let k = 0; k < inv; k++) {
+    notes[k % notes.length] += 12;
+  }
+  notes.sort((a, b) => a - b);
+  let base = 60 + state.pianoChordRoot;
+  const maxNote = base + Math.max(...notes);
+  if (maxNote > 72) base -= 12;
+  const minNote = base + Math.min(...notes);
+  if (minNote < 48) base += 12;
+  state.selectedPiano = new Set(notes.map(i => base + i));
   updateChordLab();
+}
+
+function cyclePianoInversion(delta) {
+  if (state.pianoChordQuality === null) return;
+  const intervals = CHORD_FORMULAS[state.pianoChordQuality];
+  if (!intervals) return;
+  const maxInv = intervals.length;
+  state.pianoInversion = (state.pianoInversion + delta + maxInv) % maxInv;
+  applyPianoInversion();
 }
 
 function scoreShape(shape, chordPcs, rootPc) {
@@ -1516,9 +1567,9 @@ function productArrays(arrays) {
   }, [[]]);
 }
 
-function findGuitarVoicing(rootPc, quality) {
+function findAllGuitarVoicings(rootPc, quality) {
   const cPcs = chordPitchClasses(rootPc, quality);
-  let best = null, bestScore = -10000;
+  const scored = [];
   for (let start = 0; start <= 8; start++) {
     const perString = [];
     for (let si = 0; si < 6; si++) {
@@ -1537,15 +1588,35 @@ function findGuitarVoicing(rootPc, quality) {
       if (!pcs.length || !pcsSet.has(rootPc) || pcsSet.size < Math.min(3, cPcs.size)) continue;
       if (!isSubset(pcsSet, cPcs)) continue;
       const score = scoreShape(shape, cPcs, rootPc);
-      if (score > bestScore) { bestScore = score; best = [...shape]; }
+      if (score > -5000) scored.push({ shape: [...shape], score });
     }
   }
-  if (best) return best;
-  return GUITAR_STRINGS.map((_, si) => { for (let f = 0; f <= MAX_FRET; f++) if (cPcs.has(guitarNotePc(si, f))) return f; return null; });
+  scored.sort((a, b) => b.score - a.score);
+  /* Deduplicate identical shapes */
+  const unique = [];
+  const seen = new Set();
+  for (const s of scored) {
+    const key = s.shape.join(",");
+    if (!seen.has(key)) { seen.add(key); unique.push(s.shape); }
+    if (unique.length >= 8) break; /* Keep top 8 voicings */
+  }
+  if (!unique.length) {
+    unique.push(GUITAR_STRINGS.map((_, si) => { for (let f = 0; f <= MAX_FRET; f++) if (cPcs.has(guitarNotePc(si, f))) return f; return null; }));
+  }
+  return unique;
 }
 
 function loadChordIntoGuitar(rootPc, quality) {
-  state.selectedGuitar = findGuitarVoicing(rootPc, quality);
+  state.guitarVoicings = findAllGuitarVoicings(rootPc, quality);
+  state.guitarVoicingIdx = 0;
+  state.selectedGuitar = state.guitarVoicings[0];
+  updateChordLab();
+}
+
+function cycleGuitarVoicing(delta) {
+  if (!state.guitarVoicings || state.guitarVoicings.length <= 1) return;
+  state.guitarVoicingIdx = (state.guitarVoicingIdx + delta + state.guitarVoicings.length) % state.guitarVoicings.length;
+  state.selectedGuitar = state.guitarVoicings[state.guitarVoicingIdx];
   updateChordLab();
 }
 
@@ -1567,11 +1638,15 @@ document.getElementById("loadPianoBtn").addEventListener("click", () => { ensure
 document.getElementById("loadGuitarBtn").addEventListener("click", () => { ensureAudio(); const r = noteToPc(rootSelect.value), q = qualitySelect.value; loadChordIntoGuitar(r, q); playGuitarShape(state.selectedGuitar); });
 document.getElementById("loadBothBtn").addEventListener("click", () => { ensureAudio(); const r = noteToPc(rootSelect.value), q = qualitySelect.value; loadChordIntoPiano(r, q); loadChordIntoGuitar(r, q); playBrowserChord(); });
 document.getElementById("playBrowserBtn").addEventListener("click", () => { ensureAudio(); playBrowserChord(); });
-document.getElementById("clearAllBtn").addEventListener("click", () => { state.selectedPiano = new Set(); state.selectedGuitar = Array(6).fill(null); updateChordLab(); });
+document.getElementById("clearAllBtn").addEventListener("click", () => { state.selectedPiano = new Set(); state.selectedGuitar = Array(6).fill(null); state.guitarVoicings = []; state.guitarVoicingIdx = 0; state.pianoInversion = 0; state.pianoChordQuality = null; state.pianoChordRoot = null; updateChordLab(); });
 document.getElementById("playPianoBtn").addEventListener("click", () => { ensureAudio(); playPianoChord([...state.selectedPiano]); });
-document.getElementById("clearPianoBtn").addEventListener("click", () => { state.selectedPiano = new Set(); updateChordLab(); });
+document.getElementById("clearPianoBtn").addEventListener("click", () => { state.selectedPiano = new Set(); state.pianoInversion = 0; state.pianoChordQuality = null; state.pianoChordRoot = null; updateChordLab(); });
 document.getElementById("strumGuitarBtn").addEventListener("click", () => { ensureAudio(); playGuitarShape(state.selectedGuitar); });
-document.getElementById("clearGuitarBtn").addEventListener("click", () => { state.selectedGuitar = Array(6).fill(null); updateChordLab(); });
+document.getElementById("clearGuitarBtn").addEventListener("click", () => { state.selectedGuitar = Array(6).fill(null); state.guitarVoicings = []; state.guitarVoicingIdx = 0; updateChordLab(); });
+document.getElementById("prevVoicingBtn").addEventListener("click", () => { cycleGuitarVoicing(-1); });
+document.getElementById("nextVoicingBtn").addEventListener("click", () => { cycleGuitarVoicing(1); });
+document.getElementById("prevInversionBtn").addEventListener("click", () => { cyclePianoInversion(-1); });
+document.getElementById("nextInversionBtn").addEventListener("click", () => { cyclePianoInversion(1); });
 rootSelect.addEventListener("change", updateBrowserSummary);
 qualitySelect.addEventListener("change", updateBrowserSummary);
 
@@ -1684,7 +1759,7 @@ function renderScaleFretboard(rootPc, pcs) {
   scaleFretboardEl.innerHTML = "";
   const header = document.createElement("div");
   header.className = "fret-row fret-header";
-  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i === 0 ? "" : i}</div>`).join("")}`;
+  header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i === 0 ? "O" : i}</div>`).join("")}`;
   scaleFretboardEl.appendChild(header);
 
   /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
