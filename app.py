@@ -1629,7 +1629,14 @@ function updateScaleDisplay() {
     <div class="info-box"><div class="label">Notes</div><div class="value">${notes.join(" – ")}</div></div>
     <div class="info-box"><div class="label">Formula</div><div class="value">${data.formula}</div></div>
     <div class="info-box"><div class="label">Degrees</div><div class="value">${degrees.join(" – ")}</div></div>
-    <div class="info-box"><div class="label">Intervals</div><div class="value">${intervalNames.join(" – ")}</div></div>
+    <div class="info-box"><div class="label">Intervals</div><div class="value">${intervalNames.join(" – ")}</div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">
+        <strong>P</strong> = Perfect (stable, unchanged in major/minor) &nbsp;·&nbsp;
+        <strong>M</strong> = Major (bright, from major scale) &nbsp;·&nbsp;
+        <strong>m</strong> = minor (dark, one semitone lower than Major) &nbsp;·&nbsp;
+        <strong>TT</strong> = Tritone (6 semitones, unstable)
+      </div>
+    </div>
     <div class="info-box" style="grid-column:1/-1"><div class="label">Description</div><div class="value" style="font-weight:400;font-size:0.88rem;">${data.description}</div></div>
   `;
 
