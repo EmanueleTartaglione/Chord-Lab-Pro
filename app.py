@@ -2758,7 +2758,7 @@ const circleKeys = [
 
 let selectedCircleKey = 0;
 
-function buildCircleOfFifths() {
+function renderCircleSvg() {
   const wrap = document.getElementById("circleSvgWrap");
   const size = 400, cx = size/2, cy = size/2, rOuter = 170, rInner = 115, rText = 145, rMinorText = 95;
 
@@ -2768,7 +2768,6 @@ function buildCircleOfFifths() {
 
   circleKeys.forEach((key, i) => {
     const angle = (i * 30 - 90) * Math.PI / 180;
-    const nextAngle = ((i + 1) * 30 - 90) * Math.PI / 180;
 
     /* Major key text */
     const tx = cx + rText * Math.cos(angle);
@@ -2804,17 +2803,25 @@ function buildCircleOfFifths() {
 
   svg += `</svg>`;
   wrap.innerHTML = svg;
+}
 
-  wrap.addEventListener("click", e => {
-    const t = e.target.closest(".circle-key");
-    if (t) {
-      selectedCircleKey = parseInt(t.dataset.idx);
-      buildCircleOfFifths();
-      updateCircleInfo();
-    }
-  });
-
+function buildCircleOfFifths() {
+  renderCircleSvg();
   updateCircleInfo();
+
+  /* Single delegated event listener — only attach once */
+  const wrap = document.getElementById("circleSvgWrap");
+  if (!wrap._circleListenerAttached) {
+    wrap.addEventListener("click", e => {
+      const el = e.target.closest(".circle-key");
+      if (el) {
+        selectedCircleKey = parseInt(el.dataset.idx);
+        renderCircleSvg();
+        updateCircleInfo();
+      }
+    });
+    wrap._circleListenerAttached = true;
+  }
 }
 
 function updateCircleInfo() {
@@ -2938,13 +2945,15 @@ function updateNotationBtnStyles() {
 }
 
 function refreshAllViews() {
-  updateChordLab();
-  updateBrowserSummary();
   populateBrowser();
+  updateChordLab();
+  populateScaleControls();
   if (typeof updateScales === "function") updateScales();
   if (typeof initTheory === "function") initTheory();
+  populateProgControls();
   if (typeof updateProgressions === "function") updateProgressions();
-  if (typeof buildCircleOfFifths === "function") buildCircleOfFifths();
+  renderCircleSvg();
+  updateCircleInfo();
 }
 
 document.getElementById("settingsBtn").addEventListener("click", () => {
