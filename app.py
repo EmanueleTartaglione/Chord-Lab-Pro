@@ -465,6 +465,13 @@ HTML_APP = r"""
           <option value="fr">Français</option>
         </select>
       </div>
+      <div style="margin-bottom:16px;">
+        <label style="color:var(--muted);font-size:0.85rem;display:block;margin-bottom:6px;" id="notationLabel">Notation</label>
+        <div style="display:flex;gap:8px;">
+          <button class="mini-btn" id="notationLetterBtn" style="flex:1;padding:8px;border-radius:10px;">A B C</button>
+          <button class="mini-btn" id="notationSolfegeBtn" style="flex:1;padding:8px;border-radius:10px;">Do Re Mi</button>
+        </div>
+      </div>
       <div style="margin-bottom:20px;">
         <label style="color:var(--muted);font-size:0.85rem;display:block;margin-bottom:6px;" id="soundLabel">Sound</label>
         <div style="display:flex;gap:8px;">
@@ -697,6 +704,8 @@ HTML_APP = r"""
    ═══════════════════════════════════════════════════════ */
 const NOTE_NAMES_SHARP = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 const NOTE_NAMES_FLAT  = ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+const NOTE_NAMES_SOLFEGE = ["Do","Do#","Re","Re#","Mi","Fa","Fa#","Sol","Sol#","La","La#","Si"];
+const NOTE_NAMES_SOLFEGE_FLAT = ["Do","Reb","Re","Mib","Mi","Fa","Solb","Sol","Lab","La","Sib","Si"];
 const NOTE_ALIAS_TO_SHARP = {
   "Db":"C#","Eb":"D#","Gb":"F#","Ab":"G#","Bb":"A#",
   "Cb":"B","Fb":"E","E#":"F","B#":"C"
@@ -730,7 +739,49 @@ const I18N = {
     "Click piano keys to detect chords.": "Click piano keys to detect chords.",
     "Click frets to build a voicing.": "Click frets to build a voicing.",
     "Interactive chord lab, scales, theory, progressions & circle of fifths": "Interactive chord lab, scales, theory, progressions & circle of fifths",
-    "Category": "Category", "Scale": "Scale"
+    "Category": "Category", "Scale": "Scale",
+    "Notation": "Notation",
+    "Root note": "Root note",
+    "Play ascending": "Play ascending", "Play descending": "Play descending",
+    "How to read this page": "How to read this page", "Hide guide": "Hide guide",
+    "Root note (scale legend)": "Root note", "Scale note": "Scale note", "Not in scale": "Not in scale",
+    "Staff Notation": "Staff Notation", "Guitar Fretboard": "Guitar Fretboard",
+    "Chords in this scale": "Chords in this scale",
+    "Diatonic triads and 7th chords built on each scale degree. Click to hear.": "Diatonic triads and 7th chords built on each scale degree. Click to hear.",
+    "Formula": "Formula", "Degrees": "Degrees", "Description": "Description",
+    "Intervals": "Intervals", "Triads": "Triads", "7th Chords": "7th Chords",
+    "Suspended": "Suspended", "Added Tones": "Added Tones", "Extended Chords": "Extended Chords",
+    "Altered Chords": "Altered Chords", "Slash Chords & Inversions": "Slash Chords & Inversions",
+    "Power Chords": "Power Chords",
+    "Diatonic Modes": "Diatonic Modes", "Minor Variants": "Minor Variants",
+    "Pentatonic & Blues": "Pentatonic & Blues", "Symmetric": "Symmetric",
+    "World & Ethnic": "World & Ethnic", "Jazz": "Jazz",
+    "Pop": "Pop", "Bossa Nova": "Bossa Nova", "Flamenco": "Flamenco", "Blues": "Blues",
+    "Rock": "Rock", "Classical": "Classical", "R&B / Neo-Soul": "R&B / Neo-Soul",
+    "Country": "Country", "Reggae": "Reggae", "Latin": "Latin", "Funk": "Funk",
+    "Metal": "Metal", "Gospel": "Gospel", "EDM": "EDM",
+    "Theory & History:": "Theory & History:",
+    "P_legend": "P = Perfect (stable, unchanged in major/minor)",
+    "M_legend": "M = Major (bright, from major scale)",
+    "m_legend": "m = minor (dark, one semitone lower than Major)",
+    "TT_legend": "TT = Tritone (6 semitones, unstable)",
+    "Interval": "Interval", "Semitones": "Semitones", "Sound Quality": "Sound Quality",
+    "Example (from C)": "Example (from C)", "Triad": "Triad", "Sound": "Sound",
+    "Happy, bright, stable": "Happy, bright, stable",
+    "Sad, dark, introspective": "Sad, dark, introspective",
+    "Tense, unstable, anxious": "Tense, unstable, anxious",
+    "Mysterious, dreamlike": "Mysterious, dreamlike",
+    "Key Signature": "Key Signature", "Relative Minor": "Relative Minor",
+    "Closely Related Keys": "Closely Related Keys",
+    "Diatonic Chords in": "Diatonic Chords in",
+    "Common Modulations": "Common Modulations",
+    "No sharps or flats": "No sharps or flats",
+    "Dominant (V):": "Dominant (V):", "Subdominant (IV):": "Subdominant (IV):",
+    "Relative minor:": "Relative minor:", "Parallel minor:": "Parallel minor:",
+    "one step clockwise — the most natural modulation": "one step clockwise — the most natural modulation",
+    "one step counter-clockwise": "one step counter-clockwise",
+    "same key signature, different tonal center": "same key signature, different tonal center",
+    "same root, different mode": "same root, different mode"
   },
   it: {
     "Music Theory Pro": "Music Theory Pro",
@@ -750,7 +801,48 @@ const I18N = {
     "Click piano keys to detect chords.": "Clicca i tasti del piano per rilevare gli accordi.",
     "Click frets to build a voicing.": "Clicca i tasti per costruire un voicing.",
     "Interactive chord lab, scales, theory, progressions & circle of fifths": "Laboratorio interattivo di accordi, scale, teoria, progressioni e circolo delle quinte",
-    "Category": "Categoria", "Scale": "Scala"
+    "Category": "Categoria", "Scale": "Scala",
+    "Notation": "Notazione",
+    "Root note": "Nota fondamentale",
+    "Play ascending": "Riproduci ascendente", "Play descending": "Riproduci discendente",
+    "How to read this page": "Come leggere questa pagina", "Hide guide": "Nascondi guida",
+    "Root note (scale legend)": "Nota fondamentale", "Scale note": "Nota della scala", "Not in scale": "Non nella scala",
+    "Staff Notation": "Notazione su pentagramma", "Guitar Fretboard": "Tastiera chitarra",
+    "Diatonic triads and 7th chords built on each scale degree. Click to hear.": "Triadi diatoniche e accordi di 7a costruiti su ogni grado della scala. Clicca per ascoltare.",
+    "Formula": "Formula", "Degrees": "Gradi", "Description": "Descrizione",
+    "Intervals": "Intervalli", "Triads": "Triadi", "7th Chords": "Accordi di 7a",
+    "Suspended": "Sospesi", "Added Tones": "Note aggiunte", "Extended Chords": "Accordi estesi",
+    "Altered Chords": "Accordi alterati", "Slash Chords & Inversions": "Accordi con basso e rivolti",
+    "Power Chords": "Power Chord",
+    "Diatonic Modes": "Modi diatonici", "Minor Variants": "Varianti minori",
+    "Pentatonic & Blues": "Pentatonica & Blues", "Symmetric": "Simmetriche",
+    "World & Ethnic": "Etniche e dal mondo", "Jazz": "Jazz",
+    "Pop": "Pop", "Bossa Nova": "Bossa Nova", "Flamenco": "Flamenco", "Blues": "Blues",
+    "Rock": "Rock", "Classical": "Classica", "R&B / Neo-Soul": "R&B / Neo-Soul",
+    "Country": "Country", "Reggae": "Reggae", "Latin": "Latino", "Funk": "Funk",
+    "Metal": "Metal", "Gospel": "Gospel", "EDM": "EDM",
+    "Theory & History:": "Teoria e storia:",
+    "P_legend": "P = Perfetto (stabile, invariato in maggiore/minore)",
+    "M_legend": "M = Maggiore (brillante, dalla scala maggiore)",
+    "m_legend": "m = minore (scuro, un semitono sotto il Maggiore)",
+    "TT_legend": "TT = Tritono (6 semitoni, instabile)",
+    "Interval": "Intervallo", "Semitones": "Semitoni", "Sound Quality": "Qualità sonora",
+    "Example (from C)": "Esempio (da Do)", "Triad": "Triade", "Sound": "Audio",
+    "Happy, bright, stable": "Felice, brillante, stabile",
+    "Sad, dark, introspective": "Triste, scuro, introspettivo",
+    "Tense, unstable, anxious": "Teso, instabile, ansioso",
+    "Mysterious, dreamlike": "Misterioso, onirico",
+    "Key Signature": "Armatura di chiave", "Relative Minor": "Relativa minore",
+    "Closely Related Keys": "Tonalità vicine",
+    "Diatonic Chords in": "Accordi diatonici in",
+    "Common Modulations": "Modulazioni comuni",
+    "No sharps or flats": "Nessun diesis o bemolle",
+    "Dominant (V):": "Dominante (V):", "Subdominant (IV):": "Sottodominante (IV):",
+    "Relative minor:": "Relativa minore:", "Parallel minor:": "Parallela minore:",
+    "one step clockwise — the most natural modulation": "un passo in senso orario — la modulazione più naturale",
+    "one step counter-clockwise": "un passo in senso antiorario",
+    "same key signature, different tonal center": "stessa armatura di chiave, centro tonale diverso",
+    "same root, different mode": "stessa fondamentale, modo diverso"
   },
   es: {
     "Music Theory Pro": "Music Theory Pro",
@@ -770,7 +862,48 @@ const I18N = {
     "Click piano keys to detect chords.": "Haz clic en las teclas del piano para detectar acordes.",
     "Click frets to build a voicing.": "Haz clic en los trastes para construir un voicing.",
     "Interactive chord lab, scales, theory, progressions & circle of fifths": "Laboratorio interactivo de acordes, escalas, teoría, progresiones y círculo de quintas",
-    "Category": "Categoría", "Scale": "Escala"
+    "Category": "Categoría", "Scale": "Escala",
+    "Notation": "Notación",
+    "Root note": "Nota raíz",
+    "Play ascending": "Reproducir ascendente", "Play descending": "Reproducir descendente",
+    "How to read this page": "Cómo leer esta página", "Hide guide": "Ocultar guía",
+    "Root note (scale legend)": "Nota raíz", "Scale note": "Nota de la escala", "Not in scale": "No en la escala",
+    "Staff Notation": "Notación en pentagrama", "Guitar Fretboard": "Diapasón de guitarra",
+    "Diatonic triads and 7th chords built on each scale degree. Click to hear.": "Tríadas diatónicas y acordes de 7a construidos sobre cada grado de la escala. Haz clic para escuchar.",
+    "Formula": "Fórmula", "Degrees": "Grados", "Description": "Descripción",
+    "Intervals": "Intervalos", "Triads": "Tríadas", "7th Chords": "Acordes de 7a",
+    "Suspended": "Suspendidos", "Added Tones": "Notas añadidas", "Extended Chords": "Acordes extendidos",
+    "Altered Chords": "Acordes alterados", "Slash Chords & Inversions": "Acordes con bajo e inversiones",
+    "Power Chords": "Power Chords",
+    "Diatonic Modes": "Modos diatónicos", "Minor Variants": "Variantes menores",
+    "Pentatonic & Blues": "Pentatónica y Blues", "Symmetric": "Simétricas",
+    "World & Ethnic": "Étnicas y del mundo", "Jazz": "Jazz",
+    "Pop": "Pop", "Bossa Nova": "Bossa Nova", "Flamenco": "Flamenco", "Blues": "Blues",
+    "Rock": "Rock", "Classical": "Clásica", "R&B / Neo-Soul": "R&B / Neo-Soul",
+    "Country": "Country", "Reggae": "Reggae", "Latin": "Latino", "Funk": "Funk",
+    "Metal": "Metal", "Gospel": "Gospel", "EDM": "EDM",
+    "Theory & History:": "Teoría e historia:",
+    "P_legend": "P = Perfecto (estable, sin cambios en mayor/menor)",
+    "M_legend": "M = Mayor (brillante, de la escala mayor)",
+    "m_legend": "m = menor (oscuro, un semitono menor que Mayor)",
+    "TT_legend": "TT = Tritono (6 semitonos, inestable)",
+    "Interval": "Intervalo", "Semitones": "Semitonos", "Sound Quality": "Cualidad sonora",
+    "Example (from C)": "Ejemplo (desde Do)", "Triad": "Tríada", "Sound": "Sonido",
+    "Happy, bright, stable": "Alegre, brillante, estable",
+    "Sad, dark, introspective": "Triste, oscuro, introspectivo",
+    "Tense, unstable, anxious": "Tenso, inestable, ansioso",
+    "Mysterious, dreamlike": "Misterioso, onírico",
+    "Key Signature": "Armadura de clave", "Relative Minor": "Relativa menor",
+    "Closely Related Keys": "Tonalidades cercanas",
+    "Diatonic Chords in": "Acordes diatónicos en",
+    "Common Modulations": "Modulaciones comunes",
+    "No sharps or flats": "Sin sostenidos ni bemoles",
+    "Dominant (V):": "Dominante (V):", "Subdominant (IV):": "Subdominante (IV):",
+    "Relative minor:": "Relativa menor:", "Parallel minor:": "Paralela menor:",
+    "one step clockwise — the most natural modulation": "un paso en sentido horario — la modulación más natural",
+    "one step counter-clockwise": "un paso en sentido antihorario",
+    "same key signature, different tonal center": "misma armadura de clave, centro tonal diferente",
+    "same root, different mode": "misma raíz, modo diferente"
   },
   fr: {
     "Music Theory Pro": "Music Theory Pro",
@@ -790,7 +923,48 @@ const I18N = {
     "Click piano keys to detect chords.": "Cliquez sur les touches du piano pour détecter les accords.",
     "Click frets to build a voicing.": "Cliquez sur les frettes pour construire un voicing.",
     "Interactive chord lab, scales, theory, progressions & circle of fifths": "Laboratoire interactif d'accords, gammes, théorie, progressions et cycle des quintes",
-    "Category": "Catégorie", "Scale": "Gamme"
+    "Category": "Catégorie", "Scale": "Gamme",
+    "Notation": "Notation",
+    "Root note": "Note fondamentale",
+    "Play ascending": "Jouer ascendant", "Play descending": "Jouer descendant",
+    "How to read this page": "Comment lire cette page", "Hide guide": "Masquer le guide",
+    "Root note (scale legend)": "Note fondamentale", "Scale note": "Note de la gamme", "Not in scale": "Pas dans la gamme",
+    "Staff Notation": "Notation sur portée", "Guitar Fretboard": "Manche de guitare",
+    "Diatonic triads and 7th chords built on each scale degree. Click to hear.": "Triades diatoniques et accords de 7e construits sur chaque degré de la gamme. Cliquez pour écouter.",
+    "Formula": "Formule", "Degrees": "Degrés", "Description": "Description",
+    "Intervals": "Intervalles", "Triads": "Triades", "7th Chords": "Accords de 7e",
+    "Suspended": "Suspendus", "Added Tones": "Notes ajoutées", "Extended Chords": "Accords étendus",
+    "Altered Chords": "Accords altérés", "Slash Chords & Inversions": "Accords avec basse et renversements",
+    "Power Chords": "Power Chords",
+    "Diatonic Modes": "Modes diatoniques", "Minor Variants": "Variantes mineures",
+    "Pentatonic & Blues": "Pentatonique et Blues", "Symmetric": "Symétriques",
+    "World & Ethnic": "Ethniques et du monde", "Jazz": "Jazz",
+    "Pop": "Pop", "Bossa Nova": "Bossa Nova", "Flamenco": "Flamenco", "Blues": "Blues",
+    "Rock": "Rock", "Classical": "Classique", "R&B / Neo-Soul": "R&B / Neo-Soul",
+    "Country": "Country", "Reggae": "Reggae", "Latin": "Latino", "Funk": "Funk",
+    "Metal": "Metal", "Gospel": "Gospel", "EDM": "EDM",
+    "Theory & History:": "Théorie et histoire :",
+    "P_legend": "P = Parfait (stable, inchangé en majeur/mineur)",
+    "M_legend": "M = Majeur (brillant, de la gamme majeure)",
+    "m_legend": "m = mineur (sombre, un demi-ton sous le Majeur)",
+    "TT_legend": "TT = Triton (6 demi-tons, instable)",
+    "Interval": "Intervalle", "Semitones": "Demi-tons", "Sound Quality": "Qualité sonore",
+    "Example (from C)": "Exemple (depuis Do)", "Triad": "Triade", "Sound": "Son",
+    "Happy, bright, stable": "Joyeux, brillant, stable",
+    "Sad, dark, introspective": "Triste, sombre, introspectif",
+    "Tense, unstable, anxious": "Tendu, instable, anxieux",
+    "Mysterious, dreamlike": "Mystérieux, onirique",
+    "Key Signature": "Armure de clé", "Relative Minor": "Relative mineure",
+    "Closely Related Keys": "Tonalités voisines",
+    "Diatonic Chords in": "Accords diatoniques en",
+    "Common Modulations": "Modulations courantes",
+    "No sharps or flats": "Ni dièses ni bémols",
+    "Dominant (V):": "Dominante (V) :", "Subdominant (IV):": "Sous-dominante (IV) :",
+    "Relative minor:": "Relative mineure :", "Parallel minor:": "Parallèle mineure :",
+    "one step clockwise — the most natural modulation": "un pas dans le sens horaire — la modulation la plus naturelle",
+    "one step counter-clockwise": "un pas dans le sens antihoraire",
+    "same key signature, different tonal center": "même armure de clé, centre tonal différent",
+    "same root, different mode": "même fondamentale, mode différent"
   }
 };
 
@@ -859,6 +1033,111 @@ const CHORD_EXPLANATIONS = {
   "maj7#11": "Major 7 sharp 11: maj7 + #11. Lydian sound — bright, floating, cinematic.",
   "7b13": "Dominant 7 flat 13: dom7 + b13 (= #5). Altered dominant color."
 };
+
+const CHORD_EXPLANATIONS_IT = {
+  "": "Triade maggiore: fondamentale + 3a maggiore + 5a giusta. L'accordo brillante e felice per eccellenza.",
+  "m": "Triade minore: fondamentale + 3a minore + 5a giusta. Qualità più scura e triste del maggiore.",
+  "5": "Power chord: fondamentale + 5a giusta. Né maggiore né minore — usatissimo nel rock.",
+  "dim": "Triade diminuita: fondamentale + 3a minore + 5a diminuita. Suono teso, instabile.",
+  "aug": "Triade aumentata: fondamentale + 3a maggiore + 5a aumentata. Qualità misteriosa, onirica.",
+  "sus2": "Sospeso 2a: fondamentale + 2a maggiore + 5a giusta. Aperto, ambiguo.",
+  "sus4": "Sospeso 4a: fondamentale + 4a giusta + 5a giusta. Vuole risolvere.",
+  "6": "Maggiore con 6a: triade maggiore + 6a maggiore. Dolce, jazzistico.",
+  "m6": "Minore con 6a: triade minore + 6a maggiore. Agrodolce, ballate jazz.",
+  "6/9": "6/9: triade maggiore + 6a + 9a (senza 7a). Voicing ricco, popolare nei finali jazz.",
+  "m6/9": "Minore 6/9: triade minore + 6a + 9a. Colore minore complesso.",
+  "7": "7a dominante: triade maggiore + 7a minore. Crea tensione che vuole risolvere.",
+  "maj7": "7a maggiore: triade maggiore + 7a maggiore. Lussureggiante, onirico. L'accordo 'bello' del jazz.",
+  "m7": "7a minore: triade minore + 7a minore. Morbido, rilassato. L'accordo ii nel jazz.",
+  "m(maj7)": "Minore-maggiore 7a: triade minore + 7a maggiore. Scuro e misterioso, film noir.",
+  "dim7": "7a diminuita: triade diminuita + 7a diminuita. Altamente teso, simmetrico.",
+  "m7b5": "Semidiminuito: triade minore con b5 + 7a minore. L'accordo ii nel jazz minore.",
+  "7b5": "Dominante 7 bemolle 5: dom7 con 5a diminuita. Accordo di sostituzione del tritono.",
+  "7#5": "Dominante 7 diesis 5: dom7 con 5a aumentata. Dominante alterato, forte tendenza alla risoluzione.",
+  "7sus4": "Dominante 7 sus4: sus4 + 7a minore. Dominante sospeso, comune prima della risoluzione.",
+  "add9": "Add 9: triade maggiore + 9a (senza 7a). Aggiunge brillantezza senza complessità jazz.",
+  "madd9": "Minore add 9: triade minore + 9a. Suono lunatico, atmosferico.",
+  "add11": "Add 11: triade maggiore + 11a (=4a). Aggiunge una qualità sospesa mantenendo la 3a.",
+  "madd11": "Minore add 11: triade minore + 11a. Ricco colore minore.",
+  "add13": "Add 13: triade maggiore + 13a (=6a). Stesse note del 6a, contesto diverso.",
+  "madd13": "Minore add 13: triade minore + 13a. Come m6, diversa denominazione.",
+  "9": "9a dominante: dom7 + 9a maggiore. Funky, soul. Comune in R&B e funk.",
+  "maj9": "9a maggiore: maj7 + 9a maggiore. Bellissimo, lussureggiante. Pilastro del neo-soul.",
+  "m9": "9a minore: m7 + 9a maggiore. Morbido, sofisticato.",
+  "7b9": "Dominante 7 bemolle 9: dom7 + 9a minore. Scuro, sapore spagnolo/flamenco.",
+  "7#9": "Dominante 7 diesis 9: dom7 + 9a aumentata. L'accordo di Hendrix — grintoso, blues.",
+  "9sus4": "9 sus4: 7sus4 + 9a. Suono aperto, moderno.",
+  "11": "11a dominante: dom9 + 11a. Complesso, impilato.",
+  "maj11": "11a maggiore: maj9 + 11a. Etereo, voicing ampio.",
+  "m11": "11a minore: m9 + 11a. Molto comune nel neo-soul e jazz contemporaneo.",
+  "13": "13a dominante: dom7 + 9a + 13a. Pieno, ricco. Comune in jazz e funk.",
+  "maj13": "13a maggiore: maj7 + 9a + 13a. Il voicing maggiore più lussureggiante.",
+  "m13": "13a minore: m7 + 9a + 13a. Suono minore profondo e complesso.",
+  "13sus4": "13 sus4: 7sus4 + 9a + 13a. Voicing ampio, moderno.",
+  "maj7#11": "Maggiore 7 diesis 11: maj7 + #11. Suono lidio — brillante, fluttuante, cinematografico.",
+  "7b13": "Dominante 7 bemolle 13: dom7 + b13 (= #5). Colore dominante alterato."
+};
+const CHORD_EXPLANATIONS_ES = {
+  "": "Tríada mayor: fundamental + 3a mayor + 5a justa. El acorde brillante y alegre fundamental.",
+  "m": "Tríada menor: fundamental + 3a menor + 5a justa. Cualidad más oscura y triste que el mayor.",
+  "5": "Power chord: fundamental + 5a justa. Ni mayor ni menor — muy usado en rock.",
+  "dim": "Tríada disminuida: fundamental + 3a menor + 5a disminuida. Sonido tenso, inestable.",
+  "aug": "Tríada aumentada: fundamental + 3a mayor + 5a aumentada. Cualidad misteriosa, onírica.",
+  "sus2": "Suspendido 2a: fundamental + 2a mayor + 5a justa. Abierto, ambiguo.",
+  "sus4": "Suspendido 4a: fundamental + 4a justa + 5a justa. Quiere resolver.",
+  "6": "Mayor con 6a: tríada mayor + 6a mayor. Dulce, jazzístico.",
+  "m6": "Menor con 6a: tríada menor + 6a mayor. Agridulce, baladas de jazz.",
+  "7": "7a dominante: tríada mayor + 7a menor. Crea tensión que quiere resolver.",
+  "maj7": "7a mayor: tríada mayor + 7a mayor. Exuberante, soñador. El acorde 'bonito' del jazz.",
+  "m7": "7a menor: tríada menor + 7a menor. Suave, relajado. El acorde ii en jazz.",
+  "m(maj7)": "Menor-mayor 7a: tríada menor + 7a mayor. Oscuro y misterioso, cine negro.",
+  "dim7": "7a disminuida: tríada disminuida + 7a disminuida. Muy tenso, simétrico.",
+  "m7b5": "Semidisminuido: tríada menor con b5 + 7a menor. El acorde ii en jazz menor.",
+  "9": "9a dominante: dom7 + 9a mayor. Funky, soul. Común en R&B y funk.",
+  "maj9": "9a mayor: maj7 + 9a mayor. Hermoso, exuberante. Esencial del neo-soul.",
+  "m9": "9a menor: m7 + 9a mayor. Suave, sofisticado.",
+  "7b9": "Dominante 7 bemol 9: dom7 + 9a menor. Oscuro, sabor español/flamenco.",
+  "7#9": "Dominante 7 sostenido 9: dom7 + 9a aumentada. El acorde de Hendrix.",
+  "11": "11a dominante: dom9 + 11a. Complejo, apilado.",
+  "m11": "11a menor: m9 + 11a. Muy común en neo-soul y jazz contemporáneo.",
+  "13": "13a dominante: dom7 + 9a + 13a. Pleno, rico. Común en jazz y funk.",
+  "maj13": "13a mayor: maj7 + 9a + 13a. El voicing mayor más exuberante.",
+  "m13": "13a menor: m7 + 9a + 13a. Sonido menor profundo y complejo."
+};
+const CHORD_EXPLANATIONS_FR = {
+  "": "Triade majeure : fondamentale + 3ce majeure + 5te juste. L'accord brillant et joyeux fondamental.",
+  "m": "Triade mineure : fondamentale + 3ce mineure + 5te juste. Qualité plus sombre et triste que le majeur.",
+  "5": "Power chord : fondamentale + 5te juste. Ni majeur ni mineur — très utilisé en rock.",
+  "dim": "Triade diminuée : fondamentale + 3ce mineure + 5te diminuée. Son tendu, instable.",
+  "aug": "Triade augmentée : fondamentale + 3ce majeure + 5te augmentée. Qualité mystérieuse, onirique.",
+  "sus2": "Suspendu 2de : fondamentale + 2de majeure + 5te juste. Ouvert, ambigu.",
+  "sus4": "Suspendu 4te : fondamentale + 4te juste + 5te juste. Veut résoudre.",
+  "6": "Majeur avec 6te : triade majeure + 6te majeure. Doux, jazz.",
+  "m6": "Mineur avec 6te : triade mineure + 6te majeure. Doux-amer, ballades jazz.",
+  "7": "7e dominante : triade majeure + 7e mineure. Crée une tension qui veut se résoudre.",
+  "maj7": "7e majeure : triade majeure + 7e majeure. Luxuriant, onirique. L'accord 'beau' du jazz.",
+  "m7": "7e mineure : triade mineure + 7e mineure. Doux, détendu. L'accord ii en jazz.",
+  "m(maj7)": "Mineur-majeur 7e : triade mineure + 7e majeure. Sombre et mystérieux, film noir.",
+  "dim7": "7e diminuée : triade diminuée + 7e diminuée. Très tendu, symétrique.",
+  "m7b5": "Semi-diminué : triade mineure avec b5 + 7e mineure. L'accord ii en jazz mineur.",
+  "9": "9e dominante : dom7 + 9e majeure. Funky, soul. Commun en R&B et funk.",
+  "maj9": "9e majeure : maj7 + 9e majeure. Magnifique, luxuriant. Essentiel du neo-soul.",
+  "m9": "9e mineure : m7 + 9e majeure. Doux, sophistiqué.",
+  "7b9": "Dominante 7 bémol 9 : dom7 + 9e mineure. Sombre, saveur espagnole/flamenco.",
+  "7#9": "Dominante 7 dièse 9 : dom7 + 9e augmentée. L'accord de Hendrix.",
+  "11": "11e dominante : dom9 + 11e. Complexe, empilé.",
+  "m11": "11e mineure : m9 + 11e. Très commun en neo-soul et jazz contemporain.",
+  "13": "13e dominante : dom7 + 9e + 13e. Plein, riche. Commun en jazz et funk.",
+  "maj13": "13e majeure : maj7 + 9e + 13e. Le voicing majeur le plus luxuriant.",
+  "m13": "13e mineure : m7 + 9e + 13e. Son mineur profond et complexe."
+};
+
+function getChordExplanation(quality) {
+  const tables = { it: CHORD_EXPLANATIONS_IT, es: CHORD_EXPLANATIONS_ES, fr: CHORD_EXPLANATIONS_FR };
+  const langTable = tables[state.lang];
+  if (langTable && langTable[quality] !== undefined) return langTable[quality];
+  return CHORD_EXPLANATIONS[quality] || "";
+}
 
 /* ── Scale Formulas ── */
 const SCALE_DATA = {
@@ -1043,6 +1322,91 @@ const SCALE_DATA = {
     }
   }
 };
+
+/* ── Translated Scale Descriptions (short descriptions only — history stays in English) ── */
+const SCALE_DESC_IT = {
+  "Ionian (Major)": "La scala maggiore standard. Brillante, felice, risolta.",
+  "Dorian": "Scala minore con 6a rialzata. Minore jazzistico, sofisticato.",
+  "Phrygian": "Scala minore con 2a bemolle. Scura, sapore spagnolo/mediorientale.",
+  "Lydian": "Scala maggiore con 4a rialzata. Onirica, fluttuante, cinematografica.",
+  "Mixolydian": "Scala maggiore con 7a bemolle. Blues, dominante. La scala dell'accordo V.",
+  "Aeolian (Natural Minor)": "La scala minore naturale. Malinconica, scura.",
+  "Locrian": "Scala diminuita con 2a e 5a bemolle. Molto instabile.",
+  "Harmonic Minor": "Minore naturale con 7a rialzata. Crea una sensibile.",
+  "Melodic Minor (asc)": "Minore naturale con 6a e 7a rialzate ascendendo.",
+  "Major Pentatonic": "Scala maggiore a 5 note. Universale, presente ovunque nel mondo.",
+  "Minor Pentatonic": "Scala minore a 5 note. Pilastro del blues, rock e pop.",
+  "Blues Scale": "Pentatonica minore + blue note (b5). Essenziale per blues/rock.",
+  "Major Blues": "Pentatonica maggiore + blue note (b3). Dolce, qualità soul.",
+  "Whole Tone": "Tutti toni interi. Onirica, fluttuante, senza centro tonale chiaro.",
+  "Diminished (H-W)": "Alternanza semitono-tono. Simmetrica, funzione dominante.",
+  "Diminished (W-H)": "Alternanza tono-semitono. Sugli accordi di 7a diminuita.",
+  "Chromatic": "Tutte le 12 note. Note di passaggio e scale cromatiche.",
+  "Phrygian Dominant": "5o modo della minore armonica. Spagnolo/flamenco, musica ebraica.",
+  "Hungarian Minor": "Scala esotica con due 2e aumentate. Scura, drammatica.",
+  "Double Harmonic Major": "Scala bizantina. Mediorientale, musica classica indiana.",
+  "Hirajoshi": "Scala pentatonica giapponese. Misteriosa, meditativa.",
+  "In Sen": "Scala giapponese. Scura, atmosferica.",
+  "Yo": "Pentatonica giapponese. Brillante, pastorale.",
+  "Bebop Dominant": "Misolidio + 7a naturale di passaggio. Tiene le note dell'accordo sui tempi forti.",
+  "Bebop Major": "Scala maggiore + b6 di passaggio. Movimento cromatico fluido.",
+  "Bebop Dorian": "Dorian + 3a maggiore di passaggio. Improv jazz su accordi minori.",
+  "Altered (Super Locrian)": "7o modo della minore melodica. Tutte le tensioni alterate.",
+  "Lydian Dominant": "4o modo della minore melodica. Lidio + b7."
+};
+const SCALE_DESC_ES = {
+  "Ionian (Major)": "La escala mayor estándar. Brillante, alegre, resuelta.",
+  "Dorian": "Escala menor con 6a elevada. Menor jazzístico, sofisticado.",
+  "Phrygian": "Escala menor con 2a bemol. Oscura, sabor español/oriental.",
+  "Lydian": "Escala mayor con 4a elevada. Onírica, flotante, cinematográfica.",
+  "Mixolydian": "Escala mayor con 7a bemol. Blues, dominante. La escala del acorde V.",
+  "Aeolian (Natural Minor)": "La escala menor natural. Melancólica, oscura.",
+  "Locrian": "Escala disminuida con 2a y 5a bemol. Muy inestable.",
+  "Harmonic Minor": "Menor natural con 7a elevada. Crea sensible.",
+  "Melodic Minor (asc)": "Menor natural con 6a y 7a elevadas ascendiendo.",
+  "Major Pentatonic": "Escala mayor de 5 notas. Universal, encontrada en todo el mundo.",
+  "Minor Pentatonic": "Escala menor de 5 notas. Base del blues, rock y pop.",
+  "Blues Scale": "Pentatónica menor + blue note (b5). Esencial para blues/rock.",
+  "Major Blues": "Pentatónica mayor + blue note (b3). Dulce, cualidad soul.",
+  "Whole Tone": "Todos tonos enteros. Onírica, flotante, sin centro tonal claro.",
+  "Chromatic": "Las 12 notas. Notas de paso y escalas cromáticas.",
+  "Phrygian Dominant": "5o modo de la menor armónica. Español/flamenco, música judía.",
+  "Hungarian Minor": "Escala exótica con dos 2as aumentadas. Oscura, dramática.",
+  "Hirajoshi": "Escala pentatónica japonesa. Misteriosa, meditativa.",
+  "Bebop Dominant": "Mixolidio + 7a natural de paso. Mantiene notas del acorde en tiempos fuertes.",
+  "Altered (Super Locrian)": "7o modo de la menor melódica. Todas las tensiones alteradas.",
+  "Lydian Dominant": "4o modo de la menor melódica. Lidio + b7."
+};
+const SCALE_DESC_FR = {
+  "Ionian (Major)": "La gamme majeure standard. Brillante, joyeuse, résolue.",
+  "Dorian": "Gamme mineure avec 6te relevée. Mineur jazz, sophistiqué.",
+  "Phrygian": "Gamme mineure avec 2de bémol. Sombre, saveur espagnole/orientale.",
+  "Lydian": "Gamme majeure avec 4te relevée. Onirique, flottante, cinématographique.",
+  "Mixolydian": "Gamme majeure avec 7e bémol. Blues, dominante. La gamme de l'accord V.",
+  "Aeolian (Natural Minor)": "La gamme mineure naturelle. Mélancolique, sombre.",
+  "Locrian": "Gamme diminuée avec 2de et 5te bémol. Très instable.",
+  "Harmonic Minor": "Mineure naturelle avec 7e relevée. Crée une sensible.",
+  "Melodic Minor (asc)": "Mineure naturelle avec 6te et 7e relevées en montant.",
+  "Major Pentatonic": "Gamme majeure à 5 notes. Universelle, présente partout dans le monde.",
+  "Minor Pentatonic": "Gamme mineure à 5 notes. Pilier du blues, rock et pop.",
+  "Blues Scale": "Pentatonique mineure + blue note (b5). Essentielle pour blues/rock.",
+  "Major Blues": "Pentatonique majeure + blue note (b3). Douce, qualité soul.",
+  "Whole Tone": "Tous tons entiers. Onirique, flottante, sans centre tonal clair.",
+  "Chromatic": "Les 12 notes. Notes de passage et gammes chromatiques.",
+  "Phrygian Dominant": "5e mode de la mineure harmonique. Espagnol/flamenco, musique juive.",
+  "Hungarian Minor": "Gamme exotique avec deux 2des augmentées. Sombre, dramatique.",
+  "Hirajoshi": "Gamme pentatonique japonaise. Mystérieuse, méditative.",
+  "Bebop Dominant": "Mixolydien + 7e naturelle de passage. Garde les notes d'accord sur les temps.",
+  "Altered (Super Locrian)": "7e mode de la mineure mélodique. Toutes les tensions altérées.",
+  "Lydian Dominant": "4e mode de la mineure mélodique. Lydien + b7."
+};
+
+function getScaleDescription(scaleName) {
+  const tables = { it: SCALE_DESC_IT, es: SCALE_DESC_ES, fr: SCALE_DESC_FR };
+  const langTable = tables[state.lang];
+  if (langTable && langTable[scaleName]) return langTable[scaleName];
+  return null; /* fall back to default English in SCALE_DATA */
+}
 
 /* ── Interval Names ── */
 const INTERVAL_NAMES = [
@@ -1346,7 +1710,14 @@ function ensureAudio() {
 
 function normalizeNote(n) { return NOTE_ALIAS_TO_SHARP[n] || n; }
 function noteToPc(n) { return NOTE_NAMES_SHARP.indexOf(normalizeNote(n)); }
-function pcToNote(pc) { return NOTE_NAMES_SHARP[((pc%12)+12)%12]; }
+function pcToNote(pc) {
+  const idx = ((pc%12)+12)%12;
+  return state.notationStyle === "solfege" ? NOTE_NAMES_SOLFEGE[idx] : NOTE_NAMES_SHARP[idx];
+}
+function pcToNoteFlat(pc) {
+  const idx = ((pc%12)+12)%12;
+  return state.notationStyle === "solfege" ? NOTE_NAMES_SOLFEGE_FLAT[idx] : NOTE_NAMES_FLAT[idx];
+}
 function midiToFreq(m) { return 440 * Math.pow(2, (m - 69) / 12); }
 function displayQuality(q) { return q === "" ? "major" : q; }
 function chordName(rootPc, quality) { return pcToNote(rootPc) + (quality || ""); }
@@ -1458,7 +1829,8 @@ const state = {
   pianoChordQuality: null,
   currentInstrument: "guitar",
   lang: "en",
-  soundEnabled: true
+  soundEnabled: true,
+  notationStyle: "letter"
 };
 
 const rootSelect = document.getElementById("rootSelect");
@@ -1615,7 +1987,7 @@ function parseChordLabel(label) {
 function formatDetected(container, matches, emptyText) {
   container.innerHTML = "";
   const title = document.createElement("div");
-  title.className = "detected-title"; title.textContent = "Detected chord candidates";
+  title.className = "detected-title"; title.textContent = t("Detected chord candidates");
   container.appendChild(title);
   if (!matches.length) {
     const e = document.createElement("div"); e.className = "detected-empty"; e.textContent = emptyText;
@@ -1642,15 +2014,15 @@ function updateBrowserSummary() {
   const rootPc = noteToPc(rootSelect.value), quality = qualitySelect.value;
   browserName.textContent = `${pcToNote(rootPc)} ${displayQuality(quality)}`;
   browserNotes.textContent = chordNotes(rootPc, quality).join(", ");
-  chordTooltip.textContent = CHORD_EXPLANATIONS[quality] || "";
+  chordTooltip.textContent = getChordExplanation(quality);
 }
 
 function updatePianoStatus() {
   const selected = [...state.selectedPiano].sort((a,b) => a-b);
   const names = selected.map(m => `${pcToNote(m%12)}${Math.floor(m/12)-1}`);
-  pianoStatus.innerHTML = `Selected notes: <strong>${names.length ? names.join(", ") : "none"}</strong>`;
+  pianoStatus.innerHTML = names.length ? `${t("Selected:")} <strong>${names.join(", ")}</strong>` : t("Selected notes: none");
   const pcs = new Set(selected.map(m => m%12));
-  formatDetected(pianoDetected, inferChords(pcs), "Click piano keys to detect chords.");
+  formatDetected(pianoDetected, inferChords(pcs), t("Click piano keys to detect chords."));
 }
 
 function updateGuitarStatus() {
@@ -1661,9 +2033,9 @@ function updateGuitarStatus() {
     selected.push(`${strings[si].label} fret ${fret} → ${pcToNote(instrNotePc(si, fret))}`);
   });
   const {pcs, bassPc} = guitarSelectedPcs();
-  const bassText = bassPc === null ? "" : ` · bass: <strong>${pcToNote(bassPc)}</strong>`;
-  guitarStatus.innerHTML = `Selected: <strong>${selected.length ? selected.join(" · ") : "none"}</strong>${bassText}`;
-  formatDetected(guitarDetected, inferChords(pcs, bassPc), "Click frets to build a voicing.");
+  const bassText = bassPc === null ? "" : ` · ${t("bass:")} <strong>${pcToNote(bassPc)}</strong>`;
+  guitarStatus.innerHTML = selected.length ? `${t("Selected:")} <strong>${selected.join(" · ")}</strong>${bassText}` : t("Selected notes: none");
+  formatDetected(guitarDetected, inferChords(pcs, bassPc), t("Click frets to build a voicing."));
 }
 
 function updateChordLab() {
@@ -1798,10 +2170,15 @@ function playBrowserChord() {
 }
 
 function populateBrowser() {
-  NOTE_NAMES_SHARP.forEach(n => { const o = document.createElement("option"); o.value = n; o.textContent = n; rootSelect.appendChild(o); });
+  const prevRoot = rootSelect.value || "C";
+  const prevQuality = qualitySelect.value || "";
+  rootSelect.innerHTML = "";
+  NOTE_NAMES_SHARP.forEach((n, i) => { const o = document.createElement("option"); o.value = n; o.textContent = pcToNote(i); rootSelect.appendChild(o); });
+  qualitySelect.innerHTML = "";
   Object.keys(CHORD_FORMULAS).forEach(q => { const o = document.createElement("option"); o.value = q; o.textContent = displayQuality(q); qualitySelect.appendChild(o); });
-  rootSelect.value = "C"; qualitySelect.value = "";
+  rootSelect.value = prevRoot; qualitySelect.value = prevQuality;
   const grid = document.getElementById("supportedChords");
+  grid.innerHTML = "";
   Object.keys(CHORD_FORMULAS).forEach(q => { const d = document.createElement("div"); d.textContent = displayQuality(q); grid.appendChild(d); });
 }
 
@@ -1841,7 +2218,11 @@ const scaleFretboardEl = document.getElementById("scaleFretboard");
 const diatonicContainer = document.getElementById("diatonicChordsContainer");
 
 function populateScaleControls() {
-  NOTE_NAMES_SHARP.forEach(n => { const o = document.createElement("option"); o.value = n; o.textContent = n; scaleRootSelect.appendChild(o); });
+  const prevRoot = scaleRootSelect.value || "C";
+  scaleRootSelect.innerHTML = "";
+  NOTE_NAMES_SHARP.forEach((n, i) => { const o = document.createElement("option"); o.value = n; o.textContent = pcToNote(i); scaleRootSelect.appendChild(o); });
+  scaleRootSelect.value = prevRoot;
+  scaleCategorySelect.innerHTML = "";
   Object.keys(SCALE_DATA).forEach(cat => { const o = document.createElement("option"); o.value = cat; o.textContent = cat; scaleCategorySelect.appendChild(o); });
   updateScaleTypeOptions();
 }
@@ -2238,8 +2619,14 @@ const tempoDisplay = document.getElementById("tempoDisplay");
 let progPlaying = false, progTimeout = null;
 
 function populateProgControls() {
+  const prevGenre = progGenreSelect.value;
+  const prevKey = progKeySelect.value || "C";
+  progGenreSelect.innerHTML = "";
   Object.keys(PROGRESSIONS).forEach(g => { const o = document.createElement("option"); o.value = g; o.textContent = g; progGenreSelect.appendChild(o); });
-  NOTE_NAMES_SHARP.forEach(n => { const o = document.createElement("option"); o.value = n; o.textContent = n; progKeySelect.appendChild(o); });
+  if (prevGenre) progGenreSelect.value = prevGenre;
+  progKeySelect.innerHTML = "";
+  NOTE_NAMES_SHARP.forEach((n, i) => { const o = document.createElement("option"); o.value = n; o.textContent = pcToNote(i); progKeySelect.appendChild(o); });
+  progKeySelect.value = prevKey;
 }
 
 function getProgTempo() { return parseInt(tempoSlider.value); }
@@ -2499,6 +2886,7 @@ function applyLanguage() {
   document.getElementById("appSubtitle").textContent = t("Interactive chord lab, scales, theory, progressions & circle of fifths");
   document.getElementById("settingsTitle").textContent = t("Settings");
   document.getElementById("langLabel").textContent = t("Language");
+  document.getElementById("notationLabel").textContent = t("Notation");
   document.getElementById("soundLabel").textContent = t("Sound");
   document.getElementById("soundOnBtn").textContent = t("On");
   document.getElementById("soundOffBtn").textContent = t("Off");
@@ -2524,8 +2912,11 @@ function applyLanguage() {
   document.getElementById("strumGuitarBtn").textContent = t("Strum");
   document.getElementById("clearGuitarBtn").textContent = t("Clear");
   document.getElementById("fretInstrTitle").textContent = state.currentInstrument === "ukulele" ? t("Ukulele") : t("Guitar");
-  /* Update sound button styles */
+  /* Update button styles */
   updateSoundBtnStyles();
+  updateNotationBtnStyles();
+  /* Refresh content that depends on language */
+  refreshAllViews();
 }
 
 function updateSoundBtnStyles() {
@@ -2535,6 +2926,25 @@ function updateSoundBtnStyles() {
   onBtn.style.color = state.soundEnabled ? "#000" : "var(--text)";
   offBtn.style.background = !state.soundEnabled ? "var(--danger)" : "var(--panel-2)";
   offBtn.style.color = !state.soundEnabled ? "#fff" : "var(--text)";
+}
+
+function updateNotationBtnStyles() {
+  const lBtn = document.getElementById("notationLetterBtn");
+  const sBtn = document.getElementById("notationSolfegeBtn");
+  lBtn.style.background = state.notationStyle === "letter" ? "var(--accent)" : "var(--panel-2)";
+  lBtn.style.color = state.notationStyle === "letter" ? "#000" : "var(--text)";
+  sBtn.style.background = state.notationStyle === "solfege" ? "var(--accent)" : "var(--panel-2)";
+  sBtn.style.color = state.notationStyle === "solfege" ? "#000" : "var(--text)";
+}
+
+function refreshAllViews() {
+  updateChordLab();
+  updateBrowserSummary();
+  populateBrowser();
+  if (typeof updateScales === "function") updateScales();
+  if (typeof initTheory === "function") initTheory();
+  if (typeof updateProgressions === "function") updateProgressions();
+  if (typeof buildCircleOfFifths === "function") buildCircleOfFifths();
 }
 
 document.getElementById("settingsBtn").addEventListener("click", () => {
@@ -2557,6 +2967,12 @@ document.getElementById("soundOnBtn").addEventListener("click", () => {
 });
 document.getElementById("soundOffBtn").addEventListener("click", () => {
   state.soundEnabled = false; updateSoundBtnStyles();
+});
+document.getElementById("notationLetterBtn").addEventListener("click", () => {
+  state.notationStyle = "letter"; updateNotationBtnStyles(); refreshAllViews();
+});
+document.getElementById("notationSolfegeBtn").addEventListener("click", () => {
+  state.notationStyle = "solfege"; updateNotationBtnStyles(); refreshAllViews();
 });
 
 /* ═══════════════════════════════════════════════════════
