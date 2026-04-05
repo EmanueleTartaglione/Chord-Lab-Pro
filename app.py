@@ -444,9 +444,36 @@ HTML_APP = r"""
 </head>
 <body>
 <div class="app">
-  <div class="hero">
-    <h1>Music Theory Pro</h1>
-    <p>Interactive chord lab, scales, theory, progressions &amp; circle of fifths</p>
+  <div class="hero" style="display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <h1 id="appTitle">Music Theory Pro</h1>
+      <p id="appSubtitle">Interactive chord lab, scales, theory, progressions &amp; circle of fifths</p>
+    </div>
+    <button id="settingsBtn" style="background:none;border:1px solid var(--line);border-radius:12px;padding:8px 14px;color:var(--muted);cursor:pointer;font-size:1.1rem;transition:all 0.2s;" title="Settings">⚙️</button>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;display:none;align-items:center;justify-content:center;">
+    <div style="background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px;max-width:400px;width:90%;box-shadow:0 20px 40px rgba(0,0,0,0.5);">
+      <h2 style="margin-bottom:18px;color:var(--accent);" id="settingsTitle">Settings</h2>
+      <div style="margin-bottom:16px;">
+        <label style="color:var(--muted);font-size:0.85rem;display:block;margin-bottom:6px;" id="langLabel">Language</label>
+        <select id="langSelect" style="width:100%;padding:10px;border-radius:10px;background:var(--panel-2);color:var(--text);border:1px solid var(--line);font-size:0.95rem;">
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="color:var(--muted);font-size:0.85rem;display:block;margin-bottom:6px;" id="soundLabel">Sound</label>
+        <div style="display:flex;gap:8px;">
+          <button class="mini-btn" id="soundOnBtn" style="flex:1;padding:8px;border-radius:10px;">On</button>
+          <button class="mini-btn" id="soundOffBtn" style="flex:1;padding:8px;border-radius:10px;">Off</button>
+        </div>
+      </div>
+      <button class="btn primary" id="closeSettingsBtn" style="width:100%;">Close</button>
+    </div>
   </div>
 
   <div class="tab-bar">
@@ -498,8 +525,12 @@ HTML_APP = r"""
 
     <section class="card">
       <div class="section-head">
-        <h2>Guitar</h2>
+        <h2 id="fretInstrTitle">Guitar</h2>
         <div class="mini-actions">
+          <select id="instrSelect" class="mini-btn" style="background:var(--panel-2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:4px 8px;font-size:0.8rem;">
+            <option value="guitar">Guitar</option>
+            <option value="ukulele">Ukulele</option>
+          </select>
           <button class="mini-btn" id="prevVoicingBtn" title="Previous voicing" style="font-size:16px;padding:4px 10px;">◀</button>
           <span id="voicingCounter" style="color:var(--muted);font-size:0.8rem;min-width:60px;text-align:center;"></span>
           <button class="mini-btn" id="nextVoicingBtn" title="Next voicing" style="font-size:16px;padding:4px 10px;">▶</button>
@@ -674,7 +705,98 @@ const GUITAR_STRINGS = [
   {label:"E2",midi:40},{label:"A2",midi:45},{label:"D3",midi:50},
   {label:"G3",midi:55},{label:"B3",midi:59},{label:"E4",midi:64}
 ];
+const UKULELE_STRINGS = [
+  {label:"G4",midi:67},{label:"C4",midi:60},{label:"E4",midi:64},{label:"A4",midi:69}
+];
 const MAX_FRET = 14;
+
+/* ── Internationalization ── */
+const I18N = {
+  en: {
+    "Music Theory Pro": "Music Theory Pro",
+    "Chord Lab": "Chord Lab", "Scale Explorer": "Scale Explorer", "Chord Theory": "Chord Theory",
+    "Progressions": "Progressions", "Circle of Fifths": "Circle of Fifths",
+    "Chord root": "Chord root", "Chord quality": "Chord quality",
+    "Piano": "Piano", "Guitar": "Guitar", "Ukulele": "Ukulele", "Both": "Both",
+    "Play": "Play", "Clear": "Clear", "Strum": "Strum", "Play selected": "Play selected",
+    "Selected notes: none": "Selected notes: none", "Selected:": "Selected:",
+    "Root": "Root", "1st inv": "1st inv", "2nd inv": "2nd inv", "3rd inv": "3rd inv", "4th inv": "4th inv",
+    "Settings": "Settings", "Language": "Language", "Sound": "Sound", "On": "On", "Off": "Off",
+    "Close": "Close", "Genre": "Genre", "Key": "Key", "Mode": "Mode", "Major": "Major", "Minor": "Minor",
+    "Tempo": "Tempo", "Supported chord qualities": "Supported chord qualities",
+    "Chords in this scale": "Chords in this scale", "Notes": "Notes",
+    "bass:": "bass:", "active fret": "active fret", "active piano key": "active piano key",
+    "Detected chord candidates": "Detected chord candidates",
+    "Click piano keys to detect chords.": "Click piano keys to detect chords.",
+    "Click frets to build a voicing.": "Click frets to build a voicing.",
+    "Interactive chord lab, scales, theory, progressions & circle of fifths": "Interactive chord lab, scales, theory, progressions & circle of fifths",
+    "Category": "Category", "Scale": "Scale"
+  },
+  it: {
+    "Music Theory Pro": "Music Theory Pro",
+    "Chord Lab": "Laboratorio Accordi", "Scale Explorer": "Esploratore Scale", "Chord Theory": "Teoria Accordi",
+    "Progressions": "Progressioni", "Circle of Fifths": "Circolo delle Quinte",
+    "Chord root": "Nota fondamentale", "Chord quality": "Tipo di accordo",
+    "Piano": "Pianoforte", "Guitar": "Chitarra", "Ukulele": "Ukulele", "Both": "Entrambi",
+    "Play": "Riproduci", "Clear": "Cancella", "Strum": "Strimpella", "Play selected": "Riproduci selezione",
+    "Selected notes: none": "Note selezionate: nessuna", "Selected:": "Selezionate:",
+    "Root": "Fondamentale", "1st inv": "1° riv", "2nd inv": "2° riv", "3rd inv": "3° riv", "4th inv": "4° riv",
+    "Settings": "Impostazioni", "Language": "Lingua", "Sound": "Audio", "On": "Sì", "Off": "No",
+    "Close": "Chiudi", "Genre": "Genere", "Key": "Tonalità", "Mode": "Modo", "Major": "Maggiore", "Minor": "Minore",
+    "Tempo": "Tempo", "Supported chord qualities": "Tipi di accordi supportati",
+    "Chords in this scale": "Accordi in questa scala", "Notes": "Note",
+    "bass:": "basso:", "active fret": "tasto attivo", "active piano key": "tasto piano attivo",
+    "Detected chord candidates": "Accordi rilevati",
+    "Click piano keys to detect chords.": "Clicca i tasti del piano per rilevare gli accordi.",
+    "Click frets to build a voicing.": "Clicca i tasti per costruire un voicing.",
+    "Interactive chord lab, scales, theory, progressions & circle of fifths": "Laboratorio interattivo di accordi, scale, teoria, progressioni e circolo delle quinte",
+    "Category": "Categoria", "Scale": "Scala"
+  },
+  es: {
+    "Music Theory Pro": "Music Theory Pro",
+    "Chord Lab": "Laboratorio de Acordes", "Scale Explorer": "Explorador de Escalas", "Chord Theory": "Teoría de Acordes",
+    "Progressions": "Progresiones", "Circle of Fifths": "Círculo de Quintas",
+    "Chord root": "Nota raíz", "Chord quality": "Tipo de acorde",
+    "Piano": "Piano", "Guitar": "Guitarra", "Ukulele": "Ukulele", "Both": "Ambos",
+    "Play": "Reproducir", "Clear": "Borrar", "Strum": "Rasguear", "Play selected": "Reproducir selección",
+    "Selected notes: none": "Notas seleccionadas: ninguna", "Selected:": "Seleccionadas:",
+    "Root": "Fundamental", "1st inv": "1ª inv", "2nd inv": "2ª inv", "3rd inv": "3ª inv", "4th inv": "4ª inv",
+    "Settings": "Ajustes", "Language": "Idioma", "Sound": "Sonido", "On": "Sí", "Off": "No",
+    "Close": "Cerrar", "Genre": "Género", "Key": "Tonalidad", "Mode": "Modo", "Major": "Mayor", "Minor": "Menor",
+    "Tempo": "Tempo", "Supported chord qualities": "Tipos de acordes soportados",
+    "Chords in this scale": "Acordes en esta escala", "Notes": "Notas",
+    "bass:": "bajo:", "active fret": "traste activo", "active piano key": "tecla de piano activa",
+    "Detected chord candidates": "Acordes detectados",
+    "Click piano keys to detect chords.": "Haz clic en las teclas del piano para detectar acordes.",
+    "Click frets to build a voicing.": "Haz clic en los trastes para construir un voicing.",
+    "Interactive chord lab, scales, theory, progressions & circle of fifths": "Laboratorio interactivo de acordes, escalas, teoría, progresiones y círculo de quintas",
+    "Category": "Categoría", "Scale": "Escala"
+  },
+  fr: {
+    "Music Theory Pro": "Music Theory Pro",
+    "Chord Lab": "Labo d'Accords", "Scale Explorer": "Explorateur de Gammes", "Chord Theory": "Théorie des Accords",
+    "Progressions": "Progressions", "Circle of Fifths": "Cycle des Quintes",
+    "Chord root": "Note fondamentale", "Chord quality": "Type d'accord",
+    "Piano": "Piano", "Guitar": "Guitare", "Ukulele": "Ukulélé", "Both": "Les deux",
+    "Play": "Jouer", "Clear": "Effacer", "Strum": "Gratter", "Play selected": "Jouer la sélection",
+    "Selected notes: none": "Notes sélectionnées: aucune", "Selected:": "Sélectionnées:",
+    "Root": "Fondamentale", "1st inv": "1er renv", "2nd inv": "2e renv", "3rd inv": "3e renv", "4th inv": "4e renv",
+    "Settings": "Paramètres", "Language": "Langue", "Sound": "Son", "On": "Oui", "Off": "Non",
+    "Close": "Fermer", "Genre": "Genre", "Key": "Tonalité", "Mode": "Mode", "Major": "Majeur", "Minor": "Mineur",
+    "Tempo": "Tempo", "Supported chord qualities": "Types d'accords pris en charge",
+    "Chords in this scale": "Accords dans cette gamme", "Notes": "Notes",
+    "bass:": "basse:", "active fret": "frette active", "active piano key": "touche de piano active",
+    "Detected chord candidates": "Accords détectés",
+    "Click piano keys to detect chords.": "Cliquez sur les touches du piano pour détecter les accords.",
+    "Click frets to build a voicing.": "Cliquez sur les frettes pour construire un voicing.",
+    "Interactive chord lab, scales, theory, progressions & circle of fifths": "Laboratoire interactif d'accords, gammes, théorie, progressions et cycle des quintes",
+    "Category": "Catégorie", "Scale": "Gamme"
+  }
+};
+
+function t(key) {
+  return (I18N[state.lang] && I18N[state.lang][key]) || I18N.en[key] || key;
+}
 
 /* ── Chord Formulas ── */
 const CHORD_FORMULAS = {
@@ -962,9 +1084,11 @@ const PROGRESSIONS = {
     { name: "Bossa Turnaround", roman: "Imaj7 – vi(m7) – ii(m7) – V7", degrees: [0,5,1,4], qualities: ["maj7","m7","m7","7"], description: "Same as jazz turnaround but played with bossa rhythm. Light, floating feel." }
   ],
   "Flamenco": [
-    { name: "Andalusian Cadence", roman: "iv – III – II – I", degrees: [3,2,1,0], qualities: ["m","","",""], phrygian: true, description: "THE flamenco progression. In Phrygian mode, descending. 'Hit the Road Jack', 'Hava Nagila'. The I chord is often played as major." },
-    { name: "Phrygian Dominant", roman: "i – bVII – bVI – V", degrees_abs: [0,10,8,7], qualities: ["m","","",""], description: "Uses the Phrygian dominant scale. Exotic, intense. Common in flamenco guitar." },
-    { name: "Buleria Pattern", roman: "i – bVII – bVI – V – i", degrees_abs: [0,10,8,7,0], qualities: ["m","","","","m"], description: "Extended flamenco pattern with return to i. Fast, rhythmic, percussive." }
+    { name: "Andalusian Cadence", roman: "Am – G – F – E", degrees_abs: [0,10,8,7], qualities: ["m","","",""], description: "THE iconic flamenco progression. Descending in A Phrygian: Am–G–F–E. The final E is major, creating dramatic tension. 'Hit the Road Jack', 'Hava Nagila'." },
+    { name: "Flamenco Rumba", roman: "Am – G – F – E – Am", degrees_abs: [0,10,8,7,0], qualities: ["m","","","","m"], description: "The Andalusian cadence with a return to the minor tonic. Classic rumba flamenca pattern." },
+    { name: "Soleá", roman: "Am – Dm – E – Am", degrees_abs: [0,5,7,0], qualities: ["m","m","","m"], description: "One of the oldest flamenco forms. i–iv–V–i. Deep, solemn, the 'mother' of flamenco." },
+    { name: "Farruca", roman: "Am – E – Am – Dm – Am – E – Am", degrees_abs: [0,7,0,5,0,7,0], qualities: ["m","","m","m","m","","m"], description: "Dramatic minor-key flamenco. Originally danced by men. Dark and powerful." },
+    { name: "Tangos Flamencos", roman: "Am – Dm – E7 – Am", degrees_abs: [0,5,7,0], qualities: ["m","m","7","m"], description: "Upbeat flamenco rhythm. The dominant 7th on V adds bluesy tension before resolving." }
   ],
   "Blues": [
     { name: "12-Bar Blues", roman: "I7 – I7 – I7 – I7 – IV7 – IV7 – I7 – I7 – V7 – IV7 – I7 – V7", degrees: [0,0,0,0,3,3,0,0,4,3,0,4], qualities: ["7","7","7","7","7","7","7","7","7","7","7","7"], description: "The foundation of blues, rock 'n' roll, and much of popular music. All dominant 7th chords." },
@@ -995,6 +1119,38 @@ const PROGRESSIONS = {
     { name: "Country Waltz", roman: "I – V – I – IV – I – V – I", degrees: [0,4,0,3,0,4,0], qualities: ["","","","","","",""], description: "3/4 time, gentle. 'Tennessee Waltz'. Simple but timeless." },
     { name: "Nashville Turnaround", roman: "I – IV – I – V", degrees: [0,3,0,4], qualities: ["","","",""], description: "The Nashville Number System uses numbers instead of note names. This is the most basic pattern." },
     { name: "Country Rock", roman: "I – bVII – IV – I", degrees_abs: [0,10,5,0], qualities: ["","","",""], description: "Adds the flat VII from Mixolydian. Lynyrd Skynyrd, The Allman Brothers." }
+  ],
+  "Reggae": [
+    { name: "One Drop", roman: "I – IV – I – V", degrees: [0,3,0,4], qualities: ["","","",""], description: "Classic reggae groove. Offbeat skank on the 'and' of each beat. Bob Marley's foundation." },
+    { name: "Roots Reggae", roman: "I – V – vi – IV", degrees: [0,4,5,3], qualities: ["","","m",""], description: "Mellow, positive vibes. Key of G or D is common. Emphasizes the offbeat." },
+    { name: "Dub Progression", roman: "i – bVII – bVI – bVII", degrees_abs: [0,10,8,10], qualities: ["m","","",""], description: "Hypnotic, repetitive. Heavy bass and reverb. Lee Scratch Perry style." }
+  ],
+  "Latin": [
+    { name: "Son Cubano", roman: "I – IV – V – I", degrees: [0,3,4,0], qualities: ["","","",""], description: "Foundation of salsa. Played with clave rhythm. Buena Vista Social Club." },
+    { name: "Bolero", roman: "Imaj7 – vi(m7) – ii(m7) – V7", degrees: [0,5,1,4], qualities: ["maj7","m7","m7","7"], description: "Romantic Latin ballad form. Slow, expressive, with rich harmonies." },
+    { name: "Tango", roman: "i – iv – V7 – i", degrees: [0,3,4,0], qualities: ["m","m","7","m"], description: "Argentine tango. Dramatic minor key with strong V7 resolution. Bandoneón-driven." },
+    { name: "Cumbia", roman: "I – IV – V – IV", degrees: [0,3,4,3], qualities: ["","","",""], description: "Colombian cumbia pattern. Infectious, danceable. Spread across all of Latin America." }
+  ],
+  "Funk": [
+    { name: "One-Chord Funk", roman: "I7 – I7 – I7 – I7", degrees: [0,0,0,0], qualities: ["7","7","7","7"], description: "Pure groove, one chord. James Brown style. It's all about the rhythm and feel." },
+    { name: "Funky Two-Chord", roman: "I7 – IV7", degrees: [0,3], qualities: ["7","7"], description: "Simple but effective. Alternating two dominant 7th chords. Parliament-Funkadelic." },
+    { name: "Disco Funk", roman: "i(m7) – IV7 – i(m7) – bVII7", degrees_abs: [0,5,0,10], qualities: ["m7","7","m7","7"], description: "Dance-floor ready. Minor groove with major IV and bVII. Earth, Wind & Fire vibes." }
+  ],
+  "Metal": [
+    { name: "Doom Metal", roman: "i – bVI – bVII – i", degrees_abs: [0,8,10,0], qualities: ["5","5","5","5"], description: "Slow, heavy, crushing. Black Sabbath's signature sound. Power chords with distortion." },
+    { name: "Thrash Riff", roman: "i – bII – i – bII", degrees_abs: [0,1,0,1], qualities: ["5","5","5","5"], description: "Chromatic aggression. The bII creates maximum tension. Metallica, Slayer." },
+    { name: "Harmonic Minor Metal", roman: "i – bVI – bVII – V", degrees_abs: [0,8,10,7], qualities: ["m","","",""], description: "Neoclassical metal. Uses harmonic minor's raised 7th for exotic flavor. Yngwie Malmsteen." },
+    { name: "Djent / Prog Metal", roman: "i – bVII – bVI – IV", degrees_abs: [0,10,8,5], qualities: ["5","5","5","5"], description: "Modern progressive metal. Extended range guitars, syncopated rhythms. Meshuggah, Periphery." }
+  ],
+  "Gospel": [
+    { name: "Gospel Shout", roman: "I – I7 – IV – iv – I", degrees: [0,0,3,3,0], qualities: ["","7","","m",""], description: "The IV to iv minor plagal motion is the 'amen' cadence. Uplifting, church-filled joy." },
+    { name: "Gospel Turnaround", roman: "I – vi – ii – V – I", degrees: [0,5,1,4,0], qualities: ["maj7","m7","m9","13","maj7"], description: "Rich extended chords with smooth voice leading. Kirk Franklin, Fred Hammond." },
+    { name: "Praise & Worship", roman: "I – V – vi – IV", degrees: [0,4,5,3], qualities: ["","","m",""], description: "Modern worship uses pop progressions with passionate delivery. Hillsong, Bethel Music." }
+  ],
+  "EDM": [
+    { name: "Trance Anthem", roman: "vi – IV – I – V", degrees: [5,3,0,4], qualities: ["m","","",""], description: "Emotional, euphoric build. Armin van Buuren, Above & Beyond territory." },
+    { name: "House Groove", roman: "i – bVII – bVI – bVII", degrees_abs: [0,10,8,10], qualities: ["m","","",""], description: "Deep house minor loop. Hypnotic, repetitive. Disclosure, Duke Dumont." },
+    { name: "Future Bass", roman: "I – iii – vi – IV", degrees: [0,2,5,3], qualities: ["","m","m",""], description: "Dreamy, colorful. Flume, San Holo, Marshmello. Often uses lush synth pads." }
   ]
 };
 
@@ -1210,6 +1366,7 @@ function getScaleDegreeNote(keyRoot, degree, mode) {
 
 /* ── Audio synthesis ── */
 function playPianoTone(freq, when = 0) {
+  if (!state.soundEnabled) return;
   ensureAudio();
   const now = audioCtx.currentTime + when;
   const gain = audioCtx.createGain();
@@ -1243,6 +1400,7 @@ function playPianoChord(midiNotes) {
 }
 
 function playGuitarTone(freq, when = 0) {
+  if (!state.soundEnabled) return;
   ensureAudio();
   const now = audioCtx.currentTime + when;
   const sr = audioCtx.sampleRate;
@@ -1266,10 +1424,11 @@ function playGuitarTone(freq, when = 0) {
 
 function playGuitarShape(shape) {
   ensureAudio();
+  const strings = instrStrings();
   let delay = 0;
   shape.forEach((fret, stringIdx) => {
-    if (fret === null) return;
-    playGuitarTone(midiToFreq(GUITAR_STRINGS[stringIdx].midi + fret), delay);
+    if (fret === null || stringIdx >= strings.length) return;
+    playGuitarTone(midiToFreq(strings[stringIdx].midi + fret), delay);
     delay += 0.05;
   });
 }
@@ -1296,7 +1455,10 @@ const state = {
   guitarVoicingIdx: 0,
   pianoInversion: 0,
   pianoChordRoot: null,
-  pianoChordQuality: null
+  pianoChordQuality: null,
+  currentInstrument: "guitar",
+  lang: "en",
+  soundEnabled: true
 };
 
 const rootSelect = document.getElementById("rootSelect");
@@ -1359,12 +1521,15 @@ function createPianoKey(key) {
 
 function guitarNoteMidi(s, f) { return GUITAR_STRINGS[s].midi + f; }
 function guitarNotePc(s, f) { return guitarNoteMidi(s, f) % 12; }
+function instrStrings() { return state.currentInstrument === "ukulele" ? UKULELE_STRINGS : GUITAR_STRINGS; }
+function instrNoteMidi(s, f) { return instrStrings()[s].midi + f; }
+function instrNotePc(s, f) { return instrNoteMidi(s, f) % 12; }
 
 function guitarSelectedPcs() {
   const pcs = []; let bassPc = null;
   state.selectedGuitar.forEach((fret, s) => {
     if (fret === null) return;
-    const pc = guitarNotePc(s, fret);
+    const pc = instrNotePc(s, fret);
     pcs.push(pc);
     if (bassPc === null) bassPc = pc;
   });
@@ -1379,13 +1544,17 @@ function renderFretboard() {
   fretboardEl.appendChild(header);
 
   /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
-  const stringOrder = [...GUITAR_STRINGS.keys()].reverse();
+  const curStrings = state.currentInstrument === "ukulele" ? UKULELE_STRINGS : GUITAR_STRINGS;
+  const stringOrder = [...curStrings.keys()].reverse();
   stringOrder.forEach(si => {
-    const sd = GUITAR_STRINGS[si];
+    const sd = curStrings[si];
     const row = document.createElement("div");
     row.className = "fret-row";
     const label = document.createElement("div");
-    label.className = "string-label"; label.textContent = sd.label;
+    label.className = "string-label";
+    /* Show X if string is muted (null) when a chord voicing is loaded */
+    const isMuted = state.selectedGuitar[si] === null && state.guitarVoicings.length > 0;
+    label.innerHTML = isMuted ? `${sd.label} <span style="color:var(--danger);font-weight:700;margin-left:4px;">✕</span>` : sd.label;
     row.appendChild(label);
     for (let f = 0; f <= MAX_FRET; f++) {
       const cell = document.createElement("div");
@@ -1394,11 +1563,11 @@ function renderFretboard() {
       const marker = document.createElement("div");
       marker.className = "marker"; marker.textContent = f === 0 ? "O" : "";
       cell.appendChild(marker);
-      cell.title = `${sd.label} fret ${f} → ${pcToNote(guitarNotePc(si, f))}`;
+      cell.title = `${sd.label} fret ${f} → ${pcToNote(instrNotePc(si, f))}`;
       cell.addEventListener("click", () => {
         ensureAudio();
         state.selectedGuitar[si] = state.selectedGuitar[si] === f ? null : f;
-        playGuitarTone(midiToFreq(guitarNoteMidi(si, f)));
+        playGuitarTone(midiToFreq(instrNoteMidi(si, f)));
         updateChordLab();
       });
       row.appendChild(cell);
@@ -1485,10 +1654,11 @@ function updatePianoStatus() {
 }
 
 function updateGuitarStatus() {
+  const strings = instrStrings();
   const selected = [];
   state.selectedGuitar.forEach((fret, si) => {
-    if (fret === null) return;
-    selected.push(`${GUITAR_STRINGS[si].label} fret ${fret} → ${pcToNote(guitarNotePc(si, fret))}`);
+    if (fret === null || si >= strings.length) return;
+    selected.push(`${strings[si].label} fret ${fret} → ${pcToNote(instrNotePc(si, fret))}`);
   });
   const {pcs, bassPc} = guitarSelectedPcs();
   const bassText = bassPc === null ? "" : ` · bass: <strong>${pcToNote(bassPc)}</strong>`;
@@ -1548,12 +1718,13 @@ function cyclePianoInversion(delta) {
 
 function scoreShape(shape, chordPcs, rootPc) {
   const sounding = shape.map((f,i) => ({s:i, f})).filter(n => n.f !== null);
-  if (sounding.length < 4) return -10000;
+  const minStrings = state.currentInstrument === "ukulele" ? 3 : 4;
+  if (sounding.length < minStrings) return -10000;
   const fretted = sounding.map(n => n.f).filter(f => f > 0);
   const span = fretted.length ? Math.max(...fretted) - Math.min(...fretted) : 0;
   if (span > 4) return -10000;
   const avg = fretted.length ? fretted.reduce((a,b) => a+b, 0) / fretted.length : 0;
-  const pcs = sounding.map(n => guitarNotePc(n.s, n.f));
+  const pcs = sounding.map(n => instrNotePc(n.s, n.f));
   const pcsSet = new Set(pcs);
   return (isSubset(chordPcs, pcsSet) ? 15 : 0) + pcsSet.size * 2
     + (pcs.length && pcs[0] === rootPc ? 8 : 0)
@@ -1569,13 +1740,15 @@ function productArrays(arrays) {
 
 function findAllGuitarVoicings(rootPc, quality) {
   const cPcs = chordPitchClasses(rootPc, quality);
+  const strings = instrStrings();
+  const numStrings = strings.length;
   const scored = [];
   for (let start = 0; start <= 8; start++) {
     const perString = [];
-    for (let si = 0; si < 6; si++) {
+    for (let si = 0; si < numStrings; si++) {
       const opts = [null];
       for (let f = 0; f <= MAX_FRET; f++) {
-        if (!cPcs.has(guitarNotePc(si, f))) continue;
+        if (!cPcs.has(instrNotePc(si, f))) continue;
         if (f === 0 || (f >= start && f <= start + 4)) opts.push(f);
       }
       const limited = [...new Set(opts)].sort((a,b) => (a===null?-1:b===null?1:a-b)).slice(0, 5);
@@ -1583,7 +1756,7 @@ function findAllGuitarVoicings(rootPc, quality) {
     }
     for (const shape of productArrays(perString)) {
       const pcs = []; let bass = null;
-      shape.forEach((f, si) => { if (f === null) return; pcs.push(guitarNotePc(si, f)); if (bass === null) bass = guitarNotePc(si, f); });
+      shape.forEach((f, si) => { if (f === null) return; pcs.push(instrNotePc(si, f)); if (bass === null) bass = instrNotePc(si, f); });
       const pcsSet = new Set(pcs);
       if (!pcs.length || !pcsSet.has(rootPc) || pcsSet.size < Math.min(3, cPcs.size)) continue;
       if (!isSubset(pcsSet, cPcs)) continue;
@@ -1592,16 +1765,15 @@ function findAllGuitarVoicings(rootPc, quality) {
     }
   }
   scored.sort((a, b) => b.score - a.score);
-  /* Deduplicate identical shapes */
   const unique = [];
   const seen = new Set();
   for (const s of scored) {
     const key = s.shape.join(",");
     if (!seen.has(key)) { seen.add(key); unique.push(s.shape); }
-    if (unique.length >= 8) break; /* Keep top 8 voicings */
+    if (unique.length >= 20) break;
   }
   if (!unique.length) {
-    unique.push(GUITAR_STRINGS.map((_, si) => { for (let f = 0; f <= MAX_FRET; f++) if (cPcs.has(guitarNotePc(si, f))) return f; return null; }));
+    unique.push(strings.map((_, si) => { for (let f = 0; f <= MAX_FRET; f++) if (cPcs.has(instrNotePc(si, f))) return f; return null; }));
   }
   return unique;
 }
@@ -1609,7 +1781,7 @@ function findAllGuitarVoicings(rootPc, quality) {
 function loadChordIntoGuitar(rootPc, quality) {
   state.guitarVoicings = findAllGuitarVoicings(rootPc, quality);
   state.guitarVoicingIdx = 0;
-  state.selectedGuitar = state.guitarVoicings[0];
+  state.selectedGuitar = state.guitarVoicings[0] || Array(instrStrings().length).fill(null);
   updateChordLab();
 }
 
@@ -1638,15 +1810,22 @@ document.getElementById("loadPianoBtn").addEventListener("click", () => { ensure
 document.getElementById("loadGuitarBtn").addEventListener("click", () => { ensureAudio(); const r = noteToPc(rootSelect.value), q = qualitySelect.value; loadChordIntoGuitar(r, q); playGuitarShape(state.selectedGuitar); });
 document.getElementById("loadBothBtn").addEventListener("click", () => { ensureAudio(); const r = noteToPc(rootSelect.value), q = qualitySelect.value; loadChordIntoPiano(r, q); loadChordIntoGuitar(r, q); playBrowserChord(); });
 document.getElementById("playBrowserBtn").addEventListener("click", () => { ensureAudio(); playBrowserChord(); });
-document.getElementById("clearAllBtn").addEventListener("click", () => { state.selectedPiano = new Set(); state.selectedGuitar = Array(6).fill(null); state.guitarVoicings = []; state.guitarVoicingIdx = 0; state.pianoInversion = 0; state.pianoChordQuality = null; state.pianoChordRoot = null; updateChordLab(); });
+document.getElementById("clearAllBtn").addEventListener("click", () => { state.selectedPiano = new Set(); state.selectedGuitar = Array(instrStrings().length).fill(null); state.guitarVoicings = []; state.guitarVoicingIdx = 0; state.pianoInversion = 0; state.pianoChordQuality = null; state.pianoChordRoot = null; updateChordLab(); });
 document.getElementById("playPianoBtn").addEventListener("click", () => { ensureAudio(); playPianoChord([...state.selectedPiano]); });
 document.getElementById("clearPianoBtn").addEventListener("click", () => { state.selectedPiano = new Set(); state.pianoInversion = 0; state.pianoChordQuality = null; state.pianoChordRoot = null; updateChordLab(); });
 document.getElementById("strumGuitarBtn").addEventListener("click", () => { ensureAudio(); playGuitarShape(state.selectedGuitar); });
-document.getElementById("clearGuitarBtn").addEventListener("click", () => { state.selectedGuitar = Array(6).fill(null); state.guitarVoicings = []; state.guitarVoicingIdx = 0; updateChordLab(); });
+document.getElementById("clearGuitarBtn").addEventListener("click", () => { state.selectedGuitar = Array(instrStrings().length).fill(null); state.guitarVoicings = []; state.guitarVoicingIdx = 0; updateChordLab(); });
 document.getElementById("prevVoicingBtn").addEventListener("click", () => { cycleGuitarVoicing(-1); });
 document.getElementById("nextVoicingBtn").addEventListener("click", () => { cycleGuitarVoicing(1); });
 document.getElementById("prevInversionBtn").addEventListener("click", () => { cyclePianoInversion(-1); });
 document.getElementById("nextInversionBtn").addEventListener("click", () => { cyclePianoInversion(1); });
+document.getElementById("instrSelect").addEventListener("change", (e) => {
+  state.currentInstrument = e.target.value;
+  state.selectedGuitar = Array(instrStrings().length).fill(null);
+  state.guitarVoicings = []; state.guitarVoicingIdx = 0;
+  document.getElementById("fretInstrTitle").textContent = state.currentInstrument === "ukulele" ? t("Ukulele") : t("Guitar");
+  updateChordLab();
+});
 rootSelect.addEventListener("change", updateBrowserSummary);
 qualitySelect.addEventListener("change", updateBrowserSummary);
 
@@ -1762,10 +1941,10 @@ function renderScaleFretboard(rootPc, pcs) {
   header.innerHTML = `<div></div>${Array.from({length:MAX_FRET+1}, (_,i) => `<div style="text-align:center">${i === 0 ? "O" : i}</div>`).join("")}`;
   scaleFretboardEl.appendChild(header);
 
-  /* Render strings from high E (index 5) to low E (index 0) — standard diagram orientation */
-  const stringOrder = [...GUITAR_STRINGS.keys()].reverse();
+  const curStrings = state.currentInstrument === "ukulele" ? UKULELE_STRINGS : GUITAR_STRINGS;
+  const stringOrder = [...curStrings.keys()].reverse();
   stringOrder.forEach(si => {
-    const sd = GUITAR_STRINGS[si];
+    const sd = curStrings[si];
     const row = document.createElement("div");
     row.className = "fret-row";
     const label = document.createElement("div");
@@ -1774,14 +1953,14 @@ function renderScaleFretboard(rootPc, pcs) {
     for (let f = 0; f <= MAX_FRET; f++) {
       const cell = document.createElement("div");
       cell.className = "string-cell" + (f === 0 ? " open-cell" : "");
-      const pc = guitarNotePc(si, f);
+      const pc = instrNotePc(si, f);
       if (pcs.has(pc)) cell.classList.add(pc === rootPc ? "scale-root-dot" : "scale-dot");
       const marker = document.createElement("div");
       marker.className = "marker";
       if (pcs.has(pc)) marker.textContent = pcToNote(pc);
       cell.appendChild(marker);
       cell.title = `${sd.label} fret ${f} → ${pcToNote(pc)}`;
-      cell.addEventListener("click", () => { ensureAudio(); playGuitarTone(midiToFreq(guitarNoteMidi(si, f))); });
+      cell.addEventListener("click", () => { ensureAudio(); playGuitarTone(midiToFreq(instrNoteMidi(si, f))); });
       row.appendChild(cell);
     }
     scaleFretboardEl.appendChild(row);
@@ -2313,6 +2492,74 @@ function updateCircleInfo() {
 }
 
 /* ═══════════════════════════════════════════════════════
+   SETTINGS & i18n
+   ═══════════════════════════════════════════════════════ */
+function applyLanguage() {
+  document.getElementById("appTitle").textContent = t("Music Theory Pro");
+  document.getElementById("appSubtitle").textContent = t("Interactive chord lab, scales, theory, progressions & circle of fifths");
+  document.getElementById("settingsTitle").textContent = t("Settings");
+  document.getElementById("langLabel").textContent = t("Language");
+  document.getElementById("soundLabel").textContent = t("Sound");
+  document.getElementById("soundOnBtn").textContent = t("On");
+  document.getElementById("soundOffBtn").textContent = t("Off");
+  document.getElementById("closeSettingsBtn").textContent = t("Close");
+  /* Tab buttons */
+  const tabLabels = {"chordlab":"Chord Lab","scales":"Scale Explorer","theory":"Chord Theory","progressions":"Progressions","circle":"Circle of Fifths"};
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    const key = btn.dataset.tab;
+    if (key && tabLabels[key]) btn.textContent = t(tabLabels[key]);
+  });
+  /* Chord Lab labels */
+  const rootLabel = document.querySelector('label[for="rootSelect"]');
+  if (rootLabel) rootLabel.textContent = t("Chord root");
+  const qualLabel = document.querySelector('label[for="qualitySelect"]');
+  if (qualLabel) qualLabel.textContent = t("Chord quality");
+  document.getElementById("loadPianoBtn").textContent = t("Piano");
+  document.getElementById("loadGuitarBtn").textContent = state.currentInstrument === "ukulele" ? t("Ukulele") : t("Guitar");
+  document.getElementById("loadBothBtn").textContent = t("Both");
+  document.getElementById("playBrowserBtn").textContent = t("Play");
+  document.getElementById("clearAllBtn").textContent = t("Clear");
+  document.getElementById("playPianoBtn").textContent = t("Play selected");
+  document.getElementById("clearPianoBtn").textContent = t("Clear");
+  document.getElementById("strumGuitarBtn").textContent = t("Strum");
+  document.getElementById("clearGuitarBtn").textContent = t("Clear");
+  document.getElementById("fretInstrTitle").textContent = state.currentInstrument === "ukulele" ? t("Ukulele") : t("Guitar");
+  /* Update sound button styles */
+  updateSoundBtnStyles();
+}
+
+function updateSoundBtnStyles() {
+  const onBtn = document.getElementById("soundOnBtn");
+  const offBtn = document.getElementById("soundOffBtn");
+  onBtn.style.background = state.soundEnabled ? "var(--accent)" : "var(--panel-2)";
+  onBtn.style.color = state.soundEnabled ? "#000" : "var(--text)";
+  offBtn.style.background = !state.soundEnabled ? "var(--danger)" : "var(--panel-2)";
+  offBtn.style.color = !state.soundEnabled ? "#fff" : "var(--text)";
+}
+
+document.getElementById("settingsBtn").addEventListener("click", () => {
+  const modal = document.getElementById("settingsModal");
+  modal.style.display = "flex";
+  document.getElementById("langSelect").value = state.lang;
+});
+document.getElementById("closeSettingsBtn").addEventListener("click", () => {
+  document.getElementById("settingsModal").style.display = "none";
+});
+document.getElementById("settingsModal").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) e.currentTarget.style.display = "none";
+});
+document.getElementById("langSelect").addEventListener("change", (e) => {
+  state.lang = e.target.value;
+  applyLanguage();
+});
+document.getElementById("soundOnBtn").addEventListener("click", () => {
+  state.soundEnabled = true; updateSoundBtnStyles();
+});
+document.getElementById("soundOffBtn").addEventListener("click", () => {
+  state.soundEnabled = false; updateSoundBtnStyles();
+});
+
+/* ═══════════════════════════════════════════════════════
    INITIALIZATION
    ═══════════════════════════════════════════════════════ */
 buildPianoKeyData();
@@ -2323,6 +2570,7 @@ initTheory();
 populateProgControls();
 updateProgressions();
 buildCircleOfFifths();
+applyLanguage();
 </script>
 </body>
 </html>
