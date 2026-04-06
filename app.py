@@ -732,6 +732,10 @@ const I18N = {
     "Root": "Root", "1st inv": "1st inv", "2nd inv": "2nd inv", "3rd inv": "3rd inv", "4th inv": "4th inv",
     "Settings": "Settings", "Language": "Language", "Sound": "Sound", "On": "On", "Off": "Off",
     "Close": "Close", "Genre": "Genre", "Key": "Key", "Mode": "Mode", "Major": "Major", "Minor": "Minor",
+    "major": "major", "minor": "minor", "diminished": "diminished", "augmented": "augmented",
+    "sharp": "sharp", "sharps": "sharps", "flat": "flat", "flats": "flats",
+    "What is the Circle of Fifths?": "What is the Circle of Fifths?",
+    "circle_explanation": "The Circle of Fifths is a visual tool that shows the relationships between the 12 notes of the chromatic scale. Moving clockwise, each key is a perfect 5th higher. Keys next to each other share the most notes and sound good together. The outer ring shows major keys, the inner ring shows their relative minors.",
     "Tempo": "Tempo", "Supported chord qualities": "Supported chord qualities",
     "Chords in this scale": "Chords in this scale", "Notes": "Notes",
     "bass:": "bass:", "active fret": "active fret", "active piano key": "active piano key",
@@ -794,6 +798,10 @@ const I18N = {
     "Root": "Fondamentale", "1st inv": "1° riv", "2nd inv": "2° riv", "3rd inv": "3° riv", "4th inv": "4° riv",
     "Settings": "Impostazioni", "Language": "Lingua", "Sound": "Audio", "On": "Sì", "Off": "No",
     "Close": "Chiudi", "Genre": "Genere", "Key": "Tonalità", "Mode": "Modo", "Major": "Maggiore", "Minor": "Minore",
+    "major": "maggiore", "minor": "minore", "diminished": "diminuito", "augmented": "aumentato",
+    "sharp": "diesis", "sharps": "diesis", "flat": "bemolle", "flats": "bemolli",
+    "What is the Circle of Fifths?": "Cos'è il Circolo delle Quinte?",
+    "circle_explanation": "Il Circolo delle Quinte è uno strumento visivo che mostra le relazioni tra le 12 note della scala cromatica. Muovendosi in senso orario, ogni tonalità è una quinta perfetta più alta. Le tonalità vicine condividono più note e suonano bene insieme. L'anello esterno mostra le tonalità maggiori, quello interno le relative minori.",
     "Tempo": "Tempo", "Supported chord qualities": "Tipi di accordi supportati",
     "Chords in this scale": "Accordi in questa scala", "Notes": "Note",
     "bass:": "basso:", "active fret": "tasto attivo", "active piano key": "tasto piano attivo",
@@ -855,6 +863,10 @@ const I18N = {
     "Root": "Fundamental", "1st inv": "1ª inv", "2nd inv": "2ª inv", "3rd inv": "3ª inv", "4th inv": "4ª inv",
     "Settings": "Ajustes", "Language": "Idioma", "Sound": "Sonido", "On": "Sí", "Off": "No",
     "Close": "Cerrar", "Genre": "Género", "Key": "Tonalidad", "Mode": "Modo", "Major": "Mayor", "Minor": "Menor",
+    "major": "mayor", "minor": "menor", "diminished": "disminuido", "augmented": "aumentado",
+    "sharp": "sostenido", "sharps": "sostenidos", "flat": "bemol", "flats": "bemoles",
+    "What is the Circle of Fifths?": "¿Qué es el Círculo de Quintas?",
+    "circle_explanation": "El Círculo de Quintas es una herramienta visual que muestra las relaciones entre las 12 notas de la escala cromática. Moviéndose en sentido horario, cada tonalidad sube una quinta perfecta. Las tonalidades vecinas comparten más notas y suenan bien juntas. El anillo exterior muestra las tonalidades mayores, el interior las relativas menores.",
     "Tempo": "Tempo", "Supported chord qualities": "Tipos de acordes soportados",
     "Chords in this scale": "Acordes en esta escala", "Notes": "Notas",
     "bass:": "bajo:", "active fret": "traste activo", "active piano key": "tecla de piano activa",
@@ -916,6 +928,10 @@ const I18N = {
     "Root": "Fondamentale", "1st inv": "1er renv", "2nd inv": "2e renv", "3rd inv": "3e renv", "4th inv": "4e renv",
     "Settings": "Paramètres", "Language": "Langue", "Sound": "Son", "On": "Oui", "Off": "Non",
     "Close": "Fermer", "Genre": "Genre", "Key": "Tonalité", "Mode": "Mode", "Major": "Majeur", "Minor": "Mineur",
+    "major": "majeur", "minor": "mineur", "diminished": "diminué", "augmented": "augmenté",
+    "sharp": "dièse", "sharps": "dièses", "flat": "bémol", "flats": "bémols",
+    "What is the Circle of Fifths?": "Qu'est-ce que le Cycle des Quintes ?",
+    "circle_explanation": "Le Cycle des Quintes est un outil visuel qui montre les relations entre les 12 notes de la gamme chromatique. En avançant dans le sens horaire, chaque tonalité monte d'une quinte parfaite. Les tonalités voisines partagent le plus de notes et sonnent bien ensemble. L'anneau extérieur montre les tonalités majeures, l'intérieur les relatives mineures.",
     "Tempo": "Tempo", "Supported chord qualities": "Types d'accords pris en charge",
     "Chords in this scale": "Accords dans cette gamme", "Notes": "Notes",
     "bass:": "basse:", "active fret": "frette active", "active piano key": "touche de piano active",
@@ -1405,7 +1421,50 @@ function getScaleDescription(scaleName) {
   const tables = { it: SCALE_DESC_IT, es: SCALE_DESC_ES, fr: SCALE_DESC_FR };
   const langTable = tables[state.lang];
   if (langTable && langTable[scaleName]) return langTable[scaleName];
-  return null; /* fall back to default English in SCALE_DATA */
+  return null;
+}
+
+/* Progression description translations — key: "Genre:ProgName" */
+const PROG_DESC_IT = {
+  "Pop:The Most Common": "La progressione più usata nel pop moderno.",
+  "Pop:50s Progression": "Classico doo-wop. Dolce, nostalgico.",
+  "Pop:Canon Progression": "Il Canone di Pachelbel. Linea di basso discendente.",
+  "Jazz:ii-V-I Major": "LA cadenza fondamentale del jazz. Il V7 crea tensione che risolve su I.",
+  "Jazz:ii-V-i Minor": "Versione in minore. Il ii è semidiminuito, il V è spesso dom7(b9). Scuro, sofisticato.",
+  "Flamenco:Andalusian Cadence": "LA progressione iconica del flamenco. Discendente in La frigio: Lam–Sol–Fa–Mi.",
+  "Flamenco:Soleá": "Una delle forme flamenco più antiche. La 'madre' del flamenco.",
+  "Blues:12-Bar Blues": "Le fondamenta del blues, rock and roll e gran parte della musica popolare.",
+  "Rock:Classic Rock": "Le fondamenta del rock and roll. Energia pura.",
+  "Classical:Authentic Cadence": "La cadenza più fondamentale nella musica occidentale.",
+  "Bossa Nova:Classic Bossa": "Ciclo bossa nova standard. Delicato, ondeggiante.",
+};
+const PROG_DESC_ES = {
+  "Pop:The Most Common": "La progresión más usada en el pop moderno.",
+  "Pop:50s Progression": "Clásico doo-wop. Suave, nostálgico.",
+  "Jazz:ii-V-I Major": "LA cadencia fundamental del jazz. El V7 crea tensión que resuelve a I.",
+  "Flamenco:Andalusian Cadence": "LA progresión icónica del flamenco. Descendente en La frigio: Lam–Sol–Fa–Mi.",
+  "Flamenco:Soleá": "Una de las formas flamencas más antiguas. La 'madre' del flamenco.",
+  "Blues:12-Bar Blues": "Los cimientos del blues, rock and roll y gran parte de la música popular.",
+  "Rock:Classic Rock": "Los cimientos del rock and roll. Energía pura.",
+  "Classical:Authentic Cadence": "La cadencia más fundamental en la música occidental.",
+};
+const PROG_DESC_FR = {
+  "Pop:The Most Common": "La progression la plus utilisée dans la pop moderne.",
+  "Pop:50s Progression": "Classique doo-wop. Doux, nostalgique.",
+  "Jazz:ii-V-I Major": "LA cadence fondamentale du jazz. Le V7 crée une tension qui résout sur I.",
+  "Flamenco:Andalusian Cadence": "LA progression iconique du flamenco. Descendante en La phrygien : Lam–Sol–Fa–Mi.",
+  "Flamenco:Soleá": "Une des plus anciennes formes du flamenco. La 'mère' du flamenco.",
+  "Blues:12-Bar Blues": "Les fondations du blues, du rock and roll et d'une grande partie de la musique populaire.",
+  "Rock:Classic Rock": "Les fondations du rock and roll. Énergie pure.",
+  "Classical:Authentic Cadence": "La cadence la plus fondamentale de la musique occidentale.",
+};
+
+function getProgDescription(genre, progName, defaultDesc) {
+  const tables = { it: PROG_DESC_IT, es: PROG_DESC_ES, fr: PROG_DESC_FR };
+  const langTable = tables[state.lang];
+  const key = genre + ":" + progName;
+  if (langTable && langTable[key]) return langTable[key];
+  return defaultDesc;
 }
 
 /* ── Interval Names ── */
@@ -1719,7 +1778,13 @@ function pcToNoteFlat(pc) {
   return state.notationStyle === "solfege" ? NOTE_NAMES_SOLFEGE_FLAT[idx] : NOTE_NAMES_FLAT[idx];
 }
 function midiToFreq(m) { return 440 * Math.pow(2, (m - 69) / 12); }
-function displayQuality(q) { return q === "" ? "major" : q; }
+function displayQuality(q) {
+  if (q === "") return t("major");
+  if (q === "m") return t("minor");
+  if (q === "dim") return t("diminished");
+  if (q === "aug") return t("augmented");
+  return q;
+}
 function chordName(rootPc, quality) { return pcToNote(rootPc) + (quality || ""); }
 function chordPitchClasses(rootPc, quality) { return new Set(CHORD_FORMULAS[quality].map(i => (rootPc+i)%12)); }
 function chordNotes(rootPc, quality) { return CHORD_FORMULAS[quality].map(i => pcToNote(rootPc+i)); }
@@ -2259,31 +2324,36 @@ function updateScaleDisplay() {
     return iv ? iv.short : i;
   });
 
+  /* Use translated description if available, history stays English (too long to translate) */
+  const translatedDesc = getScaleDescription(scaleTypeSelect.value);
+  const descText = translatedDesc || data.description;
+  const histText = data.history;
+
   scaleInfoGrid.innerHTML = `
-    <div class="info-box"><div class="label">Scale</div><div class="value">${pcToNote(rootPc)} ${scaleTypeSelect.value}</div></div>
-    <div class="info-box"><div class="label">Notes</div><div class="value">${notes.join(" – ")}</div></div>
-    <div class="info-box"><div class="label">Formula</div><div class="value">${data.formula}</div></div>
-    <div class="info-box"><div class="label">Degrees</div><div class="value">${degrees.join(" – ")}</div></div>
-    <div class="info-box"><div class="label">Intervals</div><div class="value">${intervalNames.join(" – ")}</div>
+    <div class="info-box"><div class="label">${t("Scale")}</div><div class="value">${pcToNote(rootPc)} ${scaleTypeSelect.value}</div></div>
+    <div class="info-box"><div class="label">${t("Notes")}</div><div class="value">${notes.join(" – ")}</div></div>
+    <div class="info-box"><div class="label">${t("Formula")}</div><div class="value">${data.formula}</div></div>
+    <div class="info-box"><div class="label">${t("Degrees")}</div><div class="value">${degrees.join(" – ")}</div></div>
+    <div class="info-box"><div class="label">${t("Intervals")}</div><div class="value">${intervalNames.join(" – ")}</div>
       <div style="font-size:0.75rem;color:var(--muted);margin-top:6px;line-height:1.5;">
-        <strong>P</strong> = Perfect (stable, unchanged in major/minor) &nbsp;·&nbsp;
-        <strong>M</strong> = Major (bright, from major scale) &nbsp;·&nbsp;
-        <strong>m</strong> = minor (dark, one semitone lower than Major) &nbsp;·&nbsp;
-        <strong>TT</strong> = Tritone (6 semitones, unstable)
+        <strong>P</strong> = ${t("P_legend")} &nbsp;·&nbsp;
+        <strong>M</strong> = ${t("M_legend")} &nbsp;·&nbsp;
+        <strong>m</strong> = ${t("m_legend")} &nbsp;·&nbsp;
+        <strong>TT</strong> = ${t("TT_legend")}
       </div>
     </div>
-    <div class="info-box" style="grid-column:1/-1"><div class="label">Description</div><div class="value" style="font-weight:400;font-size:0.88rem;">${data.description}</div></div>
+    <div class="info-box" style="grid-column:1/-1"><div class="label">${t("Description")}</div><div class="value" style="font-weight:400;font-size:0.88rem;">${descText}</div></div>
   `;
 
   /* History / Theory panel */
   const historyPanel = document.getElementById("scaleHistoryPanel");
-  if (data.history) {
+  if (histText) {
     let tagsHtml = "";
-    if (data.tags) tagsHtml = data.tags.map(t => `<span class="tag">${t}</span>`).join("");
+    if (data.tags) tagsHtml = data.tags.map(tg => `<span class="tag">${tg}</span>`).join("");
     historyPanel.innerHTML = `<div class="scale-history">
-      <h3>Theory &amp; History: ${pcToNote(rootPc)} ${scaleTypeSelect.value}</h3>
+      <h3>${t("Theory & History:")} ${pcToNote(rootPc)} ${scaleTypeSelect.value}</h3>
       ${tagsHtml ? '<div style="margin-bottom:10px;">' + tagsHtml + '</div>' : ''}
-      <p>${data.history}</p>
+      <p>${histText}</p>
     </div>`;
   } else {
     historyPanel.innerHTML = "";
@@ -2568,11 +2638,13 @@ function renderStaffNotation(rootPc, intervals) {
 function initTheory() {
   const nav = document.getElementById("theoryNav");
   const content = document.getElementById("theoryContent");
+  nav.innerHTML = "";
+  content.innerHTML = "";
 
   THEORY_SECTIONS.forEach((section, i) => {
     const btn = document.createElement("button");
     btn.className = "theory-nav-btn" + (i === 0 ? " active" : "");
-    btn.textContent = section.title;
+    btn.textContent = t(section.title) || section.title;
     btn.addEventListener("click", () => {
       nav.querySelectorAll(".theory-nav-btn").forEach(b => b.classList.remove("active"));
       content.querySelectorAll(".theory-section").forEach(s => s.classList.remove("active"));
@@ -2584,7 +2656,7 @@ function initTheory() {
     const div = document.createElement("div");
     div.className = "theory-section card" + (i === 0 ? " active" : "");
     div.id = "theory-" + section.id;
-    div.innerHTML = `<h3>${section.title}</h3>${section.content}`;
+    div.innerHTML = `<h3>${t(section.title) || section.title}</h3>${section.content}`;
     content.appendChild(div);
   });
 
@@ -2675,7 +2747,7 @@ function updateProgressions() {
       </div>
       <div class="prog-roman">${prog.roman}</div>
       <div class="prog-chords">${chordChips}</div>
-      <div class="prog-desc">${prog.description}</div>
+      <div class="prog-desc">${getProgDescription(genre, prog.name, prog.description)}</div>
     `;
     progList.appendChild(item);
   });
@@ -2768,29 +2840,32 @@ function renderCircleSvg() {
 
   circleKeys.forEach((key, i) => {
     const angle = (i * 30 - 90) * Math.PI / 180;
+    const isSelected = i === selectedCircleKey;
+
+    /* Invisible clickable sector — this is what receives clicks */
+    const a1 = ((i - 0.5) * 30 - 90) * Math.PI / 180;
+    const a2 = ((i + 0.5) * 30 - 90) * Math.PI / 180;
+    const sx1 = cx + rOuter * Math.cos(a1), sy1 = cy + rOuter * Math.sin(a1);
+    const sx2 = cx + rOuter * Math.cos(a2), sy2 = cy + rOuter * Math.sin(a2);
+    svg += `<path d="M ${cx} ${cy} L ${sx1} ${sy1} A ${rOuter} ${rOuter} 0 0 1 ${sx2} ${sy2} Z"
+      fill="transparent" data-idx="${i}" class="circle-sector" style="cursor:pointer"/>`;
 
     /* Major key text */
     const tx = cx + rText * Math.cos(angle);
     const ty = cy + rText * Math.sin(angle);
-    const isSelected = i === selectedCircleKey;
     svg += `<text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="central"
       font-size="${isSelected ? 16 : 13}" font-weight="${isSelected ? 800 : 600}"
-      fill="${isSelected ? '#38bdf8' : '#e5e7eb'}" data-idx="${i}" class="circle-key">${key.major}</text>`;
+      fill="${isSelected ? '#38bdf8' : '#e5e7eb'}" pointer-events="none">${key.major}</text>`;
 
     /* Minor key text */
     const mx = cx + rMinorText * Math.cos(angle);
     const my = cy + rMinorText * Math.sin(angle);
     svg += `<text x="${mx}" y="${my}" text-anchor="middle" dominant-baseline="central"
       font-size="${isSelected ? 12 : 10}" font-weight="${isSelected ? 700 : 400}"
-      fill="${isSelected ? '#f59e0b' : '#94a3b8'}" data-idx="${i}" class="circle-key">${key.minor}</text>`;
+      fill="${isSelected ? '#f59e0b' : '#94a3b8'}" pointer-events="none">${key.minor}</text>`;
 
     /* Divider lines */
-    const midAngle = ((i - 0.5) * 30 - 90) * Math.PI / 180;
-    const lx1 = cx + rInner * Math.cos(midAngle);
-    const ly1 = cy + rInner * Math.sin(midAngle);
-    const lx2 = cx + rOuter * Math.cos(midAngle);
-    const ly2 = cy + rOuter * Math.sin(midAngle);
-    svg += `<line x1="${lx1}" y1="${ly1}" x2="${lx2}" y2="${ly2}" stroke="rgba(148,163,184,0.1)" stroke-width="1"/>`;
+    svg += `<line x1="${sx1}" y1="${sy1}" x2="${cx + rInner * Math.cos(a1)}" y2="${cy + rInner * Math.sin(a1)}" stroke="rgba(148,163,184,0.1)" stroke-width="1" pointer-events="none"/>`;
   });
 
   /* Selection highlight arc */
@@ -2799,7 +2874,7 @@ function renderCircleSvg() {
   const x1 = cx + rOuter * Math.cos(startAngle), y1 = cy + rOuter * Math.sin(startAngle);
   const x2 = cx + rOuter * Math.cos(endAngle), y2 = cy + rOuter * Math.sin(endAngle);
   svg += `<path d="M ${cx} ${cy} L ${x1} ${y1} A ${rOuter} ${rOuter} 0 0 1 ${x2} ${y2} Z"
-    fill="rgba(56,189,248,0.1)" stroke="rgba(56,189,248,0.3)" stroke-width="1"/>`;
+    fill="rgba(56,189,248,0.1)" stroke="rgba(56,189,248,0.3)" stroke-width="1" pointer-events="none"/>`;
 
   svg += `</svg>`;
   wrap.innerHTML = svg;
@@ -2813,9 +2888,9 @@ function buildCircleOfFifths() {
   const wrap = document.getElementById("circleSvgWrap");
   if (!wrap._circleListenerAttached) {
     wrap.addEventListener("click", e => {
-      const el = e.target.closest(".circle-key");
-      if (el) {
-        selectedCircleKey = parseInt(el.dataset.idx);
+      const sector = e.target;
+      if (sector && sector.classList && sector.classList.contains("circle-sector")) {
+        selectedCircleKey = parseInt(sector.dataset.idx);
         renderCircleSvg();
         updateCircleInfo();
       }
@@ -2837,44 +2912,54 @@ function updateCircleInfo() {
 
   let chordsHtml = '<div class="key-chords-grid">';
   MAJOR_SCALE.forEach((interval, i) => {
-    const notePc = (rootPc + interval) % 12;
+    const np = (rootPc + interval) % 12;
     const q = majorChordQualities[i];
     const q7 = majorChord7Qualities[i];
-    chordsHtml += `<div class="key-chord-item" data-pc="${notePc}" data-quality="${q}">
+    chordsHtml += `<div class="key-chord-item" data-pc="${np}" data-quality="${q}">
       <div class="deg">${romanNumerals[i]}</div>
-      <div class="name">${pcToNote(notePc)}${q}</div>
-      <div class="deg">${pcToNote(notePc)}${q7}</div>
+      <div class="name">${pcToNote(np)}${q}</div>
+      <div class="deg">${pcToNote(np)}${q7}</div>
     </div>`;
   });
   chordsHtml += '</div>';
 
-  /* Neighbor keys */
+  /* Key signature text */
+  let sigText = t("No sharps or flats");
+  if (key.sharps) sigText = key.sig + ' (' + key.sharps + ' ' + (key.sharps > 1 ? t("sharps") : t("sharp")) + ')';
+  if (key.flats) sigText = key.sig + ' (' + key.flats + ' ' + (key.flats > 1 ? t("flats") : t("flat")) + ')';
+
   const prevIdx = (selectedCircleKey - 1 + 12) % 12;
   const nextIdx = (selectedCircleKey + 1) % 12;
 
   info.innerHTML = `
-    <div class="info-box"><div class="label">Key</div><div class="value">${key.major} major / ${key.minor}</div></div>
-    <div class="info-box"><div class="label">Key Signature</div><div class="value">${key.sig || 'No sharps or flats'} ${key.sharps ? '(' + key.sharps + ' sharp' + (key.sharps>1?'s':'') + ')' : ''} ${key.flats ? '(' + key.flats + ' flat' + (key.flats>1?'s':'') + ')' : ''}</div></div>
-    <div class="info-box"><div class="label">Relative Minor</div><div class="value">${key.minor}</div></div>
-    <div class="info-box"><div class="label">Closely Related Keys</div><div class="value">← ${circleKeys[prevIdx].major} (IV) | ${circleKeys[nextIdx].major} (V) →</div></div>
+    <div class="info-box" style="grid-column:1/-1;background:rgba(56,189,248,0.05);border:1px solid rgba(56,189,248,0.15);">
+      <div class="label" style="color:var(--accent);">${t("What is the Circle of Fifths?")}</div>
+      <div class="value" style="font-weight:400;font-size:0.85rem;line-height:1.6;">${t("circle_explanation")}</div>
+    </div>
+    <div class="info-box"><div class="label">${t("Key")}</div><div class="value">${key.major} ${t("major")} / ${key.minor}</div></div>
+    <div class="info-box"><div class="label">${t("Key Signature")}</div><div class="value">${sigText}</div></div>
+    <div class="info-box"><div class="label">${t("Relative Minor")}</div><div class="value">${key.minor}</div></div>
+    <div class="info-box"><div class="label">${t("Closely Related Keys")}</div><div class="value">\u2190 ${circleKeys[prevIdx].major} (IV) | ${circleKeys[nextIdx].major} (V) \u2192</div></div>
     <div class="info-box" style="grid-column:1/-1">
-      <div class="label">Diatonic Chords in ${key.major} Major</div>
+      <div class="label">${t("Diatonic Chords in")} ${key.major} ${t("Major")}</div>
       ${chordsHtml}
     </div>
     <div class="info-box" style="grid-column:1/-1">
-      <div class="label">Common Modulations</div>
+      <div class="label">${t("Common Modulations")}</div>
       <div class="value" style="font-weight:400;font-size:0.88rem;">
-        <strong>Dominant (V):</strong> → ${circleKeys[nextIdx].major} (one step clockwise — the most natural modulation)<br>
-        <strong>Subdominant (IV):</strong> → ${circleKeys[prevIdx].major} (one step counter-clockwise)<br>
-        <strong>Relative minor:</strong> → ${key.minor} (same key signature, different tonal center)<br>
-        <strong>Parallel minor:</strong> → ${key.major.replace(/\/.*/, "")}m (same root, different mode)
+        <strong>${t("Dominant (V):")}</strong> \u2192 ${circleKeys[nextIdx].major} (${t("one step clockwise — the most natural modulation")})<br>
+        <strong>${t("Subdominant (IV):")}</strong> \u2192 ${circleKeys[prevIdx].major} (${t("one step counter-clockwise")})<br>
+        <strong>${t("Relative minor:")}</strong> \u2192 ${key.minor} (${t("same key signature, different tonal center")})<br>
+        <strong>${t("Parallel minor:")}</strong> \u2192 ${key.major.replace(/\/.*/, "")}m (${t("same root, different mode")})
       </div>
     </div>
   `;
 
-  /* Wire up chord clicks */
-  info.querySelectorAll(".key-chord-item").forEach(item => {
-    item.addEventListener("click", () => {
+  /* Wire up chord clicks via delegation */
+  if (!info._chordsListenerAttached) {
+    info.addEventListener("click", e => {
+      const item = e.target.closest(".key-chord-item");
+      if (!item) return;
       ensureAudio();
       const pc = parseInt(item.dataset.pc);
       const q = item.dataset.quality;
@@ -2882,7 +2967,8 @@ function updateCircleInfo() {
         playPianoChord(CHORD_FORMULAS[q].map(i => 60 + pc + i));
       }
     });
-  });
+    info._chordsListenerAttached = true;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2919,6 +3005,26 @@ function applyLanguage() {
   document.getElementById("strumGuitarBtn").textContent = t("Strum");
   document.getElementById("clearGuitarBtn").textContent = t("Clear");
   document.getElementById("fretInstrTitle").textContent = state.currentInstrument === "ukulele" ? t("Ukulele") : t("Guitar");
+  /* Progression tab labels */
+  const genreLabel = document.querySelector('label[for="progGenreSelect"]');
+  if (genreLabel) genreLabel.textContent = t("Genre");
+  const keyLabel = document.querySelector('label[for="progKeySelect"]');
+  if (keyLabel) keyLabel.textContent = t("Key");
+  const modeLabel = document.querySelector('label[for="progModeSelect"]');
+  if (modeLabel) modeLabel.textContent = t("Mode");
+  /* Translate mode select options */
+  const modeSelect = document.getElementById("progModeSelect");
+  if (modeSelect) {
+    modeSelect.options[0].textContent = t("Major");
+    modeSelect.options[1].textContent = t("Minor");
+  }
+  /* Scale tab labels */
+  const scaleRootLabel = document.querySelector('label[for="scaleRootSelect"]');
+  if (scaleRootLabel) scaleRootLabel.textContent = t("Root note");
+  const scaleCatLabel = document.querySelector('label[for="scaleCategorySelect"]');
+  if (scaleCatLabel) scaleCatLabel.textContent = t("Category");
+  const scaleTypeLabel = document.querySelector('label[for="scaleTypeSelect"]');
+  if (scaleTypeLabel) scaleTypeLabel.textContent = t("Scale");
   /* Update button styles */
   updateSoundBtnStyles();
   updateNotationBtnStyles();
