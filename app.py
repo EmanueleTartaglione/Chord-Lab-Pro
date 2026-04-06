@@ -785,7 +785,22 @@ const I18N = {
     "one step clockwise — the most natural modulation": "one step clockwise — the most natural modulation",
     "one step counter-clockwise": "one step counter-clockwise",
     "same key signature, different tonal center": "same key signature, different tonal center",
-    "same root, different mode": "same root, different mode"
+    "same root, different mode": "same root, different mode",
+    "diatonic_note_count": "Diatonic chord analysis works best with 7-note scales. This scale has %n notes.",
+    "Play": "Play",
+    "Unison": "Unison", "Same note": "Same note",
+    "Minor 2nd": "Minor 2nd", "Tense, dissonant": "Tense, dissonant",
+    "Major 2nd": "Major 2nd", "Bright step": "Bright step",
+    "Minor 3rd": "Minor 3rd", "Sad, dark — minor chord sound": "Sad, dark — minor chord sound",
+    "Major 3rd": "Major 3rd", "Happy, bright — major chord sound": "Happy, bright — major chord sound",
+    "Perfect 4th": "Perfect 4th", "Open, hymn-like": "Open, hymn-like",
+    "Tritone": "Tritone", "Unstable, devilish": "Unstable, devilish",
+    "Perfect 5th": "Perfect 5th", "Strong, stable — power chord": "Strong, stable — power chord",
+    "Minor 6th": "Minor 6th", "Bittersweet — love themes": "Bittersweet — love themes",
+    "Major 6th": "Major 6th", "Warm, nostalgic": "Warm, nostalgic",
+    "Minor 7th": "Minor 7th", "Bluesy, wanting resolution": "Bluesy, wanting resolution",
+    "Major 7th": "Major 7th", "Dreamy, jazzy tension": "Dreamy, jazzy tension",
+    "Octave": "Octave", "Same note, higher": "Same note, higher"
   },
   it: {
     "Music Theory Pro": "Music Theory Pro",
@@ -850,7 +865,21 @@ const I18N = {
     "one step clockwise — the most natural modulation": "un passo in senso orario — la modulazione più naturale",
     "one step counter-clockwise": "un passo in senso antiorario",
     "same key signature, different tonal center": "stessa armatura di chiave, centro tonale diverso",
-    "same root, different mode": "stessa fondamentale, modo diverso"
+    "same root, different mode": "stessa fondamentale, modo diverso",
+    "diatonic_note_count": "L'analisi degli accordi diatonici funziona meglio con scale di 7 note. Questa scala ha %n note.",
+    "Unison": "Unisono", "Same note": "Stessa nota",
+    "Minor 2nd": "Seconda minore", "Tense, dissonant": "Teso, dissonante",
+    "Major 2nd": "Seconda maggiore", "Bright step": "Passo brillante",
+    "Minor 3rd": "Terza minore", "Sad, dark — minor chord sound": "Triste, scuro — suono dell'accordo minore",
+    "Major 3rd": "Terza maggiore", "Happy, bright — major chord sound": "Felice, brillante — suono dell'accordo maggiore",
+    "Perfect 4th": "Quarta perfetta", "Open, hymn-like": "Aperto, solenne",
+    "Tritone": "Tritono", "Unstable, devilish": "Instabile, diabolico",
+    "Perfect 5th": "Quinta perfetta", "Strong, stable — power chord": "Forte, stabile — power chord",
+    "Minor 6th": "Sesta minore", "Bittersweet — love themes": "Agrodolce — temi d'amore",
+    "Major 6th": "Sesta maggiore", "Warm, nostalgic": "Caldo, nostalgico",
+    "Minor 7th": "Settima minore", "Bluesy, wanting resolution": "Blues, cerca risoluzione",
+    "Major 7th": "Settima maggiore", "Dreamy, jazzy tension": "Sognante, tensione jazz",
+    "Octave": "Ottava", "Same note, higher": "Stessa nota, più alta"
   },
   es: {
     "Music Theory Pro": "Music Theory Pro",
@@ -915,7 +944,21 @@ const I18N = {
     "one step clockwise — the most natural modulation": "un paso en sentido horario — la modulación más natural",
     "one step counter-clockwise": "un paso en sentido antihorario",
     "same key signature, different tonal center": "misma armadura de clave, centro tonal diferente",
-    "same root, different mode": "misma raíz, modo diferente"
+    "same root, different mode": "misma raíz, modo diferente",
+    "diatonic_note_count": "El análisis de acordes diatónicos funciona mejor con escalas de 7 notas. Esta escala tiene %n notas.",
+    "Unison": "Unísono", "Same note": "Misma nota",
+    "Minor 2nd": "Segunda menor", "Tense, dissonant": "Tenso, disonante",
+    "Major 2nd": "Segunda mayor", "Bright step": "Paso brillante",
+    "Minor 3rd": "Tercera menor", "Sad, dark — minor chord sound": "Triste, oscuro — sonido del acorde menor",
+    "Major 3rd": "Tercera mayor", "Happy, bright — major chord sound": "Alegre, brillante — sonido del acorde mayor",
+    "Perfect 4th": "Cuarta perfecta", "Open, hymn-like": "Abierto, solemne",
+    "Tritone": "Tritono", "Unstable, devilish": "Inestable, diabólico",
+    "Perfect 5th": "Quinta perfecta", "Strong, stable — power chord": "Fuerte, estable — power chord",
+    "Minor 6th": "Sexta menor", "Bittersweet — love themes": "Agridulce — temas de amor",
+    "Major 6th": "Sexta mayor", "Warm, nostalgic": "Cálido, nostálgico",
+    "Minor 7th": "Séptima menor", "Bluesy, wanting resolution": "Blues, busca resolución",
+    "Major 7th": "Séptima mayor", "Dreamy, jazzy tension": "Soñador, tensión jazz",
+    "Octave": "Octava", "Same note, higher": "Misma nota, más alta"
   },
   fr: {
     "Music Theory Pro": "Music Theory Pro",
@@ -980,7 +1023,21 @@ const I18N = {
     "one step clockwise — the most natural modulation": "un pas dans le sens horaire — la modulation la plus naturelle",
     "one step counter-clockwise": "un pas dans le sens antihoraire",
     "same key signature, different tonal center": "même armure de clé, centre tonal différent",
-    "same root, different mode": "même fondamentale, mode différent"
+    "same root, different mode": "même fondamentale, mode différent",
+    "diatonic_note_count": "L'analyse des accords diatoniques fonctionne mieux avec les gammes à 7 notes. Cette gamme a %n notes.",
+    "Unison": "Unisson", "Same note": "Même note",
+    "Minor 2nd": "Seconde mineure", "Tense, dissonant": "Tendu, dissonant",
+    "Major 2nd": "Seconde majeure", "Bright step": "Pas brillant",
+    "Minor 3rd": "Tierce mineure", "Sad, dark — minor chord sound": "Triste, sombre — son de l'accord mineur",
+    "Major 3rd": "Tierce majeure", "Happy, bright — major chord sound": "Joyeux, brillant — son de l'accord majeur",
+    "Perfect 4th": "Quarte parfaite", "Open, hymn-like": "Ouvert, solennel",
+    "Tritone": "Triton", "Unstable, devilish": "Instable, diabolique",
+    "Perfect 5th": "Quinte parfaite", "Strong, stable — power chord": "Fort, stable — power chord",
+    "Minor 6th": "Sixte mineure", "Bittersweet — love themes": "Doux-amer — thèmes d'amour",
+    "Major 6th": "Sixte majeure", "Warm, nostalgic": "Chaleureux, nostalgique",
+    "Minor 7th": "Septième mineure", "Bluesy, wanting resolution": "Blues, cherche résolution",
+    "Major 7th": "Septième majeure", "Dreamy, jazzy tension": "Rêveur, tension jazz",
+    "Octave": "Octave", "Same note, higher": "Même note, plus haute"
   }
 };
 
@@ -1578,177 +1635,179 @@ const PROGRESSIONS = {
 };
 
 /* ── Theory Content ── */
-const THEORY_SECTIONS = [
+function getTheorySections() {
+  const p = t("Play");
+  return [
   {
-    id: "intervals", title: "Intervals",
+    id: "intervals", title: t("Intervals"),
     content: `<div class="theory-text">
-      <p>An <strong>interval</strong> is the distance between two notes, measured in semitones (half steps). Intervals are the building blocks of all chords and scales.</p>
-      <p>Each interval has a unique sound quality — from the tight dissonance of a <strong>minor 2nd</strong> to the perfect consonance of an <strong>octave</strong>.</p>
+      <p>${({en:"An <strong>interval</strong> is the distance between two notes, measured in semitones (half steps). Intervals are the building blocks of all chords and scales.",it:"Un <strong>intervallo</strong> è la distanza tra due note, misurata in semitoni. Gli intervalli sono i mattoni fondamentali di tutti gli accordi e le scale.",es:"Un <strong>intervalo</strong> es la distancia entre dos notas, medida en semitonos. Los intervalos son los bloques fundamentales de todos los acordes y escalas.",fr:"Un <strong>intervalle</strong> est la distance entre deux notes, mesurée en demi-tons. Les intervalles sont les éléments de base de tous les accords et gammes."}[state.lang]||"An <strong>interval</strong> is the distance between two notes, measured in semitones (half steps). Intervals are the building blocks of all chords and scales."}</p>
+      <p>${({en:"Each interval has a unique sound quality — from the tight dissonance of a <strong>minor 2nd</strong> to the perfect consonance of an <strong>octave</strong>.",it:"Ogni intervallo ha una qualità sonora unica — dalla stretta dissonanza di una <strong>seconda minore</strong> alla perfetta consonanza di un'<strong>ottava</strong>.",es:"Cada intervalo tiene una cualidad sonora única — desde la tensa disonancia de una <strong>segunda menor</strong> hasta la perfecta consonancia de una <strong>octava</strong>.",fr:"Chaque intervalle a une qualité sonore unique — de la dissonance serrée d'une <strong>seconde mineure</strong> à la consonance parfaite d'une <strong>octave</strong>."}[state.lang]||"Each interval has a unique sound quality — from the tight dissonance of a <strong>minor 2nd</strong> to the perfect consonance of an <strong>octave</strong>."}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Interval</th><th>Semitones</th><th>Sound Quality</th><th>Example (from C)</th><th></th></tr></thead>
+      <thead><tr><th>${t("Interval")}</th><th>${t("Semitones")}</th><th>${t("Sound Quality")}</th><th>${t("Example (from C)")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td>Unison (P1)</td><td>0</td><td>Same note</td><td>C → C</td><td><button class="play-interval-btn" data-st="0">Play</button></td></tr>
-        <tr><td>Minor 2nd (m2)</td><td>1</td><td>Tense, dissonant — 'Jaws' theme</td><td>C → Db</td><td><button class="play-interval-btn" data-st="1">Play</button></td></tr>
-        <tr><td>Major 2nd (M2)</td><td>2</td><td>Bright step — 'Happy Birthday' start</td><td>C → D</td><td><button class="play-interval-btn" data-st="2">Play</button></td></tr>
-        <tr><td>Minor 3rd (m3)</td><td>3</td><td>Sad, dark — minor chord sound</td><td>C → Eb</td><td><button class="play-interval-btn" data-st="3">Play</button></td></tr>
-        <tr><td>Major 3rd (M3)</td><td>4</td><td>Happy, bright — major chord sound</td><td>C → E</td><td><button class="play-interval-btn" data-st="4">Play</button></td></tr>
-        <tr><td>Perfect 4th (P4)</td><td>5</td><td>Open, hymn-like — 'Here Comes the Bride'</td><td>C → F</td><td><button class="play-interval-btn" data-st="5">Play</button></td></tr>
-        <tr><td>Tritone (TT)</td><td>6</td><td>Unstable, devilish — 'The Simpsons' theme</td><td>C → F#</td><td><button class="play-interval-btn" data-st="6">Play</button></td></tr>
-        <tr><td>Perfect 5th (P5)</td><td>7</td><td>Strong, stable — power chord</td><td>C → G</td><td><button class="play-interval-btn" data-st="7">Play</button></td></tr>
-        <tr><td>Minor 6th (m6)</td><td>8</td><td>Bittersweet — love themes</td><td>C → Ab</td><td><button class="play-interval-btn" data-st="8">Play</button></td></tr>
-        <tr><td>Major 6th (M6)</td><td>9</td><td>Warm, nostalgic — 'My Bonnie'</td><td>C → A</td><td><button class="play-interval-btn" data-st="9">Play</button></td></tr>
-        <tr><td>Minor 7th (m7)</td><td>10</td><td>Bluesy, wanting resolution</td><td>C → Bb</td><td><button class="play-interval-btn" data-st="10">Play</button></td></tr>
-        <tr><td>Major 7th (M7)</td><td>11</td><td>Dreamy, jazzy tension</td><td>C → B</td><td><button class="play-interval-btn" data-st="11">Play</button></td></tr>
-        <tr><td>Octave (P8)</td><td>12</td><td>Same note, higher — 'Somewhere Over the Rainbow'</td><td>C → C</td><td><button class="play-interval-btn" data-st="12">Play</button></td></tr>
+        <tr><td>${t("Unison")} (P1)</td><td>0</td><td>${t("Same note")}</td><td>C → C</td><td><button class="play-interval-btn" data-st="0">${p}</button></td></tr>
+        <tr><td>${t("Minor 2nd")} (m2)</td><td>1</td><td>${t("Tense, dissonant")}</td><td>C → Db</td><td><button class="play-interval-btn" data-st="1">${p}</button></td></tr>
+        <tr><td>${t("Major 2nd")} (M2)</td><td>2</td><td>${t("Bright step")}</td><td>C → D</td><td><button class="play-interval-btn" data-st="2">${p}</button></td></tr>
+        <tr><td>${t("Minor 3rd")} (m3)</td><td>3</td><td>${t("Sad, dark — minor chord sound")}</td><td>C → Eb</td><td><button class="play-interval-btn" data-st="3">${p}</button></td></tr>
+        <tr><td>${t("Major 3rd")} (M3)</td><td>4</td><td>${t("Happy, bright — major chord sound")}</td><td>C → E</td><td><button class="play-interval-btn" data-st="4">${p}</button></td></tr>
+        <tr><td>${t("Perfect 4th")} (P4)</td><td>5</td><td>${t("Open, hymn-like")}</td><td>C → F</td><td><button class="play-interval-btn" data-st="5">${p}</button></td></tr>
+        <tr><td>${t("Tritone")} (TT)</td><td>6</td><td>${t("Unstable, devilish")}</td><td>C → F#</td><td><button class="play-interval-btn" data-st="6">${p}</button></td></tr>
+        <tr><td>${t("Perfect 5th")} (P5)</td><td>7</td><td>${t("Strong, stable — power chord")}</td><td>C → G</td><td><button class="play-interval-btn" data-st="7">${p}</button></td></tr>
+        <tr><td>${t("Minor 6th")} (m6)</td><td>8</td><td>${t("Bittersweet — love themes")}</td><td>C → Ab</td><td><button class="play-interval-btn" data-st="8">${p}</button></td></tr>
+        <tr><td>${t("Major 6th")} (M6)</td><td>9</td><td>${t("Warm, nostalgic")}</td><td>C → A</td><td><button class="play-interval-btn" data-st="9">${p}</button></td></tr>
+        <tr><td>${t("Minor 7th")} (m7)</td><td>10</td><td>${t("Bluesy, wanting resolution")}</td><td>C → Bb</td><td><button class="play-interval-btn" data-st="10">${p}</button></td></tr>
+        <tr><td>${t("Major 7th")} (M7)</td><td>11</td><td>${t("Dreamy, jazzy tension")}</td><td>C → B</td><td><button class="play-interval-btn" data-st="11">${p}</button></td></tr>
+        <tr><td>${t("Octave")} (P8)</td><td>12</td><td>${t("Same note, higher")}</td><td>C → C</td><td><button class="play-interval-btn" data-st="12">${p}</button></td></tr>
       </tbody>
     </table>`
   },
   {
-    id: "triads", title: "Triads",
+    id: "triads", title: t("Triads"),
     content: `<div class="theory-text">
-      <p>A <strong>triad</strong> is a three-note chord built by stacking thirds. There are four types of triads, each with a distinct emotional quality:</p>
+      <p>${({en:"A <strong>triad</strong> is a three-note chord built by stacking thirds. There are four types of triads, each with a distinct emotional quality:",it:"Una <strong>triade</strong> è un accordo di tre note costruito sovrapponendo terze. Ci sono quattro tipi di triadi, ognuna con una qualità emotiva distinta:",es:"Una <strong>tríada</strong> es un acorde de tres notas construido apilando terceras. Hay cuatro tipos de tríadas, cada una con una cualidad emocional distinta:",fr:"Une <strong>triade</strong> est un accord de trois notes construit en empilant des tierces. Il existe quatre types de triades, chacune avec une qualité émotionnelle distincte :"}[state.lang]||"A <strong>triad</strong> is a three-note chord built by stacking thirds. There are four types of triads, each with a distinct emotional quality:"}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Triad</th><th>Formula</th><th>Intervals</th><th>Sound</th><th>Example</th><th></th></tr></thead>
+      <thead><tr><th>${t("Triad")}</th><th>${t("Formula")}</th><th>${t("Intervals")}</th><th>${t("Sound")}</th><th>${({en:"Example",it:"Esempio",es:"Ejemplo",fr:"Exemple"}[state.lang]||"Example")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>Major</strong></td><td>1 – 3 – 5</td><td>Root + M3 + P5</td><td>Happy, bright, stable</td><td>C E G</td><td><button class="play-interval-btn" data-chord="0,4,7">Play</button></td></tr>
-        <tr><td><strong>Minor</strong></td><td>1 – b3 – 5</td><td>Root + m3 + P5</td><td>Sad, dark, introspective</td><td>C Eb G</td><td><button class="play-interval-btn" data-chord="0,3,7">Play</button></td></tr>
-        <tr><td><strong>Diminished</strong></td><td>1 – b3 – b5</td><td>Root + m3 + TT</td><td>Tense, unstable, anxious</td><td>C Eb Gb</td><td><button class="play-interval-btn" data-chord="0,3,6">Play</button></td></tr>
-        <tr><td><strong>Augmented</strong></td><td>1 – 3 – #5</td><td>Root + M3 + m6</td><td>Mysterious, dreamlike</td><td>C E G#</td><td><button class="play-interval-btn" data-chord="0,4,8">Play</button></td></tr>
+        <tr><td><strong>${t("major")}</strong></td><td>1 – 3 – 5</td><td>Root + M3 + P5</td><td>${t("Happy, bright, stable")}</td><td>C E G</td><td><button class="play-interval-btn" data-chord="0,4,7">${p}</button></td></tr>
+        <tr><td><strong>${t("minor")}</strong></td><td>1 – b3 – 5</td><td>Root + m3 + P5</td><td>${t("Sad, dark, introspective")}</td><td>C Eb G</td><td><button class="play-interval-btn" data-chord="0,3,7">${p}</button></td></tr>
+        <tr><td><strong>${t("diminished")}</strong></td><td>1 – b3 – b5</td><td>Root + m3 + TT</td><td>${t("Tense, unstable, anxious")}</td><td>C Eb Gb</td><td><button class="play-interval-btn" data-chord="0,3,6">${p}</button></td></tr>
+        <tr><td><strong>${t("augmented")}</strong></td><td>1 – 3 – #5</td><td>Root + M3 + m6</td><td>${t("Mysterious, dreamlike")}</td><td>C E G#</td><td><button class="play-interval-btn" data-chord="0,4,8">${p}</button></td></tr>
       </tbody>
     </table>
     <div class="theory-text" style="margin-top:14px;">
-      <p><strong>How to think about it:</strong> The 3rd determines major vs minor feel. The 5th determines stability (perfect = stable, diminished = tense, augmented = floating).</p>
+      <p>${({en:"<strong>How to think about it:</strong> The 3rd determines major vs minor feel. The 5th determines stability (perfect = stable, diminished = tense, augmented = floating).",it:"<strong>Come ragionare:</strong> La 3a determina il carattere maggiore o minore. La 5a determina la stabilità (perfetta = stabile, diminuita = tesa, aumentata = sospesa).",es:"<strong>Cómo pensarlo:</strong> La 3a determina el carácter mayor o menor. La 5a determina la estabilidad (perfecta = estable, disminuida = tensa, aumentada = flotante).",fr:"<strong>Comment y penser :</strong> La 3ce détermine le caractère majeur ou mineur. La 5te détermine la stabilité (parfaite = stable, diminuée = tendue, augmentée = flottante)."}[state.lang]||"<strong>How to think about it:</strong> The 3rd determines major vs minor feel. The 5th determines stability (perfect = stable, diminished = tense, augmented = floating)."}</p>
     </div>`
   },
   {
-    id: "sevenths", title: "7th Chords",
+    id: "sevenths", title: t("7th Chords"),
     content: `<div class="theory-text">
-      <p><strong>7th chords</strong> add a fourth note — the 7th — on top of a triad. This adds richness and complexity. There are several types:</p>
+      <p>${({en:"<strong>7th chords</strong> add a fourth note — the 7th — on top of a triad. This adds richness and complexity. There are several types:",it:"Gli <strong>accordi di 7a</strong> aggiungono una quarta nota — la 7a — sopra una triade. Questo aggiunge ricchezza e complessità. Ci sono diversi tipi:",es:"Los <strong>acordes de 7a</strong> añaden una cuarta nota — la 7a — sobre una tríada. Esto añade riqueza y complejidad. Hay varios tipos:",fr:"Les <strong>accords de 7e</strong> ajoutent une quatrième note — la 7e — au-dessus d'une triade. Cela ajoute richesse et complexité. Il en existe plusieurs types :"}[state.lang]||"<strong>7th chords</strong> add a fourth note — the 7th — on top of a triad. This adds richness and complexity. There are several types:"}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>7th Chord</th><th>Formula</th><th>Built From</th><th>Sound / Usage</th><th></th></tr></thead>
+      <thead><tr><th>${t("7th Chords")}</th><th>${t("Formula")}</th><th>${({en:"Built From",it:"Costruito da",es:"Construido de",fr:"Construit de"}[state.lang]||"Built From")}</th><th>${t("Sound Quality")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>Dominant 7th</strong> (C7)</td><td>1 – 3 – 5 – b7</td><td>Major triad + m7</td><td>Bluesy tension, wants to resolve. The V chord.</td><td><button class="play-interval-btn" data-chord="0,4,7,10">Play</button></td></tr>
-        <tr><td><strong>Major 7th</strong> (Cmaj7)</td><td>1 – 3 – 5 – 7</td><td>Major triad + M7</td><td>Lush, dreamy, beautiful. Jazz ballads, bossa nova.</td><td><button class="play-interval-btn" data-chord="0,4,7,11">Play</button></td></tr>
-        <tr><td><strong>Minor 7th</strong> (Cm7)</td><td>1 – b3 – 5 – b7</td><td>Minor triad + m7</td><td>Smooth, mellow. The ii chord in jazz.</td><td><button class="play-interval-btn" data-chord="0,3,7,10">Play</button></td></tr>
-        <tr><td><strong>Diminished 7th</strong> (Cdim7)</td><td>1 – b3 – b5 – bb7</td><td>Dim triad + dim7</td><td>Maximum tension, symmetric. Classical drama.</td><td><button class="play-interval-btn" data-chord="0,3,6,9">Play</button></td></tr>
-        <tr><td><strong>Half-diminished</strong> (Cm7b5)</td><td>1 – b3 – b5 – b7</td><td>Dim triad + m7</td><td>Dark tension. The ii in minor-key jazz.</td><td><button class="play-interval-btn" data-chord="0,3,6,10">Play</button></td></tr>
-        <tr><td><strong>Minor-Major 7th</strong> (Cm(maj7))</td><td>1 – b3 – 5 – 7</td><td>Minor triad + M7</td><td>Mysterious, noir. James Bond chord.</td><td><button class="play-interval-btn" data-chord="0,3,7,11">Play</button></td></tr>
+        <tr><td><strong>${({en:"Dominant 7th",it:"Settima dominante",es:"Séptima dominante",fr:"Septième de dominante"}[state.lang]||"Dominant 7th")}</strong> (C7)</td><td>1 – 3 – 5 – b7</td><td>${({en:"Major triad + m7",it:"Triade maggiore + m7",es:"Tríada mayor + m7",fr:"Triade majeure + m7"}[state.lang]||"Major triad + m7")}</td><td>${({en:"Bluesy tension, wants to resolve. The V chord.",it:"Tensione blues, vuole risolvere. L'accordo di V grado.",es:"Tensión de blues, quiere resolver. El acorde de V grado.",fr:"Tension blues, veut résoudre. L'accord de V degré."}[state.lang]||"Bluesy tension, wants to resolve. The V chord.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,10">${p}</button></td></tr>
+        <tr><td><strong>${({en:"Major 7th",it:"Settima maggiore",es:"Séptima mayor",fr:"Septième majeure"}[state.lang]||"Major 7th")}</strong> (Cmaj7)</td><td>1 – 3 – 5 – 7</td><td>${({en:"Major triad + M7",it:"Triade maggiore + M7",es:"Tríada mayor + M7",fr:"Triade majeure + M7"}[state.lang]||"Major triad + M7")}</td><td>${({en:"Lush, dreamy, beautiful. Jazz ballads, bossa nova.",it:"Lussureggiante, sognante, bello. Ballad jazz, bossa nova.",es:"Exuberante, soñador, hermoso. Baladas jazz, bossa nova.",fr:"Luxuriant, rêveur, beau. Ballades jazz, bossa nova."}[state.lang]||"Lush, dreamy, beautiful. Jazz ballads, bossa nova.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,11">${p}</button></td></tr>
+        <tr><td><strong>${({en:"Minor 7th",it:"Settima minore",es:"Séptima menor",fr:"Septième mineure"}[state.lang]||"Minor 7th")}</strong> (Cm7)</td><td>1 – b3 – 5 – b7</td><td>${({en:"Minor triad + m7",it:"Triade minore + m7",es:"Tríada menor + m7",fr:"Triade mineure + m7"}[state.lang]||"Minor triad + m7")}</td><td>${({en:"Smooth, mellow. The ii chord in jazz.",it:"Morbido, dolce. L'accordo di ii grado nel jazz.",es:"Suave, meloso. El acorde de ii grado en jazz.",fr:"Doux, moelleux. L'accord de ii degré en jazz."}[state.lang]||"Smooth, mellow. The ii chord in jazz.")}</td><td><button class="play-interval-btn" data-chord="0,3,7,10">${p}</button></td></tr>
+        <tr><td><strong>${({en:"Diminished 7th",it:"Settima diminuita",es:"Séptima disminuida",fr:"Septième diminuée"}[state.lang]||"Diminished 7th")}</strong> (Cdim7)</td><td>1 – b3 – b5 – bb7</td><td>${({en:"Dim triad + dim7",it:"Triade dim + dim7",es:"Tríada dim + dim7",fr:"Triade dim + dim7"}[state.lang]||"Dim triad + dim7")}</td><td>${({en:"Maximum tension, symmetric. Classical drama.",it:"Tensione massima, simmetrico. Dramma classico.",es:"Tensión máxima, simétrico. Drama clásico.",fr:"Tension maximale, symétrique. Drame classique."}[state.lang]||"Maximum tension, symmetric. Classical drama.")}</td><td><button class="play-interval-btn" data-chord="0,3,6,9">${p}</button></td></tr>
+        <tr><td><strong>${({en:"Half-diminished",it:"Semidiminuito",es:"Semidisminuido",fr:"Semi-diminué"}[state.lang]||"Half-diminished")}</strong> (Cm7b5)</td><td>1 – b3 – b5 – b7</td><td>${({en:"Dim triad + m7",it:"Triade dim + m7",es:"Tríada dim + m7",fr:"Triade dim + m7"}[state.lang]||"Dim triad + m7")}</td><td>${({en:"Dark tension. The ii in minor-key jazz.",it:"Tensione scura. Il ii grado nel jazz in minore.",es:"Tensión oscura. El ii grado en jazz menor.",fr:"Tension sombre. Le ii degré en jazz mineur."}[state.lang]||"Dark tension. The ii in minor-key jazz.")}</td><td><button class="play-interval-btn" data-chord="0,3,6,10">${p}</button></td></tr>
+        <tr><td><strong>${({en:"Minor-Major 7th",it:"Minore-Maggiore 7a",es:"Menor-Mayor 7a",fr:"Mineure-Majeure 7e"}[state.lang]||"Minor-Major 7th")}</strong> (Cm(maj7))</td><td>1 – b3 – 5 – 7</td><td>${({en:"Minor triad + M7",it:"Triade minore + M7",es:"Tríada menor + M7",fr:"Triade mineure + M7"}[state.lang]||"Minor triad + M7")}</td><td>${({en:"Mysterious, noir. James Bond chord.",it:"Misterioso, noir. L'accordo di James Bond.",es:"Misterioso, noir. El acorde de James Bond.",fr:"Mystérieux, noir. L'accord de James Bond."}[state.lang]||"Mysterious, noir. James Bond chord.")}</td><td><button class="play-interval-btn" data-chord="0,3,7,11">${p}</button></td></tr>
       </tbody>
     </table>
     <div class="theory-text" style="margin-top:14px;">
-      <p><strong>Key insight:</strong> The type of 7th (major or minor) combined with the type of triad creates different tensions. Dominant 7 = major triad + minor 7th — this mismatch is what creates the 'need to resolve'.</p>
+      <p>${({en:"<strong>Key insight:</strong> The type of 7th (major or minor) combined with the type of triad creates different tensions. Dominant 7 = major triad + minor 7th — this mismatch is what creates the 'need to resolve'.",it:"<strong>Intuizione chiave:</strong> Il tipo di 7a (maggiore o minore) combinato con il tipo di triade crea tensioni diverse. La 7a dominante = triade maggiore + 7a minore — questa discrepanza è ciò che crea il 'bisogno di risolvere'.",es:"<strong>Intuición clave:</strong> El tipo de 7a (mayor o menor) combinado con el tipo de tríada crea tensiones diferentes. La 7a dominante = tríada mayor + 7a menor — esta discrepancia es lo que crea la 'necesidad de resolver'.",fr:"<strong>Intuition clé :</strong> Le type de 7e (majeure ou mineure) combiné avec le type de triade crée des tensions différentes. La 7e de dominante = triade majeure + 7e mineure — ce décalage est ce qui crée le 'besoin de résoudre'."}[state.lang]||"<strong>Key insight:</strong> The type of 7th (major or minor) combined with the type of triad creates different tensions. Dominant 7 = major triad + minor 7th — this mismatch is what creates the 'need to resolve'.")}</p>
     </div>`
   },
   {
-    id: "suspended", title: "Suspended",
+    id: "suspended", title: t("Suspended"),
     content: `<div class="theory-text">
-      <p><strong>Suspended chords</strong> replace the 3rd with either the 2nd or 4th. Since the 3rd defines major/minor, removing it creates an <strong>ambiguous, open</strong> sound that 'suspends' the resolution.</p>
+      <p>${({en:"<strong>Suspended chords</strong> replace the 3rd with either the 2nd or 4th. Since the 3rd defines major/minor, removing it creates an <strong>ambiguous, open</strong> sound that 'suspends' the resolution.",it:"Gli <strong>accordi sospesi</strong> sostituiscono la 3a con la 2a o la 4a. Poiché la 3a definisce maggiore/minore, rimuoverla crea un suono <strong>ambiguo, aperto</strong> che 'sospende' la risoluzione.",es:"Los <strong>acordes suspendidos</strong> reemplazan la 3a con la 2a o la 4a. Como la 3a define mayor/menor, eliminarla crea un sonido <strong>ambiguo, abierto</strong> que 'suspende' la resolución.",fr:"Les <strong>accords suspendus</strong> remplacent la 3ce par la 2de ou la 4te. Comme la 3ce définit majeur/mineur, la retirer crée un son <strong>ambigu, ouvert</strong> qui 'suspend' la résolution."}[state.lang]||"<strong>Suspended chords</strong> replace the 3rd with either the 2nd or 4th. Since the 3rd defines major/minor, removing it creates an <strong>ambiguous, open</strong> sound that 'suspends' the resolution."}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Chord</th><th>Formula</th><th>What Happens</th><th>Sound</th><th></th></tr></thead>
+      <thead><tr><th>${({en:"Chord",it:"Accordo",es:"Acorde",fr:"Accord"}[state.lang]||"Chord")}</th><th>${t("Formula")}</th><th>${({en:"What Happens",it:"Cosa succede",es:"Qué sucede",fr:"Ce qui se passe"}[state.lang]||"What Happens")}</th><th>${t("Sound")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>sus2</strong> (Csus2)</td><td>1 – 2 – 5</td><td>3rd replaced by major 2nd</td><td>Open, modern, airy. U2, The Police.</td><td><button class="play-interval-btn" data-chord="0,2,7">Play</button></td></tr>
-        <tr><td><strong>sus4</strong> (Csus4)</td><td>1 – 4 – 5</td><td>3rd replaced by perfect 4th</td><td>Yearning, unresolved. Wants to fall to major 3rd.</td><td><button class="play-interval-btn" data-chord="0,5,7">Play</button></td></tr>
-        <tr><td><strong>7sus4</strong> (C7sus4)</td><td>1 – 4 – 5 – b7</td><td>Dominant + suspended 4th</td><td>Floating tension. Common before V7 resolution.</td><td><button class="play-interval-btn" data-chord="0,5,7,10">Play</button></td></tr>
+        <tr><td><strong>sus2</strong> (Csus2)</td><td>1 – 2 – 5</td><td>${({en:"3rd replaced by major 2nd",it:"3a sostituita dalla 2a maggiore",es:"3a reemplazada por 2a mayor",fr:"3ce remplacée par la 2de majeure"}[state.lang]||"3rd replaced by major 2nd")}</td><td>${({en:"Open, modern, airy. U2, The Police.",it:"Aperto, moderno, arioso. U2, The Police.",es:"Abierto, moderno, aéreo. U2, The Police.",fr:"Ouvert, moderne, aérien. U2, The Police."}[state.lang]||"Open, modern, airy. U2, The Police.")}</td><td><button class="play-interval-btn" data-chord="0,2,7">${p}</button></td></tr>
+        <tr><td><strong>sus4</strong> (Csus4)</td><td>1 – 4 – 5</td><td>${({en:"3rd replaced by perfect 4th",it:"3a sostituita dalla 4a perfetta",es:"3a reemplazada por 4a perfecta",fr:"3ce remplacée par la 4te parfaite"}[state.lang]||"3rd replaced by perfect 4th")}</td><td>${({en:"Yearning, unresolved. Wants to fall to major 3rd.",it:"Bramoso, irrisolto. Vuole cadere sulla 3a maggiore.",es:"Anhelante, sin resolver. Quiere caer a la 3a mayor.",fr:"Nostalgique, non résolu. Veut tomber sur la 3ce majeure."}[state.lang]||"Yearning, unresolved. Wants to fall to major 3rd.")}</td><td><button class="play-interval-btn" data-chord="0,5,7">${p}</button></td></tr>
+        <tr><td><strong>7sus4</strong> (C7sus4)</td><td>1 – 4 – 5 – b7</td><td>${({en:"Dominant + suspended 4th",it:"Dominante + 4a sospesa",es:"Dominante + 4a suspendida",fr:"Dominante + 4te suspendue"}[state.lang]||"Dominant + suspended 4th")}</td><td>${({en:"Floating tension. Common before V7 resolution.",it:"Tensione fluttuante. Comune prima della risoluzione del V7.",es:"Tensión flotante. Común antes de la resolución del V7.",fr:"Tension flottante. Courant avant la résolution du V7."}[state.lang]||"Floating tension. Common before V7 resolution.")}</td><td><button class="play-interval-btn" data-chord="0,5,7,10">${p}</button></td></tr>
       </tbody>
     </table>
     <div class="theory-text" style="margin-top:14px;">
-      <p><strong>Tip:</strong> sus4 → major is one of the most satisfying resolutions in music. Try playing Csus4 then C — you'll recognize it instantly from hundreds of songs.</p>
+      <p>${({en:"<strong>Tip:</strong> sus4 → major is one of the most satisfying resolutions in music. Try playing Csus4 then C — you'll recognize it instantly from hundreds of songs.",it:"<strong>Suggerimento:</strong> sus4 → maggiore è una delle risoluzioni più soddisfacenti nella musica. Prova a suonare Csus4 e poi C — la riconoscerai subito da centinaia di canzoni.",es:"<strong>Consejo:</strong> sus4 → mayor es una de las resoluciones más satisfactorias en la música. Prueba tocar Csus4 y luego C — la reconocerás al instante de cientos de canciones.",fr:"<strong>Astuce :</strong> sus4 → majeur est l'une des résolutions les plus satisfaisantes en musique. Essayez de jouer Csus4 puis C — vous la reconnaîtrez instantanément de centaines de chansons."}[state.lang]||"<strong>Tip:</strong> sus4 → major is one of the most satisfying resolutions in music. Try playing Csus4 then C — you'll recognize it instantly from hundreds of songs.")}</p>
     </div>`
   },
   {
-    id: "added", title: "Added Tones",
+    id: "added", title: t("Added Tones"),
     content: `<div class="theory-text">
-      <p><strong>Added tone chords</strong> take a basic triad and add one extra note <em>without</em> including the 7th. This distinguishes them from extended chords (9, 11, 13) which imply the 7th is present.</p>
+      <p>${({en:"<strong>Added tone chords</strong> take a basic triad and add one extra note <em>without</em> including the 7th. This distinguishes them from extended chords (9, 11, 13) which imply the 7th is present.",it:"Gli <strong>accordi con note aggiunte</strong> prendono una triade di base e aggiungono una nota extra <em>senza</em> includere la 7a. Questo li distingue dagli accordi estesi (9, 11, 13) che implicano la presenza della 7a.",es:"Los <strong>acordes con notas añadidas</strong> toman una tríada básica y agregan una nota extra <em>sin</em> incluir la 7a. Esto los distingue de los acordes extendidos (9, 11, 13) que implican la presencia de la 7a.",fr:"Les <strong>accords avec notes ajoutées</strong> prennent une triade de base et ajoutent une note supplémentaire <em>sans</em> inclure la 7e. Cela les distingue des accords étendus (9, 11, 13) qui impliquent la présence de la 7e."}[state.lang]||"<strong>Added tone chords</strong> take a basic triad and add one extra note <em>without</em> including the 7th. This distinguishes them from extended chords (9, 11, 13) which imply the 7th is present."}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Chord</th><th>Formula</th><th>What's Added</th><th>Sound</th><th></th></tr></thead>
+      <thead><tr><th>${({en:"Chord",it:"Accordo",es:"Acorde",fr:"Accord"}[state.lang]||"Chord")}</th><th>${t("Formula")}</th><th>${({en:"What's Added",it:"Cosa si aggiunge",es:"Qué se añade",fr:"Ce qui est ajouté"}[state.lang]||"What's Added")}</th><th>${t("Sound")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>add9</strong> (Cadd9)</td><td>1 – 2 – 3 – 5</td><td>Major 9th (= 2nd up an octave)</td><td>Bright sparkle. Oasis 'Wonderwall', pop staple.</td><td><button class="play-interval-btn" data-chord="0,2,4,7">Play</button></td></tr>
-        <tr><td><strong>madd9</strong> (Cm(add9))</td><td>1 – 2 – b3 – 5</td><td>Major 9th to minor triad</td><td>Moody, atmospheric. Radiohead territory.</td><td><button class="play-interval-btn" data-chord="0,2,3,7">Play</button></td></tr>
-        <tr><td><strong>add11</strong> (Cadd11)</td><td>1 – 3 – 4 – 5</td><td>Perfect 11th (= 4th)</td><td>Tension with the 3rd. Use carefully.</td><td><button class="play-interval-btn" data-chord="0,4,5,7">Play</button></td></tr>
-        <tr><td><strong>add13</strong> (Cadd13)</td><td>1 – 3 – 5 – 6</td><td>Major 13th (= 6th)</td><td>Same as a 6th chord. Context determines name.</td><td><button class="play-interval-btn" data-chord="0,4,7,9">Play</button></td></tr>
+        <tr><td><strong>add9</strong> (Cadd9)</td><td>1 – 2 – 3 – 5</td><td>${({en:"Major 9th (= 2nd up an octave)",it:"9a maggiore (= 2a un'ottava sopra)",es:"9a mayor (= 2a una octava arriba)",fr:"9e majeure (= 2de une octave plus haut)"}[state.lang]||"Major 9th (= 2nd up an octave)")}</td><td>${({en:"Bright sparkle. Pop staple.",it:"Scintillio brillante. Classico del pop.",es:"Brillo brillante. Clásico del pop.",fr:"Éclat brillant. Classique de la pop."}[state.lang]||"Bright sparkle. Pop staple.")}</td><td><button class="play-interval-btn" data-chord="0,2,4,7">${p}</button></td></tr>
+        <tr><td><strong>madd9</strong> (Cm(add9))</td><td>1 – 2 – b3 – 5</td><td>${({en:"Major 9th to minor triad",it:"9a maggiore alla triade minore",es:"9a mayor a la tríada menor",fr:"9e majeure à la triade mineure"}[state.lang]||"Major 9th to minor triad")}</td><td>${({en:"Moody, atmospheric.",it:"Umorale, atmosferico.",es:"Melancólico, atmosférico.",fr:"Mélancolique, atmosphérique."}[state.lang]||"Moody, atmospheric.")}</td><td><button class="play-interval-btn" data-chord="0,2,3,7">${p}</button></td></tr>
+        <tr><td><strong>add11</strong> (Cadd11)</td><td>1 – 3 – 4 – 5</td><td>${({en:"Perfect 11th (= 4th)",it:"11a perfetta (= 4a)",es:"11a perfecta (= 4a)",fr:"11e parfaite (= 4te)"}[state.lang]||"Perfect 11th (= 4th)")}</td><td>${({en:"Tension with the 3rd. Use carefully.",it:"Tensione con la 3a. Usare con cautela.",es:"Tensión con la 3a. Usar con cuidado.",fr:"Tension avec la 3ce. À utiliser avec précaution."}[state.lang]||"Tension with the 3rd. Use carefully.")}</td><td><button class="play-interval-btn" data-chord="0,4,5,7">${p}</button></td></tr>
+        <tr><td><strong>add13</strong> (Cadd13)</td><td>1 – 3 – 5 – 6</td><td>${({en:"Major 13th (= 6th)",it:"13a maggiore (= 6a)",es:"13a mayor (= 6a)",fr:"13e majeure (= 6te)"}[state.lang]||"Major 13th (= 6th)")}</td><td>${({en:"Same as a 6th chord. Context determines name.",it:"Uguale a un accordo di 6a. Il contesto determina il nome.",es:"Igual que un acorde de 6a. El contexto determina el nombre.",fr:"Identique à un accord de 6te. Le contexte détermine le nom."}[state.lang]||"Same as a 6th chord. Context determines name.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,9">${p}</button></td></tr>
       </tbody>
     </table>
     <div class="theory-text" style="margin-top:14px;">
-      <p><strong>add9 vs 9:</strong> Cadd9 = C E G D (no 7th). C9 = C E G Bb D (has the 7th). The add9 is simpler and more pop-friendly; the 9 is jazzier.</p>
+      <p>${({en:"<strong>add9 vs 9:</strong> Cadd9 = C E G D (no 7th). C9 = C E G Bb D (has the 7th). The add9 is simpler and more pop-friendly; the 9 is jazzier.",it:"<strong>add9 vs 9:</strong> Cadd9 = Do Mi Sol Re (senza 7a). C9 = Do Mi Sol Sib Re (con la 7a). L'add9 è più semplice e pop; il 9 è più jazz.",es:"<strong>add9 vs 9:</strong> Cadd9 = Do Mi Sol Re (sin 7a). C9 = Do Mi Sol Sib Re (con la 7a). El add9 es más simple y pop; el 9 es más jazz.",fr:"<strong>add9 vs 9 :</strong> Cadd9 = Do Mi Sol Ré (sans 7e). C9 = Do Mi Sol Sib Ré (avec la 7e). Le add9 est plus simple et pop ; le 9 est plus jazz."}[state.lang]||"<strong>add9 vs 9:</strong> Cadd9 = C E G D (no 7th). C9 = C E G Bb D (has the 7th). The add9 is simpler and more pop-friendly; the 9 is jazzier.")}</p>
     </div>`
   },
   {
-    id: "extended", title: "Extended Chords",
+    id: "extended", title: t("Extended Chords"),
     content: `<div class="theory-text">
-      <p><strong>Extended chords</strong> stack thirds beyond the 7th: 9th, 11th, 13th. Each implies all lower extensions are present (a 13th chord technically has root, 3, 5, 7, 9, 11, 13 — though in practice some notes are omitted).</p>
+      <p>${({en:"<strong>Extended chords</strong> stack thirds beyond the 7th: 9th, 11th, 13th. Each implies all lower extensions are present (a 13th chord technically has root, 3, 5, 7, 9, 11, 13 — though in practice some notes are omitted).",it:"Gli <strong>accordi estesi</strong> sovrappongono terze oltre la 7a: 9a, 11a, 13a. Ognuno implica che tutte le estensioni inferiori siano presenti (un accordo di 13a ha tecnicamente fondamentale, 3, 5, 7, 9, 11, 13 — anche se in pratica alcune note vengono omesse).",es:"Los <strong>acordes extendidos</strong> apilan terceras más allá de la 7a: 9a, 11a, 13a. Cada uno implica que todas las extensiones inferiores están presentes (un acorde de 13a técnicamente tiene raíz, 3, 5, 7, 9, 11, 13 — aunque en la práctica se omiten algunas notas).",fr:"Les <strong>accords étendus</strong> empilent des tierces au-delà de la 7e : 9e, 11e, 13e. Chacun implique que toutes les extensions inférieures sont présentes (un accord de 13e a techniquement fondamentale, 3, 5, 7, 9, 11, 13 — bien qu'en pratique certaines notes soient omises)."}[state.lang]||"<strong>Extended chords</strong> stack thirds beyond the 7th: 9th, 11th, 13th. Each implies all lower extensions are present (a 13th chord technically has root, 3, 5, 7, 9, 11, 13 — though in practice some notes are omitted)."}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Chord</th><th>Full Formula</th><th>Key Interval</th><th>Sound / Usage</th><th></th></tr></thead>
+      <thead><tr><th>${({en:"Chord",it:"Accordo",es:"Acorde",fr:"Accord"}[state.lang]||"Chord")}</th><th>${t("Formula")}</th><th>${({en:"Key Interval",it:"Intervallo chiave",es:"Intervalo clave",fr:"Intervalle clé"}[state.lang]||"Key Interval")}</th><th>${t("Sound Quality")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>9</strong> (C9)</td><td>1 – 3 – 5 – b7 – 9</td><td>Dom7 + M9</td><td>Funky, soulful. James Brown, Stevie Wonder.</td><td><button class="play-interval-btn" data-chord="0,4,7,10,14">Play</button></td></tr>
-        <tr><td><strong>maj9</strong> (Cmaj9)</td><td>1 – 3 – 5 – 7 – 9</td><td>Maj7 + M9</td><td>Beautiful, lush. Neo-soul, dream pop.</td><td><button class="play-interval-btn" data-chord="0,4,7,11,14">Play</button></td></tr>
-        <tr><td><strong>m9</strong> (Cm9)</td><td>1 – b3 – 5 – b7 – 9</td><td>Min7 + M9</td><td>Smooth, sophisticated. Contemporary R&B.</td><td><button class="play-interval-btn" data-chord="0,3,7,10,14">Play</button></td></tr>
-        <tr><td><strong>11</strong> (C11)</td><td>1 – 3 – 5 – b7 – 9 – 11</td><td>Dom9 + P11</td><td>Wide, open. Often omit the 3rd to avoid clash.</td><td><button class="play-interval-btn" data-chord="0,4,7,10,14,17">Play</button></td></tr>
-        <tr><td><strong>m11</strong> (Cm11)</td><td>1 – b3 – 5 – b7 – 9 – 11</td><td>Min9 + P11</td><td>Rich, deep. D'Angelo, Hiatus Kaiyote.</td><td><button class="play-interval-btn" data-chord="0,3,7,10,14,17">Play</button></td></tr>
-        <tr><td><strong>13</strong> (C13)</td><td>1 – 3 – 5 – b7 – 9 – 13</td><td>Dom9 + M13</td><td>Full, shimmering. Jazz big band, funk horns.</td><td><button class="play-interval-btn" data-chord="0,4,7,10,14,21">Play</button></td></tr>
-        <tr><td><strong>maj13</strong> (Cmaj13)</td><td>1 – 3 – 5 – 7 – 9 – 13</td><td>Maj9 + M13</td><td>The ultimate lush chord. Orchestral jazz.</td><td><button class="play-interval-btn" data-chord="0,4,7,11,14,21">Play</button></td></tr>
+        <tr><td><strong>9</strong> (C9)</td><td>1 – 3 – 5 – b7 – 9</td><td>Dom7 + M9</td><td>${({en:"Funky, soulful. James Brown, Stevie Wonder.",it:"Funky, pieno di soul. James Brown, Stevie Wonder.",es:"Funky, con alma. James Brown, Stevie Wonder.",fr:"Funky, plein de soul. James Brown, Stevie Wonder."}[state.lang]||"Funky, soulful. James Brown, Stevie Wonder.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,10,14">${p}</button></td></tr>
+        <tr><td><strong>maj9</strong> (Cmaj9)</td><td>1 – 3 – 5 – 7 – 9</td><td>Maj7 + M9</td><td>${({en:"Beautiful, lush. Neo-soul, dream pop.",it:"Bello, lussureggiante. Neo-soul, dream pop.",es:"Hermoso, exuberante. Neo-soul, dream pop.",fr:"Beau, luxuriant. Neo-soul, dream pop."}[state.lang]||"Beautiful, lush. Neo-soul, dream pop.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,11,14">${p}</button></td></tr>
+        <tr><td><strong>m9</strong> (Cm9)</td><td>1 – b3 – 5 – b7 – 9</td><td>Min7 + M9</td><td>${({en:"Smooth, sophisticated. Contemporary R&B.",it:"Morbido, sofisticato. R&B contemporaneo.",es:"Suave, sofisticado. R&B contemporáneo.",fr:"Doux, sophistiqué. R&B contemporain."}[state.lang]||"Smooth, sophisticated. Contemporary R&B.")}</td><td><button class="play-interval-btn" data-chord="0,3,7,10,14">${p}</button></td></tr>
+        <tr><td><strong>11</strong> (C11)</td><td>1 – 3 – 5 – b7 – 9 – 11</td><td>Dom9 + P11</td><td>${({en:"Wide, open. Often omit the 3rd to avoid clash.",it:"Ampio, aperto. Spesso si omette la 3a per evitare conflitto.",es:"Amplio, abierto. A menudo se omite la 3a para evitar conflicto.",fr:"Large, ouvert. On omet souvent la 3ce pour éviter le conflit."}[state.lang]||"Wide, open. Often omit the 3rd to avoid clash.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,10,14,17">${p}</button></td></tr>
+        <tr><td><strong>m11</strong> (Cm11)</td><td>1 – b3 – 5 – b7 – 9 – 11</td><td>Min9 + P11</td><td>${({en:"Rich, deep. D'Angelo, Hiatus Kaiyote.",it:"Ricco, profondo. D'Angelo, Hiatus Kaiyote.",es:"Rico, profundo. D'Angelo, Hiatus Kaiyote.",fr:"Riche, profond. D'Angelo, Hiatus Kaiyote."}[state.lang]||"Rich, deep. D'Angelo, Hiatus Kaiyote.")}</td><td><button class="play-interval-btn" data-chord="0,3,7,10,14,17">${p}</button></td></tr>
+        <tr><td><strong>13</strong> (C13)</td><td>1 – 3 – 5 – b7 – 9 – 13</td><td>Dom9 + M13</td><td>${({en:"Full, shimmering. Jazz big band, funk horns.",it:"Pieno, scintillante. Big band jazz, fiati funk.",es:"Lleno, brillante. Big band jazz, metales funk.",fr:"Plein, chatoyant. Big band jazz, cuivres funk."}[state.lang]||"Full, shimmering. Jazz big band, funk horns.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,10,14,21">${p}</button></td></tr>
+        <tr><td><strong>maj13</strong> (Cmaj13)</td><td>1 – 3 – 5 – 7 – 9 – 13</td><td>Maj9 + M13</td><td>${({en:"The ultimate lush chord. Orchestral jazz.",it:"L'accordo lussureggiante per eccellenza. Jazz orchestrale.",es:"El acorde exuberante definitivo. Jazz orquestal.",fr:"L'accord luxuriant ultime. Jazz orchestral."}[state.lang]||"The ultimate lush chord. Orchestral jazz.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,11,14,21">${p}</button></td></tr>
       </tbody>
     </table>`
   },
   {
-    id: "altered", title: "Altered Chords",
+    id: "altered", title: t("Altered Chords"),
     content: `<div class="theory-text">
-      <p><strong>Altered chords</strong> modify (raise or lower) one or more notes of a standard chord to create extra tension or color. Most common on dominant 7th chords.</p>
+      <p>${({en:"<strong>Altered chords</strong> modify (raise or lower) one or more notes of a standard chord to create extra tension or color. Most common on dominant 7th chords.",it:"Gli <strong>accordi alterati</strong> modificano (alzano o abbassano) una o più note di un accordo standard per creare tensione o colore extra. Più comuni sugli accordi di 7a dominante.",es:"Los <strong>acordes alterados</strong> modifican (suben o bajan) una o más notas de un acorde estándar para crear tensión o color extra. Más comunes en acordes de 7a dominante.",fr:"Les <strong>accords altérés</strong> modifient (haussent ou baissent) une ou plusieurs notes d'un accord standard pour créer une tension ou une couleur supplémentaire. Plus courants sur les accords de 7e de dominante."}[state.lang]||"<strong>Altered chords</strong> modify (raise or lower) one or more notes of a standard chord to create extra tension or color. Most common on dominant 7th chords."}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Alteration</th><th>What It Does</th><th>Example Chord</th><th>Sound / Usage</th><th></th></tr></thead>
+      <thead><tr><th>${({en:"Alteration",it:"Alterazione",es:"Alteración",fr:"Altération"}[state.lang]||"Alteration")}</th><th>${({en:"What It Does",it:"Cosa fa",es:"Qué hace",fr:"Ce que ça fait"}[state.lang]||"What It Does")}</th><th>${({en:"Example Chord",it:"Accordo esempio",es:"Acorde ejemplo",fr:"Accord exemple"}[state.lang]||"Example Chord")}</th><th>${t("Sound Quality")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>b5</strong></td><td>Lowers the 5th by a half step</td><td>C7b5: C E Gb Bb</td><td>Tritone sub chord. Used for chromatic bass movement.</td><td><button class="play-interval-btn" data-chord="0,4,6,10">Play</button></td></tr>
-        <tr><td><strong>#5</strong></td><td>Raises the 5th by a half step</td><td>C7#5: C E G# Bb</td><td>Augmented dominant. Strong pull to resolution.</td><td><button class="play-interval-btn" data-chord="0,4,8,10">Play</button></td></tr>
-        <tr><td><strong>b9</strong></td><td>Lowers the 9th by a half step</td><td>C7b9: C E G Bb Db</td><td>Dark, Spanish flavor. Flamenco, minor key jazz.</td><td><button class="play-interval-btn" data-chord="0,4,7,10,13">Play</button></td></tr>
-        <tr><td><strong>#9</strong></td><td>Raises the 9th by a half step</td><td>C7#9: C E G Bb D#</td><td>The 'Hendrix chord'. Purple Haze. Gritty, bluesy.</td><td><button class="play-interval-btn" data-chord="0,4,7,10,15">Play</button></td></tr>
-        <tr><td><strong>#11</strong></td><td>Raises the 11th by a half step</td><td>Cmaj7#11: C E F# G B</td><td>Lydian sound. Bright, floating, cinematic.</td><td><button class="play-interval-btn" data-chord="0,4,6,7,11">Play</button></td></tr>
-        <tr><td><strong>b13</strong></td><td>Lowers the 13th by a half step</td><td>C7b13: C E G Ab Bb</td><td>Augmented color in a dominant context.</td><td><button class="play-interval-btn" data-chord="0,4,7,8,10">Play</button></td></tr>
+        <tr><td><strong>b5</strong></td><td>${({en:"Lowers the 5th by a half step",it:"Abbassa la 5a di un semitono",es:"Baja la 5a medio tono",fr:"Abaisse la 5te d'un demi-ton"}[state.lang]||"Lowers the 5th by a half step")}</td><td>C7b5: C E Gb Bb</td><td>${({en:"Tritone sub chord. Chromatic bass movement.",it:"Accordo di sostituzione del tritono. Movimento cromatico del basso.",es:"Acorde de sustitución del tritono. Movimiento cromático del bajo.",fr:"Accord de substitution tritonique. Mouvement chromatique de la basse."}[state.lang]||"Tritone sub chord. Chromatic bass movement.")}</td><td><button class="play-interval-btn" data-chord="0,4,6,10">${p}</button></td></tr>
+        <tr><td><strong>#5</strong></td><td>${({en:"Raises the 5th by a half step",it:"Alza la 5a di un semitono",es:"Sube la 5a medio tono",fr:"Hausse la 5te d'un demi-ton"}[state.lang]||"Raises the 5th by a half step")}</td><td>C7#5: C E G# Bb</td><td>${({en:"Augmented dominant. Strong pull to resolution.",it:"Dominante aumentata. Forte attrazione verso la risoluzione.",es:"Dominante aumentada. Fuerte atracción hacia la resolución.",fr:"Dominante augmentée. Forte attraction vers la résolution."}[state.lang]||"Augmented dominant. Strong pull to resolution.")}</td><td><button class="play-interval-btn" data-chord="0,4,8,10">${p}</button></td></tr>
+        <tr><td><strong>b9</strong></td><td>${({en:"Lowers the 9th by a half step",it:"Abbassa la 9a di un semitono",es:"Baja la 9a medio tono",fr:"Abaisse la 9e d'un demi-ton"}[state.lang]||"Lowers the 9th by a half step")}</td><td>C7b9: C E G Bb Db</td><td>${({en:"Dark, Spanish flavor. Flamenco, minor key jazz.",it:"Scuro, sapore spagnolo. Flamenco, jazz in minore.",es:"Oscuro, sabor español. Flamenco, jazz en menor.",fr:"Sombre, saveur espagnole. Flamenco, jazz en mineur."}[state.lang]||"Dark, Spanish flavor. Flamenco, minor key jazz.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,10,13">${p}</button></td></tr>
+        <tr><td><strong>#9</strong></td><td>${({en:"Raises the 9th by a half step",it:"Alza la 9a di un semitono",es:"Sube la 9a medio tono",fr:"Hausse la 9e d'un demi-ton"}[state.lang]||"Raises the 9th by a half step")}</td><td>C7#9: C E G Bb D#</td><td>${({en:"The 'Hendrix chord'. Gritty, bluesy.",it:"L''accordo di Hendrix'. Ruvido, blues.",es:"El 'acorde de Hendrix'. Crudo, blusero.",fr:"L''accord de Hendrix'. Brut, blues."}[state.lang]||"The 'Hendrix chord'. Gritty, bluesy.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,10,15">${p}</button></td></tr>
+        <tr><td><strong>#11</strong></td><td>${({en:"Raises the 11th by a half step",it:"Alza l'11a di un semitono",es:"Sube la 11a medio tono",fr:"Hausse la 11e d'un demi-ton"}[state.lang]||"Raises the 11th by a half step")}</td><td>Cmaj7#11: C E F# G B</td><td>${({en:"Lydian sound. Bright, floating, cinematic.",it:"Suono lidio. Brillante, fluttuante, cinematografico.",es:"Sonido lidio. Brillante, flotante, cinematográfico.",fr:"Son lydien. Brillant, flottant, cinématique."}[state.lang]||"Lydian sound. Bright, floating, cinematic.")}</td><td><button class="play-interval-btn" data-chord="0,4,6,7,11">${p}</button></td></tr>
+        <tr><td><strong>b13</strong></td><td>${({en:"Lowers the 13th by a half step",it:"Abbassa la 13a di un semitono",es:"Baja la 13a medio tono",fr:"Abaisse la 13e d'un demi-ton"}[state.lang]||"Lowers the 13th by a half step")}</td><td>C7b13: C E G Ab Bb</td><td>${({en:"Augmented color in a dominant context.",it:"Colore aumentato in un contesto dominante.",es:"Color aumentado en un contexto dominante.",fr:"Couleur augmentée dans un contexte de dominante."}[state.lang]||"Augmented color in a dominant context.")}</td><td><button class="play-interval-btn" data-chord="0,4,7,8,10">${p}</button></td></tr>
       </tbody>
     </table>
     <div class="theory-text" style="margin-top:14px;">
-      <p><strong>The 'altered scale'</strong> (Super Locrian) contains ALL alterations: b9, #9, b5 (#11), #5 (b13). It's the ultimate tension scale over a V7 chord.</p>
+      <p>${({en:"<strong>The 'altered scale'</strong> (Super Locrian) contains ALL alterations: b9, #9, b5 (#11), #5 (b13). It's the ultimate tension scale over a V7 chord.",it:"<strong>La 'scala alterata'</strong> (Super Locria) contiene TUTTE le alterazioni: b9, #9, b5 (#11), #5 (b13). È la scala di tensione definitiva sopra un accordo di V7.",es:"<strong>La 'escala alterada'</strong> (Super Locria) contiene TODAS las alteraciones: b9, #9, b5 (#11), #5 (b13). Es la escala de tensión definitiva sobre un acorde de V7.",fr:"<strong>La 'gamme altérée'</strong> (Super Locrienne) contient TOUTES les altérations : b9, #9, b5 (#11), #5 (b13). C'est la gamme de tension ultime sur un accord de V7."}[state.lang]||"<strong>The 'altered scale'</strong> (Super Locrian) contains ALL alterations: b9, #9, b5 (#11), #5 (b13). It's the ultimate tension scale over a V7 chord.")}</p>
     </div>`
   },
   {
-    id: "inversions", title: "Slash Chords & Inversions",
+    id: "inversions", title: t("Slash Chords & Inversions"),
     content: `<div class="theory-text">
-      <p>A <strong>slash chord</strong> (e.g., C/E) means "play C chord with E in the bass." When the bass note is a chord tone, it's called an <strong>inversion</strong>.</p>
+      <p>${({en:"A <strong>slash chord</strong> (e.g., C/E) means \"play C chord with E in the bass.\" When the bass note is a chord tone, it's called an <strong>inversion</strong>.",it:"Un <strong>accordo con basso</strong> (es. C/E) significa \"suona l'accordo di C con E al basso.\" Quando la nota al basso è una nota dell'accordo, si chiama <strong>rivolto</strong>.",es:"Un <strong>acorde con bajo</strong> (ej. C/E) significa \"toca el acorde de C con E en el bajo.\" Cuando la nota del bajo es una nota del acorde, se llama <strong>inversión</strong>.",fr:"Un <strong>accord avec basse</strong> (ex. C/E) signifie \"jouer l'accord de C avec E à la basse.\" Quand la note de basse est une note de l'accord, on l'appelle un <strong>renversement</strong>."}[state.lang]||"A <strong>slash chord</strong> (e.g., C/E) means \"play C chord with E in the bass.\" When the bass note is a chord tone, it's called an <strong>inversion</strong>."}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Position</th><th>Bass Note</th><th>Example</th><th>Sound</th><th></th></tr></thead>
+      <thead><tr><th>${({en:"Position",it:"Posizione",es:"Posición",fr:"Position"}[state.lang]||"Position")}</th><th>${({en:"Bass Note",it:"Nota al basso",es:"Nota del bajo",fr:"Note de basse"}[state.lang]||"Bass Note")}</th><th>${({en:"Example",it:"Esempio",es:"Ejemplo",fr:"Exemple"}[state.lang]||"Example")}</th><th>${t("Sound")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>Root position</strong></td><td>Root (1st) in bass</td><td>C/C: C E G</td><td>Most stable, grounded.</td><td><button class="play-interval-btn" data-chord="0,4,7">Play</button></td></tr>
-        <tr><td><strong>1st inversion</strong></td><td>3rd in bass</td><td>C/E: E G C</td><td>Lighter, flowing. Great for bass lines.</td><td><button class="play-interval-btn" data-chord="-8,0,4,7">Play</button></td></tr>
-        <tr><td><strong>2nd inversion</strong></td><td>5th in bass</td><td>C/G: G C E</td><td>Open, less stable. Classical cadential 6/4.</td><td><button class="play-interval-btn" data-chord="-5,0,4,7">Play</button></td></tr>
-        <tr><td><strong>3rd inversion</strong> (7th chords)</td><td>7th in bass</td><td>C7/Bb: Bb C E G</td><td>Smooth voice leading. Descending bass lines.</td><td><button class="play-interval-btn" data-chord="-2,0,4,7,10">Play</button></td></tr>
+        <tr><td><strong>${({en:"Root position",it:"Stato fondamentale",es:"Estado fundamental",fr:"État fondamental"}[state.lang]||"Root position")}</strong></td><td>${({en:"Root (1st) in bass",it:"Fondamentale al basso",es:"Fundamental en el bajo",fr:"Fondamentale à la basse"}[state.lang]||"Root (1st) in bass")}</td><td>C/C: C E G</td><td>${({en:"Most stable, grounded.",it:"Più stabile, radicato.",es:"Más estable, sólido.",fr:"Le plus stable, ancré."}[state.lang]||"Most stable, grounded.")}</td><td><button class="play-interval-btn" data-chord="0,4,7">${p}</button></td></tr>
+        <tr><td><strong>${({en:"1st inversion",it:"1° rivolto",es:"1ª inversión",fr:"1er renversement"}[state.lang]||"1st inversion")}</strong></td><td>${({en:"3rd in bass",it:"3a al basso",es:"3a en el bajo",fr:"3ce à la basse"}[state.lang]||"3rd in bass")}</td><td>C/E: E G C</td><td>${({en:"Lighter, flowing. Great for bass lines.",it:"Più leggero, fluido. Ottimo per linee di basso.",es:"Más ligero, fluido. Excelente para líneas de bajo.",fr:"Plus léger, fluide. Excellent pour les lignes de basse."}[state.lang]||"Lighter, flowing. Great for bass lines.")}</td><td><button class="play-interval-btn" data-chord="-8,0,4,7">${p}</button></td></tr>
+        <tr><td><strong>${({en:"2nd inversion",it:"2° rivolto",es:"2ª inversión",fr:"2e renversement"}[state.lang]||"2nd inversion")}</strong></td><td>${({en:"5th in bass",it:"5a al basso",es:"5a en el bajo",fr:"5te à la basse"}[state.lang]||"5th in bass")}</td><td>C/G: G C E</td><td>${({en:"Open, less stable. Classical cadential 6/4.",it:"Aperto, meno stabile. Cadenza classica 6/4.",es:"Abierto, menos estable. Cadencia clásica 6/4.",fr:"Ouvert, moins stable. Cadence classique 6/4."}[state.lang]||"Open, less stable. Classical cadential 6/4.")}</td><td><button class="play-interval-btn" data-chord="-5,0,4,7">${p}</button></td></tr>
+        <tr><td><strong>${({en:"3rd inversion",it:"3° rivolto",es:"3ª inversión",fr:"3e renversement"}[state.lang]||"3rd inversion")}</strong> (${t("7th Chords")})</td><td>${({en:"7th in bass",it:"7a al basso",es:"7a en el bajo",fr:"7e à la basse"}[state.lang]||"7th in bass")}</td><td>C7/Bb: Bb C E G</td><td>${({en:"Smooth voice leading. Descending bass lines.",it:"Conduzione delle voci fluida. Linee di basso discendenti.",es:"Conducción de voces suave. Líneas de bajo descendentes.",fr:"Conduite des voix fluide. Lignes de basse descendantes."}[state.lang]||"Smooth voice leading. Descending bass lines.")}</td><td><button class="play-interval-btn" data-chord="-2,0,4,7,10">${p}</button></td></tr>
       </tbody>
     </table>
     <div class="theory-text" style="margin-top:14px;">
-      <p><strong>Non-chord-tone slash chords</strong> put a note in the bass that isn't in the chord (e.g., C/F#). These create rich polychord sounds and are common in film scoring and jazz.</p>
-      <p><strong>Practical use:</strong> Inversions create smooth, stepwise bass lines. Try: C → C/E → F → F/A → G/B → C. The bass walks up: C-E-F-A-B-C.</p>
+      <p>${({en:"<strong>Non-chord-tone slash chords</strong> put a note in the bass that isn't in the chord (e.g., C/F#). These create rich polychord sounds and are common in film scoring and jazz.",it:"<strong>Accordi con basso estraneo</strong> mettono al basso una nota che non fa parte dell'accordo (es. C/F#). Creano suoni ricchi di poliaccordi e sono comuni nelle colonne sonore e nel jazz.",es:"<strong>Acordes con bajo ajeno</strong> ponen en el bajo una nota que no pertenece al acorde (ej. C/F#). Crean sonidos ricos de poliacordes y son comunes en bandas sonoras y jazz.",fr:"<strong>Accords avec basse étrangère</strong> placent à la basse une note qui n'appartient pas à l'accord (ex. C/F#). Ils créent des sonorités riches de polyaccords et sont courants dans les musiques de film et le jazz."}[state.lang]||"<strong>Non-chord-tone slash chords</strong> put a note in the bass that isn't in the chord (e.g., C/F#). These create rich polychord sounds and are common in film scoring and jazz.")}</p>
+      <p>${({en:"<strong>Practical use:</strong> Inversions create smooth, stepwise bass lines. Try: C → C/E → F → F/A → G/B → C. The bass walks up: C-E-F-A-B-C.",it:"<strong>Uso pratico:</strong> I rivolti creano linee di basso fluide e per gradi congiunti. Prova: C → C/E → F → F/A → G/B → C. Il basso sale: Do-Mi-Fa-La-Si-Do.",es:"<strong>Uso práctico:</strong> Las inversiones crean líneas de bajo suaves y por grados conjuntos. Prueba: C → C/E → F → F/A → G/B → C. El bajo sube: Do-Mi-Fa-La-Si-Do.",fr:"<strong>Utilisation pratique :</strong> Les renversements créent des lignes de basse fluides et par degrés conjoints. Essayez : C → C/E → F → F/A → G/B → C. La basse monte : Do-Mi-Fa-La-Si-Do."}[state.lang]||"<strong>Practical use:</strong> Inversions create smooth, stepwise bass lines. Try: C → C/E → F → F/A → G/B → C. The bass walks up: C-E-F-A-B-C.")}</p>
     </div>`
   },
   {
-    id: "power", title: "Power Chords",
+    id: "power", title: t("Power Chords"),
     content: `<div class="theory-text">
-      <p>A <strong>power chord</strong> is just the root + perfect 5th (often doubled at the octave). It contains NO 3rd, making it neither major nor minor.</p>
+      <p>${({en:"A <strong>power chord</strong> is just the root + perfect 5th (often doubled at the octave). It contains NO 3rd, making it neither major nor minor.",it:"Un <strong>power chord</strong> è semplicemente la fondamentale + la 5a perfetta (spesso raddoppiata all'ottava). Non contiene la 3a, quindi non è né maggiore né minore.",es:"Un <strong>power chord</strong> es simplemente la fundamental + la 5a perfecta (a menudo duplicada en la octava). No contiene la 3a, por lo que no es ni mayor ni menor.",fr:"Un <strong>power chord</strong> est simplement la fondamentale + la 5te parfaite (souvent doublée à l'octave). Il ne contient PAS de 3ce, ce qui le rend ni majeur ni mineur."}[state.lang]||"A <strong>power chord</strong> is just the root + perfect 5th (often doubled at the octave). It contains NO 3rd, making it neither major nor minor."}</p>
     </div>
     <table class="interval-table">
-      <thead><tr><th>Chord</th><th>Formula</th><th>Notes</th><th></th></tr></thead>
+      <thead><tr><th>${({en:"Chord",it:"Accordo",es:"Acorde",fr:"Accord"}[state.lang]||"Chord")}</th><th>${t("Formula")}</th><th>${t("Notes")}</th><th></th></tr></thead>
       <tbody>
-        <tr><td><strong>C5</strong></td><td>1 – 5</td><td>C G</td><td><button class="play-interval-btn" data-chord="0,7">Play</button></td></tr>
-        <tr><td><strong>C5 (octave)</strong></td><td>1 – 5 – 8</td><td>C G C</td><td><button class="play-interval-btn" data-chord="0,7,12">Play</button></td></tr>
+        <tr><td><strong>C5</strong></td><td>1 – 5</td><td>C G</td><td><button class="play-interval-btn" data-chord="0,7">${p}</button></td></tr>
+        <tr><td><strong>C5 (${t("Octave").toLowerCase()})</strong></td><td>1 – 5 – 8</td><td>C G C</td><td><button class="play-interval-btn" data-chord="0,7,12">${p}</button></td></tr>
       </tbody>
     </table>
     <div class="theory-text" style="margin-top:14px;">
-      <p><strong>Why power chords work with distortion:</strong> Distortion adds harmonics. A major or minor 3rd creates harsh overtones when distorted, but the perfect 5th's overtones reinforce each other cleanly. That's why rock and metal guitarists love them.</p>
-      <p><strong>Common power chord progressions:</strong></p>
+      <p>${({en:"<strong>Why power chords work with distortion:</strong> Distortion adds harmonics. A major or minor 3rd creates harsh overtones when distorted, but the perfect 5th's overtones reinforce each other cleanly. That's why rock and metal guitarists love them.",it:"<strong>Perché i power chord funzionano con la distorsione:</strong> La distorsione aggiunge armoniche. Una 3a maggiore o minore crea armoniche aspre quando distorta, ma le armoniche della 5a perfetta si rinforzano a vicenda in modo pulito. Ecco perché i chitarristi rock e metal li adorano.",es:"<strong>Por qué los power chords funcionan con distorsión:</strong> La distorsión añade armónicos. Una 3a mayor o menor crea armónicos ásperos al distorsionarse, pero los armónicos de la 5a perfecta se refuerzan mutuamente de forma limpia. Por eso los guitarristas de rock y metal los adoran.",fr:"<strong>Pourquoi les power chords fonctionnent avec la distorsion :</strong> La distorsion ajoute des harmoniques. Une 3ce majeure ou mineure crée des harmoniques dures lorsqu'elle est distordue, mais les harmoniques de la 5te parfaite se renforcent mutuellement de manière propre. C'est pourquoi les guitaristes rock et metal les adorent."}[state.lang]||"<strong>Why power chords work with distortion:</strong> Distortion adds harmonics. A major or minor 3rd creates harsh overtones when distorted, but the perfect 5th's overtones reinforce each other cleanly. That's why rock and metal guitarists love them.")}</p>
+      <p><strong>${({en:"Common power chord progressions:",it:"Progressioni comuni con power chord:",es:"Progresiones comunes con power chords:",fr:"Progressions courantes avec power chords :"}[state.lang]||"Common power chord progressions:")}</strong></p>
       <ul style="margin:8px 0 0 20px; line-height: 1.8;">
         <li>I5 – IV5 – V5 (punk rock: Ramones, Green Day)</li>
         <li>I5 – bVII5 – IV5 (hard rock: AC/DC)</li>
@@ -1756,7 +1815,8 @@ const THEORY_SECTIONS = [
       </ul>
     </div>`
   }
-];
+  ];
+}
 
 /* ═══════════════════════════════════════════════════════
    CORE UTILITY FUNCTIONS
@@ -2288,7 +2348,7 @@ function populateScaleControls() {
   NOTE_NAMES_SHARP.forEach((n, i) => { const o = document.createElement("option"); o.value = n; o.textContent = pcToNote(i); scaleRootSelect.appendChild(o); });
   scaleRootSelect.value = prevRoot;
   scaleCategorySelect.innerHTML = "";
-  Object.keys(SCALE_DATA).forEach(cat => { const o = document.createElement("option"); o.value = cat; o.textContent = cat; scaleCategorySelect.appendChild(o); });
+  Object.keys(SCALE_DATA).forEach(cat => { const o = document.createElement("option"); o.value = cat; o.textContent = t(cat); scaleCategorySelect.appendChild(o); });
   updateScaleTypeOptions();
 }
 
@@ -2421,7 +2481,7 @@ function renderScaleFretboard(rootPc, pcs) {
 function renderDiatonicChords(rootPc, scaleData) {
   diatonicContainer.innerHTML = "";
   if (scaleData.intervals.length < 7) {
-    diatonicContainer.innerHTML = '<div style="color:var(--muted);font-size:0.85rem;">Diatonic chord analysis works best with 7-note scales. This scale has ' + scaleData.intervals.length + ' notes.</div>';
+    diatonicContainer.innerHTML = '<div style="color:var(--muted);font-size:0.85rem;">' + t("diatonic_note_count").replace("%n", scaleData.intervals.length) + '</div>';
     return;
   }
   const intervals = scaleData.intervals;
@@ -2513,7 +2573,7 @@ document.getElementById("guideToggle").addEventListener("click", () => {
   const panel = document.getElementById("guidePanel");
   const btn = document.getElementById("guideToggle");
   panel.classList.toggle("open");
-  btn.textContent = panel.classList.contains("open") ? "Hide guide" : "How to read this page";
+  btn.textContent = panel.classList.contains("open") ? t("Hide guide") : t("How to read this page");
 });
 
 /* ── Staff Notation Renderer ── */
@@ -2641,7 +2701,7 @@ function initTheory() {
   nav.innerHTML = "";
   content.innerHTML = "";
 
-  THEORY_SECTIONS.forEach((section, i) => {
+  getTheorySections().forEach((section, i) => {
     const btn = document.createElement("button");
     btn.className = "theory-nav-btn" + (i === 0 ? " active" : "");
     btn.textContent = t(section.title) || section.title;
@@ -2694,7 +2754,7 @@ function populateProgControls() {
   const prevGenre = progGenreSelect.value;
   const prevKey = progKeySelect.value || "C";
   progGenreSelect.innerHTML = "";
-  Object.keys(PROGRESSIONS).forEach(g => { const o = document.createElement("option"); o.value = g; o.textContent = g; progGenreSelect.appendChild(o); });
+  Object.keys(PROGRESSIONS).forEach(g => { const o = document.createElement("option"); o.value = g; o.textContent = t(g); progGenreSelect.appendChild(o); });
   if (prevGenre) progGenreSelect.value = prevGenre;
   progKeySelect.innerHTML = "";
   NOTE_NAMES_SHARP.forEach((n, i) => { const o = document.createElement("option"); o.value = n; o.textContent = pcToNote(i); progKeySelect.appendChild(o); });
@@ -2974,6 +3034,120 @@ function updateCircleInfo() {
 /* ═══════════════════════════════════════════════════════
    SETTINGS & i18n
    ═══════════════════════════════════════════════════════ */
+function translateGuidePanel() {
+  const panel = document.getElementById("guidePanel");
+  if (!panel) return;
+  const L = {
+    en: {
+      formulaTitle: "Formula (W, H, 3H)",
+      formulaDesc: '<code>W</code> = <strong>Whole step</strong> (2 semitones) — skip one key. E.g. C → D.<br><code>H</code> = <strong>Half step</strong> (1 semitone) — the very next key. E.g. E → F, or C → C#.<br><code>3H</code> = <strong>3 half steps</strong> (a minor 3rd jump). E.g. C → Eb.',
+      formulaEx: 'The formula tells you how to build the scale step by step from the root note. For example, <code>W-W-H-W-W-W-H</code> (Major scale) means: start on root, go up a whole step, whole, half, whole, whole, whole, half.',
+      degreesTitle: "Degrees (1, b2, b3, #4, etc.)",
+      degreesDesc: 'Degrees compare each note to the <strong>major scale</strong> as reference:',
+      degNoSymbol: '<strong>No symbol</strong> (1, 2, 3, 4, 5, 6, 7) = same as major scale',
+      degFlat: '<strong>b (flat)</strong> = lowered by one half step from major (e.g. b3 = minor 3rd)',
+      degSharp: '<strong># (sharp)</strong> = raised by one half step from major (e.g. #4 = augmented 4th)',
+      degreesEx: 'So <code>1 – b2 – b3 – 4 – 5 – b6 – b7</code> (Phrygian) means: the 2nd, 3rd, 6th, and 7th degrees are all one semitone lower than in a major scale.',
+      intervalsTitle: "Intervals (P1, m2, M3, P5, etc.)",
+      intervalsDesc: 'Intervals are the standard music theory names for the distance from the root:',
+      intP: '<strong>P</strong> = Perfect (P1, P4, P5, P8) — the most consonant, stable intervals',
+      intM: '<strong>M</strong> = Major (M2, M3, M6, M7) — the "bright" version of an interval',
+      intm: '<strong>m</strong> = minor (m2, m3, m6, m7) — the "dark" version, one semitone smaller than Major',
+      intTT: '<strong>TT</strong> = Tritone — exactly 6 semitones, the most unstable interval',
+      intervalsEx: 'Formula, degrees, and intervals express the <strong>same information in three different ways</strong>: step-by-step directions, comparison to major, and standard distance names.',
+      colorsTitle: "Colors on piano and guitar",
+      colorRoot: '<strong>Orange</strong> = Root note (tonic)',
+      colorScale: '<strong>Purple</strong> = Other scale notes',
+      colorOther: '<strong>White/Uncolored</strong> = Not in the scale'
+    },
+    it: {
+      formulaTitle: "Formula (W, H, 3H)",
+      formulaDesc: '<code>W</code> = <strong>Tono intero</strong> (2 semitoni) — salta un tasto. Es. Do → Re.<br><code>H</code> = <strong>Semitono</strong> (1 semitono) — il tasto immediatamente successivo. Es. Mi → Fa, o Do → Do#.<br><code>3H</code> = <strong>3 semitoni</strong> (un salto di terza minore). Es. Do → Mib.',
+      formulaEx: 'La formula indica come costruire la scala passo dopo passo dalla nota fondamentale. Per esempio, <code>W-W-H-W-W-W-H</code> (scala maggiore) significa: parti dalla fondamentale, sali di un tono, tono, semitono, tono, tono, tono, semitono.',
+      degreesTitle: "Gradi (1, b2, b3, #4, ecc.)",
+      degreesDesc: 'I gradi confrontano ogni nota con la <strong>scala maggiore</strong> come riferimento:',
+      degNoSymbol: '<strong>Nessun simbolo</strong> (1, 2, 3, 4, 5, 6, 7) = uguale alla scala maggiore',
+      degFlat: '<strong>b (bemolle)</strong> = abbassato di un semitono rispetto al maggiore (es. b3 = terza minore)',
+      degSharp: '<strong># (diesis)</strong> = alzato di un semitono rispetto al maggiore (es. #4 = quarta aumentata)',
+      degreesEx: 'Quindi <code>1 – b2 – b3 – 4 – 5 – b6 – b7</code> (Frigio) significa: il 2°, 3°, 6° e 7° grado sono tutti un semitono più bassi rispetto alla scala maggiore.',
+      intervalsTitle: "Intervalli (P1, m2, M3, P5, ecc.)",
+      intervalsDesc: 'Gli intervalli sono i nomi standard della teoria musicale per la distanza dalla fondamentale:',
+      intP: '<strong>P</strong> = Perfetto (P1, P4, P5, P8) — gli intervalli più consonanti e stabili',
+      intM: '<strong>M</strong> = Maggiore (M2, M3, M6, M7) — la versione "brillante" di un intervallo',
+      intm: '<strong>m</strong> = minore (m2, m3, m6, m7) — la versione "scura", un semitono più piccola del Maggiore',
+      intTT: '<strong>TT</strong> = Tritono — esattamente 6 semitoni, l\'intervallo più instabile',
+      intervalsEx: 'Formula, gradi e intervalli esprimono la <strong>stessa informazione in tre modi diversi</strong>: indicazioni passo-passo, confronto con il maggiore e nomi standard delle distanze.',
+      colorsTitle: "Colori sul pianoforte e sulla chitarra",
+      colorRoot: '<strong>Arancione</strong> = Nota fondamentale (tonica)',
+      colorScale: '<strong>Viola</strong> = Altre note della scala',
+      colorOther: '<strong>Bianco/Non colorato</strong> = Non nella scala'
+    },
+    es: {
+      formulaTitle: "Fórmula (W, H, 3H)",
+      formulaDesc: '<code>W</code> = <strong>Tono entero</strong> (2 semitonos) — salta una tecla. Ej. Do → Re.<br><code>H</code> = <strong>Semitono</strong> (1 semitono) — la tecla inmediatamente siguiente. Ej. Mi → Fa, o Do → Do#.<br><code>3H</code> = <strong>3 semitonos</strong> (un salto de tercera menor). Ej. Do → Mib.',
+      formulaEx: 'La fórmula indica cómo construir la escala paso a paso desde la nota raíz. Por ejemplo, <code>W-W-H-W-W-W-H</code> (escala mayor) significa: empieza en la raíz, sube un tono, tono, semitono, tono, tono, tono, semitono.',
+      degreesTitle: "Grados (1, b2, b3, #4, etc.)",
+      degreesDesc: 'Los grados comparan cada nota con la <strong>escala mayor</strong> como referencia:',
+      degNoSymbol: '<strong>Sin símbolo</strong> (1, 2, 3, 4, 5, 6, 7) = igual que la escala mayor',
+      degFlat: '<strong>b (bemol)</strong> = bajado un semitono respecto al mayor (ej. b3 = tercera menor)',
+      degSharp: '<strong># (sostenido)</strong> = subido un semitono respecto al mayor (ej. #4 = cuarta aumentada)',
+      degreesEx: 'Así que <code>1 – b2 – b3 – 4 – 5 – b6 – b7</code> (Frigio) significa: el 2°, 3°, 6° y 7° grado están todos un semitono más bajos que en la escala mayor.',
+      intervalsTitle: "Intervalos (P1, m2, M3, P5, etc.)",
+      intervalsDesc: 'Los intervalos son los nombres estándar de la teoría musical para la distancia desde la raíz:',
+      intP: '<strong>P</strong> = Perfecto (P1, P4, P5, P8) — los intervalos más consonantes y estables',
+      intM: '<strong>M</strong> = Mayor (M2, M3, M6, M7) — la versión "brillante" de un intervalo',
+      intm: '<strong>m</strong> = menor (m2, m3, m6, m7) — la versión "oscura", un semitono menor que Mayor',
+      intTT: '<strong>TT</strong> = Tritono — exactamente 6 semitonos, el intervalo más inestable',
+      intervalsEx: 'Fórmula, grados e intervalos expresan la <strong>misma información de tres maneras diferentes</strong>: indicaciones paso a paso, comparación con el mayor y nombres estándar de distancias.',
+      colorsTitle: "Colores en el piano y la guitarra",
+      colorRoot: '<strong>Naranja</strong> = Nota raíz (tónica)',
+      colorScale: '<strong>Púrpura</strong> = Otras notas de la escala',
+      colorOther: '<strong>Blanco/Sin color</strong> = No en la escala'
+    },
+    fr: {
+      formulaTitle: "Formule (W, H, 3H)",
+      formulaDesc: '<code>W</code> = <strong>Ton entier</strong> (2 demi-tons) — sauter une touche. Ex. Do → Ré.<br><code>H</code> = <strong>Demi-ton</strong> (1 demi-ton) — la touche immédiatement suivante. Ex. Mi → Fa, ou Do → Do#.<br><code>3H</code> = <strong>3 demi-tons</strong> (un saut de tierce mineure). Ex. Do → Mib.',
+      formulaEx: 'La formule indique comment construire la gamme étape par étape depuis la note fondamentale. Par exemple, <code>W-W-H-W-W-W-H</code> (gamme majeure) signifie : partez de la fondamentale, montez d\'un ton, ton, demi-ton, ton, ton, ton, demi-ton.',
+      degreesTitle: "Degrés (1, b2, b3, #4, etc.)",
+      degreesDesc: 'Les degrés comparent chaque note à la <strong>gamme majeure</strong> comme référence :',
+      degNoSymbol: '<strong>Sans symbole</strong> (1, 2, 3, 4, 5, 6, 7) = identique à la gamme majeure',
+      degFlat: '<strong>b (bémol)</strong> = abaissé d\'un demi-ton par rapport au majeur (ex. b3 = tierce mineure)',
+      degSharp: '<strong># (dièse)</strong> = élevé d\'un demi-ton par rapport au majeur (ex. #4 = quarte augmentée)',
+      degreesEx: 'Donc <code>1 – b2 – b3 – 4 – 5 – b6 – b7</code> (Phrygien) signifie : les 2e, 3e, 6e et 7e degrés sont tous un demi-ton plus bas que dans la gamme majeure.',
+      intervalsTitle: "Intervalles (P1, m2, M3, P5, etc.)",
+      intervalsDesc: 'Les intervalles sont les noms standards de la théorie musicale pour la distance depuis la fondamentale :',
+      intP: '<strong>P</strong> = Parfait (P1, P4, P5, P8) — les intervalles les plus consonants et stables',
+      intM: '<strong>M</strong> = Majeur (M2, M3, M6, M7) — la version "brillante" d\'un intervalle',
+      intm: '<strong>m</strong> = mineur (m2, m3, m6, m7) — la version "sombre", un demi-ton plus petit que Majeur',
+      intTT: '<strong>TT</strong> = Triton — exactement 6 demi-tons, l\'intervalle le plus instable',
+      intervalsEx: 'Formule, degrés et intervalles expriment la <strong>même information de trois façons différentes</strong> : directions pas à pas, comparaison avec le majeur et noms standards de distances.',
+      colorsTitle: "Couleurs sur le piano et la guitare",
+      colorRoot: '<strong>Orange</strong> = Note fondamentale (tonique)',
+      colorScale: '<strong>Violet</strong> = Autres notes de la gamme',
+      colorOther: '<strong>Blanc/Non coloré</strong> = Pas dans la gamme'
+    }
+  };
+  const g = L[state.lang] || L.en;
+  panel.innerHTML = `
+    <h4>${g.formulaTitle}</h4>
+    <p>${g.formulaDesc}</p>
+    <p>${g.formulaEx}</p>
+    <h4>${g.degreesTitle}</h4>
+    <p>${g.degreesDesc}</p>
+    <ul><li>${g.degNoSymbol}</li><li>${g.degFlat}</li><li>${g.degSharp}</li></ul>
+    <p>${g.degreesEx}</p>
+    <h4>${g.intervalsTitle}</h4>
+    <p>${g.intervalsDesc}</p>
+    <ul><li>${g.intP}</li><li>${g.intM}</li><li>${g.intm}</li><li>${g.intTT}</li></ul>
+    <p>${g.intervalsEx}</p>
+    <h4>${g.colorsTitle}</h4>
+    <div class="color-legend" style="margin-top:4px;">
+      <div class="color-legend-item"><div class="color-swatch" style="background:linear-gradient(135deg,#f59e0b,#d97706)"></div> ${g.colorRoot}</div>
+      <div class="color-legend-item"><div class="color-swatch" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)"></div> ${g.colorScale}</div>
+      <div class="color-legend-item"><div class="color-swatch" style="background:linear-gradient(135deg,#e2e8f0,#cbd5e1)"></div> ${g.colorOther}</div>
+    </div>`;
+}
+
 function applyLanguage() {
   document.getElementById("appTitle").textContent = t("Music Theory Pro");
   document.getElementById("appSubtitle").textContent = t("Interactive chord lab, scales, theory, progressions & circle of fifths");
@@ -3018,6 +3192,15 @@ function applyLanguage() {
     modeSelect.options[0].textContent = t("Major");
     modeSelect.options[1].textContent = t("Minor");
   }
+  /* Tempo label */
+  const tempoLabel = document.querySelector(".tempo-control label");
+  if (tempoLabel) tempoLabel.textContent = t("Tempo");
+  /* Instrument selector options */
+  const instrSel = document.getElementById("instrSelect");
+  if (instrSel) { instrSel.options[0].textContent = t("Guitar"); instrSel.options[1].textContent = t("Ukulele"); }
+  /* Piano section header */
+  const pianoHead = document.querySelector("#piano")?.closest(".card")?.querySelector("h2");
+  if (pianoHead) pianoHead.textContent = t("Piano");
   /* Scale tab labels */
   const scaleRootLabel = document.querySelector('label[for="scaleRootSelect"]');
   if (scaleRootLabel) scaleRootLabel.textContent = t("Root note");
@@ -3025,6 +3208,39 @@ function applyLanguage() {
   if (scaleCatLabel) scaleCatLabel.textContent = t("Category");
   const scaleTypeLabel = document.querySelector('label[for="scaleTypeSelect"]');
   if (scaleTypeLabel) scaleTypeLabel.textContent = t("Scale");
+  /* Scale tab static elements */
+  document.getElementById("playScaleUpBtn").textContent = t("Play ascending");
+  document.getElementById("playScaleDownBtn").textContent = t("Play descending");
+  document.getElementById("clearScaleBtn").textContent = t("Clear");
+  const guideBtn = document.getElementById("guideToggle");
+  const guidePanel = document.getElementById("guidePanel");
+  guideBtn.textContent = guidePanel.classList.contains("open") ? t("Hide guide") : t("How to read this page");
+  /* Scale section headers */
+  const staffH2 = document.querySelector("#tab-scales .card h2");
+  if (staffH2 && staffH2.nextElementSibling && staffH2.nextElementSibling.id === "staffContainer") staffH2.textContent = t("Staff Notation");
+  const pianoH2 = document.querySelector("#scalePiano")?.closest(".card")?.querySelector("h2");
+  if (pianoH2) pianoH2.textContent = t("Piano");
+  const fretH2 = document.querySelector("#scaleFretboard")?.closest(".card")?.querySelector("h2");
+  if (fretH2) fretH2.textContent = state.currentInstrument === "ukulele" ? t("Ukulele") : t("Guitar Fretboard");
+  const diaH3 = document.querySelector("#diatonicChordsContainer")?.closest(".card")?.querySelector("h3");
+  if (diaH3) diaH3.textContent = t("Chords in this scale");
+  const diaP = document.querySelector("#diatonicChordsContainer")?.closest(".card")?.querySelector("p");
+  if (diaP) diaP.textContent = t("Diatonic triads and 7th chords built on each scale degree. Click to hear.");
+  /* Supported chord qualities header */
+  const suppH3 = document.querySelector("#supportedChords")?.closest(".card")?.querySelector("h3");
+  if (suppH3) suppH3.textContent = t("Supported chord qualities");
+  /* Legend */
+  const legends = document.querySelectorAll("#tab-chordlab .legend span");
+  if (legends.length >= 2) { legends[0].innerHTML = '<span class="legend-dot"></span> ' + t("active fret"); legends[1].innerHTML = '<span class="legend-key"></span> ' + t("active piano key"); }
+  /* Scale legend */
+  const sLeg = document.querySelectorAll("#scaleLegend .color-legend-item");
+  if (sLeg.length >= 3) {
+    sLeg[0].innerHTML = '<div class="color-swatch" style="background:linear-gradient(135deg,#f59e0b,#d97706)"></div> ' + t("Root note (scale legend)");
+    sLeg[1].innerHTML = '<div class="color-swatch" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)"></div> ' + t("Scale note");
+    sLeg[2].innerHTML = '<div class="color-swatch" style="background:linear-gradient(135deg,#e2e8f0,#cbd5e1)"></div> ' + t("Not in scale");
+  }
+  /* Translate guide panel */
+  translateGuidePanel();
   /* Update button styles */
   updateSoundBtnStyles();
   updateNotationBtnStyles();
